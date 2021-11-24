@@ -12,8 +12,8 @@ export const MainImage = observer(function MainImage() {
     }, [])
 
     return <div className="row justify-content-md-center">
-        <div className=" pt-3">
-            <img src={DefaultDogStore.message} className="rounded mx-auto d-block"/>
+        <div className=" pt-3 ">
+            <img src={DefaultDogStore.message} className="rounded mx-auto d-block" />
 
         </div>
         <div className=" col-4 p-3">

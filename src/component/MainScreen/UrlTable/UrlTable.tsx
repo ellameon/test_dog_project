@@ -11,7 +11,7 @@ export const UrlTable = observer(function UrlTable() {
             <table className="table">
                 <thead>
                 <tr>
-                    <th scope="col md-1">Url</th>
+                    <th  className="url" scope="col md-1 ">Url</th>
                     <th scope="col md-1">Выбрать</th>
                     <th scope="col md-1">Удалить</th>
                 </tr>

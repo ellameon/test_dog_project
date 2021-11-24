@@ -14,7 +14,7 @@ export const BottomPanel = observer(function ControlPanel() {
 
             <div className="col-6  p-3">
                 <button onClick={deleteSomeDogs}
-                        className="btn btn-danger">удалить несколько выделенных картинок</button>
+                        className="btn btn-outline-dark">удалить несколько выделенных картинок</button>
             </div>
         </div>
     </>
