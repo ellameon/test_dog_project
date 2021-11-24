@@ -18,8 +18,8 @@ export class DogController {
     static AddDog() {
         AddDogService()
     }
-    static openModal(onDeleteDog: () => void, deleteMessage:string) {
-        OpenModalService(onDeleteDog, deleteMessage)
+    static openModal(onDeleteDog: () => void, deleteMessage:string, isMultiDelete: boolean) {
+        OpenModalService(onDeleteDog, deleteMessage, isMultiDelete)
     }
     static closeModal(){
         closeModalService()

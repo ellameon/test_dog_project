@@ -2,6 +2,7 @@ import {observer} from "mobx-react";
 import {Dog} from "../../../model/Dog";
 import React, {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
+import {DefaultDogStore} from "../../stores/DefaultDogStore";
 
 
 type Props = {
@@ -12,12 +13,15 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     const dog = props.dog
     const deleteId = dog.id
     const deleteMessage = dog.message
+    const isMultiDelete = false
 
     const onDeleteDog = useCallback(() => {
         DogController.deleteDog(deleteId)
     }, [deleteId])
     const openModal = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        DogController.openModal(onDeleteDog, deleteMessage)
+
+        DogController.openModal(onDeleteDog, deleteMessage, isMultiDelete)
+
     }, [])
     const changeChecked = useCallback(() => {
         DogController.changeIsChecked(dog.id)
@@ -29,7 +33,7 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
             <td>
                 <div className="form-check form-switch">
                     <input onChange={changeChecked} className="form-check-input" type="checkbox"
-                           id="flexSwitchCheckDefault" value=""/>
+                           id="flexSwitchCheckDefault" value="" />
                 </div>
             </td>
             <td>

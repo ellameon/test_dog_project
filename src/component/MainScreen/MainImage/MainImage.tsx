@@ -13,11 +13,19 @@ export const MainImage = observer(function MainImage() {
 
     return <div className="row justify-content-md-center">
         <div className=" pt-3 ">
-            <img src={DefaultDogStore.message} className="rounded mx-auto d-block" />
+            <img src={DefaultDogStore.message} className="rounded mx-auto d-block"/>
 
         </div>
-        <div className=" col-4 p-3">
-            <button onClick={changeDog} className="btn btn-outline-dark">сменить картинку</button>
+        <div className=" row p-3 ">
+
+                <div className="col col-lg-4">
+                </div>
+                <div className="col-md-auto pl-0">
+                    <button onClick={changeDog} className="btn btn-outline-dark pl-0">сменить картинку</button>
+                </div>
+                <div className="col col-lg-4">
+                </div>
+
         </div>
     </div>
 })
