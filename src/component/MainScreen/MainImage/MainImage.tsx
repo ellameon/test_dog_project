@@ -11,21 +11,17 @@ export const MainImage = observer(function MainImage() {
         DogController.AddDog()
     }, [])
 
-    return <div className="row justify-content-md-center">
+    return <div className="col justify-content-md-center">
         <div className=" pt-3 ">
             <img src={DefaultDogStore.message} className="rounded mx-auto d-block"/>
 
         </div>
-        <div className=" row p-3 ">
-
-                <div className="col col-lg-4">
-                </div>
-                <div className="col-md-auto pl-0">
-                    <button onClick={changeDog} className="btn btn-outline-dark pl-0">сменить картинку</button>
-                </div>
-                <div className="col col-lg-4">
-                </div>
-
+        <div className=" col p-3 flex ">
+            <div className="row d-flex align-items-center">
+                <button type="button" onClick={changeDog} className="btn align-items-center btn-outline-dark">сменить
+                    картинку
+                </button>
+            </div>
         </div>
     </div>
 })
