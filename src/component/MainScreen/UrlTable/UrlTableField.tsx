@@ -3,47 +3,42 @@ import {Dog} from "../../../model/Dog";
 import React, {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
 
+
 type Props = {
     dog: Dog
 }
 
 export const UrlTableField = observer(function UrlTableField(props: Props) {
-
-    const deleteDog = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        DogController.deleteDog(dog.id)
-    }, [])
     const dog = props.dog
+    const deleteId = dog.id
+    const deleteMessage = dog.message
 
+    const onDeleteDog = useCallback(() => {
+        DogController.deleteDog(deleteId)
+    }, [deleteId])
+    const openModal = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+        DogController.openModal(onDeleteDog, deleteMessage)
+    }, [])
+    const changeChecked = useCallback(() => {
+        DogController.changeIsChecked(dog.id)
+    }, [dog.id])
+    console.log('render', dog.id, dog.isChecked)
     return <>
         <tr>
-            <th scope="row">{dog.id}</th>
-            <td>{dog.message}</td>
+            <td><a className="aDog" href={dog.message || " No data"} target="_blank">{dog.message || "No data"}</a></td>
             <td>
-                <input type="checkbox"/>
-                <button type="button" className="btn-close" aria-label="Close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"/>
+                <div className="form-check form-switch">
+                    <input onChange={changeChecked} className="form-check-input" type="checkbox"
+                           id="flexSwitchCheckDefault" value=""/>
+                </div>
+            </td>
+            <td>
+                <button type="button" onClick={openModal} className="btn-close" aria-label="Close"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"/>
             </td>
         </tr>
-
-
-
-        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title" id="staticBackdropLabel">Уверены вы?</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"/>
-                    </div>
-                    <div className="modal-body">
-                        Вы точно хотите удалить?
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                        <button onClick={deleteDog} type="button" data-bs-dismiss="modal" className="btn btn-primary">Удалить</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </>
 })
+
+

@@ -3,10 +3,12 @@ import './App.css';
 import {MainScreen} from "./component/MainScreen/MainScreen";
 
 
+
 function App() {
+
     return <>
         <div>
-            <MainScreen />
+            <MainScreen/>
         </div>
     </>
 }

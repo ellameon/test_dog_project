@@ -5,25 +5,23 @@ import './UrlTable.css'
 
 
 export const UrlTable = observer(function UrlTable() {
+
     return <>
         <div className="dogTable">
             <table className="table">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Url</th>
-                    <th scope="col">Выбрать/Удалить</th>
+                    <th scope="col md-1">Url</th>
+                    <th scope="col md-1">Выбрать</th>
+                    <th scope="col md-1">Удалить</th>
                 </tr>
                 </thead>
                 <tbody>
-                {dogsStore.dogs.map((dog, index) => (
-                    <UrlTableField key={index} dog={dog}/>
+                {dogsStore.dogs.map((dog) => (
+                    <UrlTableField key={dog.id} dog={dog}/>
                 ))}
-
                 </tbody>
             </table>
-
-
         </div>
     </>
 })

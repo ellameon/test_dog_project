@@ -1,5 +1,9 @@
 .dogTable {
-    height: 300px;
+    height: 200px;
     overflow: auto;
+width: 750px;
+}
 
+.aDog {
+    color: black;
 }

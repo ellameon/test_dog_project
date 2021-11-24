@@ -2,13 +2,20 @@ import {observer} from "mobx-react";
 import React, {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
 
-export const BottomPanel = observer(function ControlPanel(){
-    const changeDog = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        DogController.getDataService()
+
+export const BottomPanel = observer(function ControlPanel() {
+
+    const deleteSomeDogs = useCallback(() => {
+        DogController.DeleteSomeDogs()
     }, [])
+
     return <>
-        <div className="row rounded mx-auto d-block">
-<button onClick={changeDog} className="btn btn-outline-dark">сменить картинку</button>
+        <div className="row justify-content-center ">
+
+            <div className="col-6  p-3">
+                <button onClick={deleteSomeDogs}
+                        className="btn btn-danger">удалить несколько выделенных картинок</button>
+            </div>
         </div>
     </>
 })
