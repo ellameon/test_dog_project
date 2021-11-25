@@ -11,8 +11,9 @@ import {ModalWindow} from "./ModalWindow/ModalWindow";
 export const MainScreen = observer(function MainScreen() {
 
     useEffect(IntervalRequest, [])
+
     return <div className="mainDiv">
-        <div className="card bg-im mainScreen m-0">
+        <div className="card mainScreen m-0 border-0" id = "mainScreen">
             <div className="row justify-content-md-center m-0">
                 <div className="col col-lg-1">
                 </div>

@@ -7,5 +7,6 @@ export const closeModalService = () => {
         ModalStore.isOpen = false
         ModalStore.onDeleteDog = () => {}
         ModalStore.deleteMessage = ""
+        ModalStore.isMultiDelete = true
     })
 }

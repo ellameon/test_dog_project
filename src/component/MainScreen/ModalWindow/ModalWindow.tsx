@@ -51,7 +51,7 @@ export const ModalWindow = observer(function ModalWindow() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title"
-                                id="staticBackdropLabel">Вы желаете удалить несколько картинок?</h5>
+                                id="staticBackdropLabel">Вы желаете удалить выбранные картинки?</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal"
                                     aria-label="Закрыть"/>
                         </div>
