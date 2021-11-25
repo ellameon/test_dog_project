@@ -12,17 +12,10 @@ export const changeIsCheckedService = (id: string) => {
                 dogsStore.dogs[i].isChecked = !dogsStore.dogs[i].isChecked
                 if (dogsStore.dogs.some(dog => dog.isChecked)) {
                     DefaultDogStore.isChecked = true
-                }  else {
+                } else {
                     DefaultDogStore.isChecked = false
                 }
-
-
-
-
             }
         }
-
-
     })
-
 }

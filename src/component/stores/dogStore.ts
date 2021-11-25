@@ -7,7 +7,7 @@ export interface DogStore {
     lastDogId: string,
 }
 
-export const dogsStore = observable<DogStore> ({
+export const dogsStore = observable<DogStore>({
     dogs: [],
     lastDogId: "0",
 })

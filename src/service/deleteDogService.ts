@@ -20,6 +20,10 @@ export const deleteDogService = (id: string) => {
         DefaultDogStore.message = "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
     }
     ModalStore.isMultiDelete = true
-    DefaultDogStore.isChecked = false
+    if (dogsStore.dogs.some(dog => dog.isChecked)) {
+        DefaultDogStore.isChecked = true
+    } else {
+        DefaultDogStore.isChecked = false
+    }
 }
 

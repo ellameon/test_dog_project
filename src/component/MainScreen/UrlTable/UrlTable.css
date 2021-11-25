@@ -1,13 +1,25 @@
 .dogTable {
     height: 200px;
     overflow: auto;
-width: 750px;
+    width: 750px;
 }
 
 .aDog {
     color: black;
+    max-width: 500px;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .url {
     width: 555px;
+}
+
+.closeButton {
+    text-align: center;
+}
+
+.Toggle {
+    margin-left: 19px;
 }

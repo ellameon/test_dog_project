@@ -9,19 +9,15 @@ export const ModalWindow = observer(function ModalWindow() {
     const deleteDog = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         ModalStore.onDeleteDog()
         DogController.closeModal()
-
     }, [])
     const closeModal = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         DogController.closeModal()
     }, [])
-    const deleteSomeDogs= useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-
+    const deleteSomeDogs = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         DogController.DeleteSomeDogs()
     }, [])
 
-
-
-    if (ModalStore.isMultiDelete == false) {
+    if (ModalStore.isMultiDelete === false) {
         return <>
             <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                  tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -59,7 +55,6 @@ export const ModalWindow = observer(function ModalWindow() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal"
                                     aria-label="Закрыть"/>
                         </div>
-
                         <div className="modal-footer">
                             <button type="button" onClick={deleteSomeDogs} className="btn btn-outline-danger"
                                     data-bs-dismiss="modal">Удалить
@@ -73,7 +68,4 @@ export const ModalWindow = observer(function ModalWindow() {
             </div>
         </>
     }
-
-
-
 })

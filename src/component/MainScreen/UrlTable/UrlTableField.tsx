@@ -2,7 +2,6 @@ import {observer} from "mobx-react";
 import {Dog} from "../../../model/Dog";
 import React, {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
-import {DefaultDogStore} from "../../stores/DefaultDogStore";
 
 
 type Props = {
@@ -29,15 +28,15 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     console.log('render', dog.id, dog.isChecked)
     return <>
         <tr>
-            <td><a className="aDog" href={dog.message || " No data"} target="_blank">{dog.message || "No data"}</a></td>
+            <td><a className="aDog" href={dog.message} target="_blank">{dog.message}</a></td>
             <td>
-                <div className="form-check form-switch">
+                <div className="form-check form-switch Toggle">
                     <input onChange={changeChecked} className="form-check-input" type="checkbox"
-                           id="flexSwitchCheckDefault" value="" />
+                           id="flexSwitchCheckDefault" value=""/>
                 </div>
             </td>
-            <td>
-                <button type="button" onClick={openModal} className="btn-close" aria-label="Close"
+            <td className="closeButton">
+                <button type="button" onClick={openModal} className="btn-close " aria-label="Close"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"/>
             </td>

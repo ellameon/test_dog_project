@@ -7,7 +7,7 @@ export interface AddDogStore {
     isChecked: boolean
 }
 
-export  const DefaultDogStore = observable<AddDogStore> ({
+export const DefaultDogStore = observable<AddDogStore>({
     id: "Нет данных",
     message: "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg",
     status: 'Нет данных',

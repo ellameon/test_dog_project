@@ -3,7 +3,6 @@ import './App.css';
 import {MainScreen} from "./component/MainScreen/MainScreen";
 
 
-
 function App() {
 
     return <>
