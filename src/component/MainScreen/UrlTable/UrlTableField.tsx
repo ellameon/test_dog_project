@@ -21,7 +21,7 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
 
         DogController.openModal(onDeleteDog, deleteMessage, isMultiDelete)
 
-    }, [])
+    }, [deleteMessage, isMultiDelete, onDeleteDog])
     const changeChecked = useCallback(() => {
         DogController.changeIsChecked(dog.id)
     }, [dog.id])

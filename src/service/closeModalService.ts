@@ -5,8 +5,7 @@ import {ModalStore} from "../component/stores/ModalStore";
 export const closeModalService = () => {
     runInAction(() => {
         ModalStore.isOpen = false
-        ModalStore.onDeleteDog = () => {}
-        ModalStore.deleteMessage = ""
-        ModalStore.isMultiDelete = true
+        ModalStore.onDeleteDog = () => {
+        }
     })
 }

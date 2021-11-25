@@ -3,11 +3,11 @@ import {ModalStore} from "../component/stores/ModalStore";
 
 
 export const OpenModalService =
-    (onDeleteDog: () => void, deleteMessage: string, isMultiDelete: boolean) => {
+    (onDeleteDog: () => void, deleteMessage: string) => {
         runInAction(() => {
             ModalStore.isOpen = true
             ModalStore.onDeleteDog = onDeleteDog
             ModalStore.deleteMessage = deleteMessage
-            ModalStore.isMultiDelete = isMultiDelete
+            ModalStore.isMultiDelete = false
         })
     }
