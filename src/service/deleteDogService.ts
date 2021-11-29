@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {dogsStore} from "../component/stores/dogStore";
+import {dogsStore} from "../component/stores/DogStore";
 import {DefaultDogStore} from "../component/stores/DefaultDogStore";
 
 
@@ -19,10 +19,6 @@ export const deleteDogService = (id: string) => {
         DefaultDogStore.message = "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
     }
 
-    if (dogsStore.dogs.some(dog => dog.isChecked)) {
-        DefaultDogStore.isChecked = true
-    } else {
-        DefaultDogStore.isChecked = false
-    }
+    DefaultDogStore.isChecked = dogsStore.dogs.some(dog => dog.isChecked);
 }
 

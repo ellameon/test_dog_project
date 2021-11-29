@@ -1,14 +1,14 @@
 import {observable} from "mobx";
 
 
-export interface modalStore {
+export interface ModalStore {
     isOpen: boolean
     onDeleteDog: () => void
     deleteMessage: string
     isMultiDelete: boolean
 }
 
-export const ModalStore = observable<modalStore>({
+export const modalStore = observable<ModalStore>({
     isOpen: false,
     onDeleteDog: () => {},
     deleteMessage: '',

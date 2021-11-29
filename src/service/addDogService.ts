@@ -1,12 +1,12 @@
 import {Dog} from "../model/Dog";
-import {dogsStore} from "../component/stores/dogStore";
-import {BackRequest} from "../transport/backRequest";
+import {dogsStore} from "../component/stores/DogStore";
+import {backRequest} from "../transport/backRequest";
 import {DefaultDogStore} from "../component/stores/DefaultDogStore";
 
 
-export const AddDogService = () => {
+export const addDogService = () => {
 
-    BackRequest().then((dogFromServer) => {
+    backRequest().then((dogFromServer) => {
         const newDog: Dog = {
             id: (parseInt(dogsStore.lastDogId) + 1).toString(),
             message: dogFromServer.message,

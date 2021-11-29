@@ -1,9 +1,9 @@
-import {dogsStore} from "../component/stores/dogStore";
+import {dogsStore} from "../component/stores/DogStore";
 import {runInAction} from "mobx";
 import {DefaultDogStore} from "../component/stores/DefaultDogStore";
 
 
-export const DeleteCheckedDogs = () => {
+export const deleteCheckedDogs = () => {
     runInAction(() => {
         for (let i = 0; i < dogsStore.dogs.length; i++) {
             const dog = dogsStore.dogs[i]

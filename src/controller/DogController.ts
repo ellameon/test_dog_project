@@ -1,31 +1,31 @@
 import {deleteDogService} from "../service/deleteDogService";
-import {AddDogService} from "../service/AddDogService";
-import {OpenModalService} from "../service/OpenModalService";
+import {addDogService} from "../service/addDogService";
+import {openModalService} from "../service/openModalService";
 import {closeModalService} from "../service/closeModalService";
 import {changeIsCheckedService} from "../service/changeIsCheckedService";
-import {DeleteCheckedDogs} from "../service/DeleteCheckedDogs";
-import {OpenMassModalService} from "../service/OpenMassModalService";
+import {deleteCheckedDogs} from "../service/deleteCheckedDogs";
+import {openMassModalService} from "../service/openMassModalService";
 
 
 export class DogController {
 
     static openMassModal() {
-        OpenMassModalService()
+        openMassModalService()
     }
     static deleteDog(id: string,) {
         deleteDogService(id)
     }
 
     static DeleteSomeDogs() {
-        DeleteCheckedDogs()
+        deleteCheckedDogs()
     }
 
-    static AddDog() {
-        AddDogService()
+    static addDog() {
+        addDogService()
     }
 
-    static openModal(onDeleteDog: () => void, deleteMessage: string, isMultiDelete: boolean) {
-        OpenModalService(onDeleteDog, deleteMessage)
+    static openModal(onDeleteDog: () => void, deleteMessage: string) {
+        openModalService(onDeleteDog, deleteMessage)
     }
 
     static closeModal() {

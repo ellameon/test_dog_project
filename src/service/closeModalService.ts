@@ -1,11 +1,11 @@
 import {runInAction} from "mobx";
-import {ModalStore} from "../component/stores/ModalStore";
+import {modalStore} from "../component/stores/ModalStore";
 
 
 export const closeModalService = () => {
     runInAction(() => {
-        ModalStore.isOpen = false
-        ModalStore.onDeleteDog = () => {
+        modalStore.isOpen = false
+        modalStore.onDeleteDog = () => {
         }
     })
 }

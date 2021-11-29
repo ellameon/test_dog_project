@@ -1,13 +1,13 @@
 import {observer} from "mobx-react";
 import React, {useCallback} from "react";
-import './BottomPanel.css'
+import './bottomPanel.css'
 import {DefaultDogStore} from "../../stores/DefaultDogStore";
 import {DogController} from "../../../controller/DogController";
 
 
 export const BottomPanel = observer(function ControlPanel() {
 
-    const openModal = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    const openModal = useCallback(() => {
         DogController.openMassModal()
     }, [])
 
@@ -19,7 +19,7 @@ export const BottomPanel = observer(function ControlPanel() {
             <div className="center-block p-3">
                 <button
                     disabled={isDisabled}
-                    className="btn btn-outline-dark Button "
+                    className="btn btn-outline-dark button "
                     onClick={openModal}
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop">удалить выделенные картинки

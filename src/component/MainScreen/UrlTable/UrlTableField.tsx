@@ -17,7 +17,7 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     const onDeleteDog = useCallback(() => {
         DogController.deleteDog(deleteId)
     }, [deleteId])
-    const openModal = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    const openModal = useCallback(() => {
 
         DogController.openModal(onDeleteDog, deleteMessage, isMultiDelete)
 
@@ -28,14 +28,14 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     console.log('render', dog.id, dog.isChecked)
     return <>
         <tr>
-            <td><a className="aDog" href={dog.message} target="_blank">{dog.message}</a></td>
+            <td><a className="aDog" href={dog.message}  rel="noreferrer" target="_blank">{dog.message}</a></td>
             <td>
-                <div className="form-check form-switch Toggle">
+                <div className="form-check form-switch toggle">
                     <input onChange={changeChecked} className="form-check-input" type="checkbox"
                            id="flexSwitchCheckDefault" value=""/>
                 </div>
             </td>
-            <td className="closeButton">
+            <td className="close-button">
                 <button type="button" onClick={openModal} className="btn-close " aria-label="Close"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"/>

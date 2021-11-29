@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {dogsStore} from "../component/stores/dogStore";
+import {dogsStore} from "../component/stores/DogStore";
 import {DefaultDogStore} from "../component/stores/DefaultDogStore";
 
 
@@ -10,11 +10,7 @@ export const changeIsCheckedService = (id: string) => {
             const dog = dogsStore.dogs[i]
             if (dog.id === id) {
                 dogsStore.dogs[i].isChecked = !dogsStore.dogs[i].isChecked
-                if (dogsStore.dogs.some(dog => dog.isChecked)) {
-                    DefaultDogStore.isChecked = true
-                } else {
-                    DefaultDogStore.isChecked = false
-                }
+                DefaultDogStore.isChecked = dogsStore.dogs.some(dog => dog.isChecked);
             }
         }
     })

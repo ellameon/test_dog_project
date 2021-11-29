@@ -3,7 +3,7 @@ import {UrlTable} from "./UrlTable/UrlTable";
 import {BottomPanel} from "./ControlPanel/BottomPanel";
 import {DogController} from "../../controller/DogController";
 import {MainImage} from "./MainImage/MainImage";
-import './MainScreen.css'
+import './main-screen.css'
 import {useEffect} from "react";
 import {ModalWindow} from "./ModalWindow/ModalWindow";
 
@@ -12,8 +12,8 @@ export const MainScreen = observer(function MainScreen() {
 
     useEffect(IntervalRequest, [])
 
-    return <div className="mainDiv">
-        <div className="card mainScreen m-0 border-0" id = "mainScreen">
+    return <div className="main-div">
+        <div className="card main-screen m-0 border-0">
             <div className="row justify-content-md-center m-0">
                 <div className="col col-lg-1">
                 </div>
@@ -30,6 +30,6 @@ export const MainScreen = observer(function MainScreen() {
     </div>
 
     function IntervalRequest() {
-        setInterval(DogController.AddDog, 30000)
+        setInterval(DogController.addDog, 30000)
     }
 })
