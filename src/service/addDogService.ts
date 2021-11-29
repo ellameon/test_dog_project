@@ -1,11 +1,10 @@
 import {Dog} from "../model/Dog";
 import {dogsStore} from "../component/stores/DogStore";
 import {backRequest} from "../transport/backRequest";
-import {DefaultDogStore} from "../component/stores/DefaultDogStore";
 
 
 export const addDogService = () => {
-
+    const dogs = dogsStore.dogs
     backRequest().then((dogFromServer) => {
         const newDog: Dog = {
             id: (parseInt(dogsStore.lastDogId) + 1).toString(),
@@ -14,9 +13,9 @@ export const addDogService = () => {
             isChecked: false
         }
 
-        DefaultDogStore.message = dogFromServer.message
-        dogsStore.dogs.push(newDog)
+
+        dogs.push(newDog)
         dogsStore.lastDogId = newDog.id
-        console.log(dogsStore.dogs[dogsStore.dogs.length - 1].id)
+
     })
 }

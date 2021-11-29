@@ -12,23 +12,23 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     const dog = props.dog
     const deleteId = dog.id
     const deleteMessage = dog.message
-    const isMultiDelete = false
+
 
     const onDeleteDog = useCallback(() => {
         DogController.deleteDog(deleteId)
     }, [deleteId])
     const openModal = useCallback(() => {
 
-        DogController.openModal(onDeleteDog, deleteMessage, isMultiDelete)
+        DogController.openModal(onDeleteDog, deleteMessage)
 
-    }, [deleteMessage, isMultiDelete, onDeleteDog])
+    }, [deleteMessage, onDeleteDog])
     const changeChecked = useCallback(() => {
         DogController.changeIsChecked(dog.id)
     }, [dog.id])
     console.log('render', dog.id, dog.isChecked)
     return <>
         <tr>
-            <td><a className="aDog" href={dog.message}  rel="noreferrer" target="_blank">{dog.message}</a></td>
+            <td><a className="aDog" href={dog.message} rel="noreferrer" target="_blank">{dog.message}</a></td>
             <td>
                 <div className="form-check form-switch toggle">
                     <input onChange={changeChecked} className="form-check-input" type="checkbox"
