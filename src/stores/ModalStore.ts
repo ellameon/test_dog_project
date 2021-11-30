@@ -3,12 +3,12 @@ import {observable} from "mobx";
 
 export interface ModalStore {
     isOpen: boolean
-    onDeleteDog: () => void
+    dogIdsToDelete: Array<number>
     deleteMessage: string
 }
 
 export const modalStore = observable<ModalStore>({
     isOpen: false,
-    onDeleteDog: () => {},
+    dogIdsToDelete: [],
     deleteMessage: '',
 })

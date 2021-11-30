@@ -5,28 +5,24 @@ import {DogController} from "../../../controller/DogController";
 import './modalWindow.css'
 
 
+
 export const ModalWindow = observer(function ModalWindow() {
 
-    const deleteDog = useCallback(() => {
-        DogController.confirmedDeleteDog()
-        DogController.closeModal()
-    }, [])
     const closeModal = useCallback(() => {
         DogController.closeModal()
     }, [])
     const deleteSomeDogs = useCallback(() => {
-        DogController.deleteCheckedDogs()
+        DogController.confirmedDeleteDog()
     }, [])
 
-    const modalText = modalStore.isMultiDelete
+    const modalText = modalStore.dogIdsToDelete.length > 1
         ? "Вы желаете удалить выбранные картинки?"
         : "Вы желаете удалить?"
-    const isShowPicture = modalStore.isMultiDelete
+    const isShowPicture = modalStore.dogIdsToDelete.length !== 1
         ? null
-        : <img src={modalStore.deleteMessage} className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
-    const deleteFunction = modalStore.isMultiDelete
-        ? deleteSomeDogs
-        : deleteDog
+        : <img src={modalStore.deleteMessage}
+               className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
+
 
     return <>
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -40,7 +36,7 @@ export const ModalWindow = observer(function ModalWindow() {
                     </div>
                     {isShowPicture}
                     <div className="modal-footer">
-                        <button type="button" onClick={deleteFunction} className="btn btn-outline-danger"
+                        <button type="button" onClick={deleteSomeDogs} className="btn btn-outline-danger"
                                 data-bs-dismiss="modal">Удалить
                         </button>
                         <button type="button" onClick={closeModal} className="btn btn-outline-primary"

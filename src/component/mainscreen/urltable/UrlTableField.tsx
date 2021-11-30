@@ -2,6 +2,7 @@ import {observer} from "mobx-react";
 import {Dog} from "../../../model/Dog";
 import React, {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
+import {checkedDogsStore} from "../../../stores/CheckedDogsStore";
 
 
 type Props = {
@@ -12,13 +13,11 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     const dog = props.dog
     const deleteId = dog.id
     const deleteMessage = dog.message
+    const isToggled = checkedDogsStore.checkedDogs.includes(dog.id)
 
-    const onDeleteDog = useCallback(() => {
-        DogController.deleteDog(deleteId)
-    }, [deleteId])
     const openModal = useCallback(() => {
-        DogController.openModal(onDeleteDog, deleteMessage)
-    }, [deleteMessage, onDeleteDog])
+        DogController.openModal(deleteId, deleteMessage)
+    }, [deleteMessage, deleteId])
     const changeChecked = useCallback(() => {
         DogController.changeIsChecked(dog.id)
     }, [dog.id])
@@ -28,7 +27,7 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
             <td><a className="aDog" href={dog.message} rel="noreferrer" target="_blank">{dog.message}</a></td>
             <td>
                 <div className="form-check form-switch toggle">
-                    <input onChange={changeChecked} className="form-check-input" type="checkbox"
+                    <input onChange={changeChecked} checked={isToggled} className="form-check-input" type="checkbox"
                            id="flexSwitchCheckDefault" value=""/>
                 </div>
             </td>

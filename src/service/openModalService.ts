@@ -2,10 +2,12 @@ import {runInAction} from "mobx";
 import {modalStore} from "../stores/ModalStore";
 
 
-export function openModalService(onDeleteDog: () => void, deleteMessage: string) {
+export function openModalService(dogIds: Array<number>, deleteMessage: string) {
     runInAction(() => {
         modalStore.isOpen = true
-        modalStore.onDeleteDog = onDeleteDog
+        modalStore.dogIdsToDelete = dogIds
         modalStore.deleteMessage = deleteMessage
+
     })
 }
+
