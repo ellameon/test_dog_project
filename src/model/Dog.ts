@@ -1,6 +1,5 @@
 export interface Dog {
-    id: string
+    id: number
     message: string
     status: string
-    isChecked: boolean
 }

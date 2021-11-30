@@ -1,21 +1,21 @@
 import React, {useCallback} from "react";
 import {observer} from "mobx-react";
-import {modalStore} from "../../stores/ModalStore";
+import {modalStore} from "../../../stores/ModalStore";
 import {DogController} from "../../../controller/DogController";
 import './modalWindow.css'
 
 
 export const ModalWindow = observer(function ModalWindow() {
 
-    const deleteDog = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        modalStore.onDeleteDog()
+    const deleteDog = useCallback(() => {
+        DogController.confirmedDeleteDog()
         DogController.closeModal()
     }, [])
-    const closeModal = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    const closeModal = useCallback(() => {
         DogController.closeModal()
     }, [])
-    const deleteSomeDogs = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        DogController.DeleteSomeDogs()
+    const deleteSomeDogs = useCallback(() => {
+        DogController.deleteCheckedDogs()
     }, [])
 
     const modalText = modalStore.isMultiDelete
@@ -23,7 +23,7 @@ export const ModalWindow = observer(function ModalWindow() {
         : "Вы желаете удалить?"
     const isShowPicture = modalStore.isMultiDelete
         ? null
-        : <img src={modalStore.deleteMessage} className="rounded mx-auto d-block modal-img"/>
+        : <img src={modalStore.deleteMessage} className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
     const deleteFunction = modalStore.isMultiDelete
         ? deleteSomeDogs
         : deleteDog

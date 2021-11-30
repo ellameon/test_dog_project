@@ -13,19 +13,16 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
     const deleteId = dog.id
     const deleteMessage = dog.message
 
-
     const onDeleteDog = useCallback(() => {
         DogController.deleteDog(deleteId)
     }, [deleteId])
     const openModal = useCallback(() => {
-
         DogController.openModal(onDeleteDog, deleteMessage)
-
     }, [deleteMessage, onDeleteDog])
     const changeChecked = useCallback(() => {
         DogController.changeIsChecked(dog.id)
     }, [dog.id])
-    console.log('render', dog.id, dog.isChecked)
+
     return <>
         <tr>
             <td><a className="aDog" href={dog.message} rel="noreferrer" target="_blank">{dog.message}</a></td>

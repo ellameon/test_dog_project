@@ -2,14 +2,14 @@ import {observer} from "mobx-react";
 import React, {useCallback} from "react";
 import './bottomPanel.css'
 import {DogController} from "../../../controller/DogController";
-import {dogsStore} from "../../stores/DogStore";
+import {dogsStore} from "../../../stores/DogStore";
+import {checkedDogsStore} from "../../../stores/CheckedDogsStore";
 
 
-export const BottomPanel = observer(function ControlPanel() {
+export const BottomPanel = observer(function BottomPanel() {
     const dogs = dogsStore.dogs
     const lastDog = dogs[dogs.length - 1]
-    const isLeastOneChecked = dogs.some(dog => dog.isChecked)
-
+    const isLeastOneChecked = checkedDogsStore.checkedDogs.length > 0
     const isDisabled = lastDog === undefined || !isLeastOneChecked
     const openModal = useCallback(() => {
         DogController.openMassModal()

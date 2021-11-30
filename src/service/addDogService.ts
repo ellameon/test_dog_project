@@ -1,21 +1,21 @@
 import {Dog} from "../model/Dog";
-import {dogsStore} from "../component/stores/DogStore";
+import {dogsStore} from "../stores/DogStore";
 import {backRequest} from "../transport/backRequest";
+import {runInAction} from "mobx";
 
 
 export const addDogService = () => {
-    const dogs = dogsStore.dogs
-    backRequest().then((dogFromServer) => {
-        const newDog: Dog = {
-            id: (parseInt(dogsStore.lastDogId) + 1).toString(),
-            message: dogFromServer.message,
-            status: dogFromServer.status,
-            isChecked: false
-        }
 
-
-        dogs.push(newDog)
-        dogsStore.lastDogId = newDog.id
-
+    runInAction(() => {
+        const dogs = dogsStore.dogs
+        backRequest().then((dogFromServer) => {
+            const newDog: Dog = {
+                id: dogsStore.lastDogId + 1,
+                message: dogFromServer.message,
+                status: dogFromServer.status,
+            }
+            dogs.push(newDog)
+            dogsStore.lastDogId = newDog.id
+        })
     })
 }

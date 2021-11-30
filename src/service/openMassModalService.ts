@@ -1,10 +1,8 @@
 import {runInAction} from "mobx";
-import {modalStore} from "../component/stores/ModalStore";
+import {modalStore} from "../stores/ModalStore";
 
-export const openMassModalService =
-    () => {
-        runInAction(() => {
-            modalStore.isOpen = true
-            modalStore.isMultiDelete = true
-        })
-    }
+export function openMassModalService() {
+    runInAction(() => {
+        modalStore.isOpen = true
+    })
+}

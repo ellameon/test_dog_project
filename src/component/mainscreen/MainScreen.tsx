@@ -1,22 +1,20 @@
 import {observer} from "mobx-react";
-import {UrlTable} from "./UrlTable/UrlTable";
-import {BottomPanel} from "./ControlPanel/BottomPanel";
+import {UrlTable} from "./urltable/UrlTable";
+import {BottomPanel} from "./controlpanel/BottomPanel";
 import {DogController} from "../../controller/DogController";
-import {MainImage} from "./MainImage/MainImage";
+import {MainImage} from "./mainimage/MainImage";
 import './main-screen.css'
 import {useEffect} from "react";
-import {ModalWindow} from "./ModalWindow/ModalWindow";
+import {ModalWindow} from "./modalwindow/ModalWindow";
 
 
 export const MainScreen = observer(function MainScreen() {
 
-    useEffect(IntervalRequest, [])
+    useEffect(intervalRequest, [])
 
     return <div className="main-div">
         <div className="card main-screen m-0 border-0">
             <div className="row justify-content-md-center m-0">
-                <div className="col col-lg-1">
-                </div>
                 <div className="col-md-auto">
                     <MainImage/>
                     <UrlTable/>
@@ -25,11 +23,9 @@ export const MainScreen = observer(function MainScreen() {
                 </div>
             </div>
         </div>
-        <div className="card">
-        </div>
     </div>
 
-    function IntervalRequest() {
+    function intervalRequest() {
         setInterval(DogController.addDog, 30000)
     }
 })

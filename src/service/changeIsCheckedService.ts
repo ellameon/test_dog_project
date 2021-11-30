@@ -1,16 +1,15 @@
 import {runInAction} from "mobx";
-import {dogsStore} from "../component/stores/DogStore";
+import {checkedDogsStore} from "../stores/CheckedDogsStore";
 
 
-export const changeIsCheckedService = (id: string) => {
-    const dogs = dogsStore.dogs
+export const toggleCheckedDog = (id: number) => {
 
     runInAction(() => {
-        for (let i = 0; i < dogs.length; i++) {
-            const dog = dogsStore.dogs[i]
-            if (dog.id === id) {
-                dogs[i].isChecked = !dogs[i].isChecked
-            }
+        const indexOfId = checkedDogsStore.checkedDogs.indexOf(id)
+        if (indexOfId >= 0) {
+            checkedDogsStore.checkedDogs = checkedDogsStore.checkedDogs.splice(indexOfId, 1)
+        } else {
+            checkedDogsStore.checkedDogs.push(id)
         }
     })
 }
