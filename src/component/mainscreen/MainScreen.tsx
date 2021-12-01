@@ -26,6 +26,6 @@ export const MainScreen = observer(function MainScreen() {
     </div>
 
     function intervalRequest() {
-        setInterval(DogController.addDog, 30000)
+        setInterval(DogController.changeDog, 30000)
     }
 })

@@ -1,5 +1,5 @@
 export interface Dog {
     id: number
-    message: string
+    url: string
     status: string
 }

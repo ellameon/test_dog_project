@@ -4,7 +4,7 @@
     width: 750px;
 }
 
-.a-dog {
+.dog-anchor {
     color: black;
     max-width: 500px;
     display: block;
@@ -13,7 +13,7 @@
     white-space: nowrap;
 }
 
-.url {
+.dog-url {
     width: 555px;
 }
 

@@ -7,17 +7,18 @@ import {ModalWindowCarousel} from "./ModalWindowCarousel";
 
 
 export const ModalWindow = observer(function ModalWindow() {
+    const modalText = modalStore.dogIdsToDelete.length > 1
+      ? "Вы желаете удалить выбранные картинки?"
+      : "Вы желаете удалить?"
+    const isShowPicture = modalStore.dogIdsToDelete.length > 1
 
     const closeModal = useCallback(() => {
         DogController.closeModal()
     }, [])
-    const deleteSomeDogs = useCallback(() => {
-        DogController.confirmedDeleteDog()
+
+    const deleteDogs = useCallback(() => {
+        DogController.deleteDogs()
     }, [])
-    const modalText = modalStore.dogIdsToDelete.length > 1
-        ? "Вы желаете удалить выбранные картинки?"
-        : "Вы желаете удалить?"
-    const isShowPicture = modalStore.dogIdsToDelete.length > 1
 
     return <>
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -29,13 +30,15 @@ export const ModalWindow = observer(function ModalWindow() {
                         <button type="button" className="btn-close" data-bs-dismiss="modal"
                                 aria-label="Закрыть"/>
                     </div>
-                    {isShowPicture && (<ModalWindowCarousel/>)}
+                    {isShowPicture && (
+                      <ModalWindowCarousel/>
+                    )}
                     {!isShowPicture && (
                         <img src={modalStore.deleteMessage}
                              className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
                     )}
                     <div className="modal-footer bg-light b-0">
-                        <button type="button" onClick={deleteSomeDogs} className="btn btn-outline-danger"
+                        <button type="button" onClick={deleteDogs} className="btn btn-outline-danger"
                                 data-bs-dismiss="modal">Удалить
                         </button>
                         <button type="button" onClick={closeModal} className="btn btn-outline-primary"

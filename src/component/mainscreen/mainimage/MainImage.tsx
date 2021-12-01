@@ -10,10 +10,10 @@ export const MainImage = observer(function MainImage() {
     const lastDog = dogs[dogs.length - 1]
     const currentDogUrl = lastDog === undefined
         ? "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
-        : lastDog.message
+        : lastDog.url
 
     const changeDog = useCallback(() => {
-        DogController.addDog()
+        DogController.changeDog()
     }, [])
 
     return <div className="justify-content-md-center">

@@ -1,6 +1,5 @@
 import {observable} from "mobx";
 
-
 export interface ModalStore {
     isOpen: boolean
     dogIdsToDelete: Array<number>

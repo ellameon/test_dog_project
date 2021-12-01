@@ -12,7 +12,7 @@ type Props = {
 export const UrlTableField = observer(function UrlTableField(props: Props) {
     const dog = props.dog
     const deleteId = dog.id
-    const deleteMessage = dog.message
+    const deleteMessage = dog.url
     const isToggled = checkedDogsStore.checkedDogs.includes(dog.id)
 
     const openModal = useCallback(() => {
@@ -24,7 +24,7 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
 
     return <>
         <tr>
-            <td><a className="a-dog" href={dog.message} rel="noreferrer" target="_blank">{dog.message}</a></td>
+            <td><a className="dog-anchor" href={dog.url} rel="noreferrer" target="_blank">{dog.url}</a></td>
             <td>
                 <div className="form-check form-switch toggle ">
                     <input onChange={changeChecked} checked={isToggled} className="form-check-input" type="checkbox"
