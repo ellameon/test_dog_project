@@ -26,7 +26,7 @@ export const UrlTableField = observer(function UrlTableField(props: Props) {
         <tr>
             <td><a className="a-dog" href={dog.message} rel="noreferrer" target="_blank">{dog.message}</a></td>
             <td>
-                <div className="form-check form-switch toggle">
+                <div className="form-check form-switch toggle ">
                     <input onChange={changeChecked} checked={isToggled} className="form-check-input" type="checkbox"
                            id="flexSwitchCheckDefault" value=""/>
                 </div>

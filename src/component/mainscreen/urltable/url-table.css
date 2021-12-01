@@ -22,5 +22,6 @@
 }
 
 .toggle {
-    margin-left: 19px;
+    display: flex;
+    justify-content: center;
 }

@@ -18,9 +18,6 @@ export const ModalWindow = observer(function ModalWindow() {
         ? "Вы желаете удалить выбранные картинки?"
         : "Вы желаете удалить?"
     const isShowPicture = modalStore.dogIdsToDelete.length > 1
-        ? <ModalWindowCarousel/>
-        : <img src={modalStore.deleteMessage}
-               className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
 
     return <>
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -32,7 +29,11 @@ export const ModalWindow = observer(function ModalWindow() {
                         <button type="button" className="btn-close" data-bs-dismiss="modal"
                                 aria-label="Закрыть"/>
                     </div>
-                    {isShowPicture}
+                    {isShowPicture && (<ModalWindowCarousel/>)}
+                    {!isShowPicture && (
+                        <img src={modalStore.deleteMessage}
+                             className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
+                    )}
                     <div className="modal-footer bg-light b-0">
                         <button type="button" onClick={deleteSomeDogs} className="btn btn-outline-danger"
                                 data-bs-dismiss="modal">Удалить

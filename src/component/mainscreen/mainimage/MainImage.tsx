@@ -16,7 +16,7 @@ export const MainImage = observer(function MainImage() {
         DogController.addDog()
     }, [])
 
-    return <div className="col justify-content-md-center">
+    return <div className="justify-content-md-center">
         <div className=" pt-3 ">
             <img src={currentDogUrl}
                  className="rounded mx-auto d-block main-image"
