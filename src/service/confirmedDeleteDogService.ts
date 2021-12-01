@@ -13,5 +13,6 @@ export const confirmedDeleteDogService = () => {
         checkedDogsStore.checkedDogs = checkedDogsStore.checkedDogs
             .filter(id => !modalStore.dogIdsToDelete.includes(id))
         modalStore.dogIdsToDelete.length = 0
+        modalStore.deleteMessage = ''
     })
 }
