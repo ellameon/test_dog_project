@@ -6,7 +6,6 @@ import './modalWindow.css'
 import {ModalWindowCarousel} from "./ModalWindowCarousel";
 
 
-
 export const ModalWindow = observer(function ModalWindow() {
 
     const closeModal = useCallback(() => {
@@ -15,15 +14,13 @@ export const ModalWindow = observer(function ModalWindow() {
     const deleteSomeDogs = useCallback(() => {
         DogController.confirmedDeleteDog()
     }, [])
-
     const modalText = modalStore.dogIdsToDelete.length > 1
         ? "Вы желаете удалить выбранные картинки?"
         : "Вы желаете удалить?"
-    const isShowPicture = modalStore.dogIdsToDelete.length >= 1
-        ? <ModalWindowCarousel />
+    const isShowPicture = modalStore.dogIdsToDelete.length > 1
+        ? <ModalWindowCarousel/>
         : <img src={modalStore.deleteMessage}
                className="rounded mx-auto d-block modal-img" alt={'картинка собаки'}/>
-
 
     return <>
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
