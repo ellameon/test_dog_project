@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import {ModalWindowCarouselImage} from "./ModalWindowCarouselImage";
 import {modalStore} from "../../../stores/ModalStore";
-import './modalWindowCarousel.css'
+import './modal-window-carousel.css'
 import {useCallback, useState} from "react";
 
 

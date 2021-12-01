@@ -13,7 +13,7 @@ export const MainScreen = observer(function MainScreen() {
     useEffect(intervalRequest, [])
 
     return <div className="main-div">
-        <div className="card main-screen m-0 border-0">
+        <div className="card main-screen m-0 ">
             <div className="row justify-content-md-center m-0">
                 <div className="col-md-auto">
                     <MainImage/>
