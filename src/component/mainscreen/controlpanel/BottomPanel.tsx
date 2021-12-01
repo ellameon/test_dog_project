@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import React, {useCallback} from "react";
-import './bottomPanel.css'
+import './bottom-panel.css'
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../stores/DogStore";
 import {checkedDogsStore} from "../../../stores/CheckedDogsStore";

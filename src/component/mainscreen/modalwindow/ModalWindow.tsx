@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import {observer} from "mobx-react";
 import {modalStore} from "../../../stores/ModalStore";
 import {DogController} from "../../../controller/DogController";
-import './modalWindow.css'
+import './modal-window.css'
 import {ModalWindowCarousel} from "./ModalWindowCarousel";
 
 
