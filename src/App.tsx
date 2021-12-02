@@ -5,11 +5,11 @@ import {MainScreen} from "./component/mainscreen/MainScreen";
 
 function App() {
 
-    return <>
-        <div>
-            <MainScreen/>
-        </div>
-    </>
+  return <>
+    <div>
+      <MainScreen/>
+    </div>
+  </>
 }
 
 export default App;

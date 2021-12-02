@@ -3,8 +3,7 @@ import {modalStore} from "../stores/ModalStore";
 
 
 export function openModalService(dogIds: Array<number>) {
-    runInAction(() => {
-        modalStore.isOpen = true
-        modalStore.dogIdsToDelete = dogIds
-    })
+  runInAction(() => {
+    modalStore.dogIdsToDelete = dogIds
+  })
 }

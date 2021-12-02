@@ -8,26 +8,27 @@ import {setActiveIndexService} from "../service/setActiveIndexService";
 
 export class DogController {
 
-    static openModal(dogIds: Array<number>) {
-        openModalService(dogIds)
-    }
-    static changeDog() {
-        changeDogService()
-    }
+  static openModal(dogIds: Array<number>) {
+    openModalService(dogIds)
+  }
 
-    static closeModal() {
-        closeModalService()
-    }
+  static changeDog() {
+    changeDogService()
+  }
 
-    static changeIsChecked(id: number) {
-        toggleCheckedDogService(id)
-    }
+  static closeModal() {
+    closeModalService()
+  }
 
-    static deleteDogs() {
-        deleteDogsService()
-    }
+  static changeIsChecked(id: number) {
+    toggleCheckedDogService(id)
+  }
 
-    static setActiveIndex(activeIndex: number) {
-        setActiveIndexService(activeIndex)
-    }
+  static deleteDogs() {
+    deleteDogsService()
+  }
+
+  static setActiveIndex(activeIndex: number) {
+    setActiveIndexService(activeIndex)
+  }
 }

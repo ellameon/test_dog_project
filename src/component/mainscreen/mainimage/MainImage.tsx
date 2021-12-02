@@ -6,30 +6,30 @@ import {dogsStore} from "../../../stores/DogStore";
 
 
 export const MainImage = observer(function MainImage() {
-    const dogs = dogsStore.dogs
-    const lastDog = dogs[dogs.length - 1]
-    const currentDogUrl = lastDog === undefined
-        ? "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
-        : lastDog.url
+  const dogs = dogsStore.dogs
+  const lastDog = dogs[dogs.length - 1]
+  const currentDogUrl = lastDog === undefined
+    ? "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
+    : lastDog.url
 
-    const changeDog = useCallback(() => {
-        DogController.changeDog()
-    }, [])
+  const changeDog = useCallback(() => {
+    DogController.changeDog()
+  }, [])
 
-    return <div className="justify-content-md-center">
-        <div className=" pt-3 ">
-            <img src={currentDogUrl}
-                 className="rounded mx-auto d-block main-image"
-                 alt={'картинка собаки'}/>
-        </div>
-        <div className=" col p-3 ">
-            <div className="row justify-content-center">
-                <button type="button"
-                        onClick={changeDog}
-                        className="btn button-top btn-outline-dark">
-                    сменить картинку
-                </button>
-            </div>
-        </div>
+  return <div className="justify-content-md-center">
+    <div className=" pt-3 ">
+      <img src={currentDogUrl}
+           className="rounded mx-auto d-block main-image"
+           alt={'картинка собаки'}/>
     </div>
+    <div className=" col p-3 ">
+      <div className="row justify-content-center">
+        <button type="button"
+                onClick={changeDog}
+                className="btn button-top btn-outline-dark">
+          сменить картинку
+        </button>
+      </div>
+    </div>
+  </div>
 })

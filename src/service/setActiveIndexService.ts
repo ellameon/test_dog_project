@@ -3,7 +3,7 @@ import {modalStore} from "../stores/ModalStore";
 
 
 export function setActiveIndexService(activeIndex: number) {
-    runInAction(() => {
-        modalStore.activeIndex = activeIndex
-    })
+  runInAction(() => {
+    modalStore.activeIndex = activeIndex
+  })
 }
