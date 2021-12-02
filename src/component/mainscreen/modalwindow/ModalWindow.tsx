@@ -3,13 +3,19 @@ import {observer} from "mobx-react";
 import {modalStore} from "../../../store/ModalStore";
 import {DogController} from "../../../controller/DogController";
 import './modal-window.css'
-import {ModalWindowCarousel} from "./ModalWindowCarousel";
+import {dogsStore} from "../../../store/DogStore";
+import {ModalWindowCarousel} from "../pictureCarousel/ModalWindowCarousel";
 
 
 export const ModalWindow = observer(function ModalWindow() {
   const modalText = modalStore.dogIdsToDelete.length > 1
     ? "Вы желаете удалить выбранные картинки?"
     : "Вы желаете удалить?"
+
+  const deleteDogArray = dogsStore.dogs
+    .filter(dog => modalStore.dogIdsToDelete.includes(dog.id))
+
+  const deleteUrlArray = deleteDogArray.map(dog => dog.url)
 
   const closeModal = useCallback(() => {
     DogController.closeModal()
@@ -29,7 +35,7 @@ export const ModalWindow = observer(function ModalWindow() {
             <button type="button" onClick={closeModal} className="btn-close" data-bs-dismiss="modal"
                     aria-label="Закрыть"/>
           </div>
-          <ModalWindowCarousel/>
+          <ModalWindowCarousel urlArray={deleteUrlArray} activeIndex={0}/>
           <div className="modal-footer bg-light b-0">
             <button type="button" onClick={deleteDogs} className="btn btn-outline-danger"
                     data-bs-dismiss="modal">Удалить
