@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {UrlTable} from "./urltable/UrlTable";
-import {BottomPanel} from "./controlpanel/BottomPanel";
+import {BottomPanel} from "./bottomPanel/BottomPanel";
 import {DogController} from "../../controller/DogController";
 import {MainImage} from "./mainimage/MainImage";
 import './main-screen.css'
