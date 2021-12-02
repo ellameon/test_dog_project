@@ -1,12 +1,13 @@
 import {observer} from "mobx-react";
-import {Carousel} from "./Carousel";
+import {CarouselContent} from "./CarouselContent";
+
 
 type Props = {
   urlArray: Array<string>
   activeIndex: number
 }
 
-export const ModalWindowCarousel = observer(function ModalWindowCarousel(props: Props) {
+export const Carousel = observer(function Carousel(props: Props) {
   const arrayLength = props.urlArray.length
 
   if (arrayLength === 0) {
@@ -14,6 +15,6 @@ export const ModalWindowCarousel = observer(function ModalWindowCarousel(props: 
   }
 
   return (
-    <Carousel {...props}/>
+    <CarouselContent {...props}/>
   )
 })

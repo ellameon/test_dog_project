@@ -1,39 +1,46 @@
 import {observer} from "mobx-react";
 import {CarouselImage} from "./CarouselImage";
 import './carousel.css'
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
+
 
 type Props = {
   urlArray: Array<string>
   activeIndex: number
 }
 
-export const Carousel = observer(function Carousel(props: Props) {
+export const CarouselContent = observer(function CarouselContent(props: Props) {
 
-  const arrayLength = props.urlArray.length
+  const arrayLengthCurrent = props.urlArray.length
   const [activeIndex, setActiveIndex] = useState(props.activeIndex)
-  const showNavigationButtons = arrayLength > 1
+  const [arrayLengthPrev, setArrayLength] = useState(arrayLengthCurrent)
+  const showNavigationButtons = arrayLengthCurrent > 1
+
+  useEffect(() => {
+    if (arrayLengthPrev !== arrayLengthCurrent) {
+      setArrayLength(arrayLengthCurrent)
+      setActiveIndex(props.activeIndex)
+    }
+  }, [arrayLengthCurrent, arrayLengthPrev, props.activeIndex])
 
   const showNextImage = useCallback(() => {
-    console.log("Next image. ActiveIndex = " + activeIndex)
-    if (activeIndex === arrayLength - 1) {
+    if (activeIndex === arrayLengthCurrent - 1) {
       setActiveIndex(0)
     } else {
       setActiveIndex(activeIndex + 1)
     }
-  }, [activeIndex, arrayLength, setActiveIndex])
+  }, [activeIndex, arrayLengthCurrent, setActiveIndex])
 
   const showPrevImage = useCallback(() => {
-    console.log("Prev image. ActiveIndex = " + activeIndex)
     if (activeIndex === 0) {
-      setActiveIndex(arrayLength - 1)
+      setActiveIndex(arrayLengthCurrent - 1)
     } else {
       setActiveIndex(activeIndex - 1)
     }
-  }, [activeIndex, arrayLength, setActiveIndex])
+  }, [activeIndex, arrayLengthCurrent, setActiveIndex])
 
   return <>
-    <div className='image-area bg-light'>
+    <div className='image-area'>
       {props.urlArray.map((url, index) => (
         <CarouselImage url={url} key={index} isShown={index === activeIndex}/>
       ))}

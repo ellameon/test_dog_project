@@ -4,7 +4,7 @@ import {modalStore} from "../../../store/ModalStore";
 import {DogController} from "../../../controller/DogController";
 import './modal-window.css'
 import {dogsStore} from "../../../store/DogStore";
-import {ModalWindowCarousel} from "../pictureCarousel/ModalWindowCarousel";
+import {Carousel} from "../carousel/Carousel";
 
 
 export const ModalWindow = observer(function ModalWindow() {
@@ -35,7 +35,7 @@ export const ModalWindow = observer(function ModalWindow() {
             <button type="button" onClick={closeModal} className="btn-close" data-bs-dismiss="modal"
                     aria-label="Закрыть"/>
           </div>
-          <ModalWindowCarousel urlArray={deleteUrlArray} activeIndex={0}/>
+          <Carousel urlArray={deleteUrlArray} activeIndex={0}/>
           <div className="modal-footer bg-light b-0">
             <button type="button" onClick={deleteDogs} className="btn btn-outline-danger"
                     data-bs-dismiss="modal">Удалить

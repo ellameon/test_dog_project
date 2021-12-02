@@ -3,14 +3,16 @@ import {observer} from "mobx-react";
 import './main-image.css'
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
+import {Carousel} from "../carousel/Carousel";
 
 
 export const MainImage = observer(function MainImage() {
-  const dogs = dogsStore.dogs
-  const lastDog = dogs[dogs.length - 1]
+
+  const urlArray = dogsStore.dogs.map(dog => dog.url)
+  const lastDog = dogsStore.dogs[dogsStore.dogs.length - 1]
   const currentDogUrl = lastDog === undefined
-    ? "https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
-    : lastDog.url
+    ? <img src="https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg" alt={'...'}/>
+    : <Carousel urlArray={urlArray} activeIndex={dogsStore.dogs.length - 1}/>
 
   const changeDog = useCallback(() => {
     DogController.changeDog()
@@ -18,9 +20,7 @@ export const MainImage = observer(function MainImage() {
 
   return <div className="justify-content-md-center">
     <div className=" pt-3 ">
-      <img src={currentDogUrl}
-           className="rounded mx-auto d-block main-image"
-           alt={'картинка собаки'}/>
+      {currentDogUrl}
     </div>
     <div className=" col p-3 ">
       <div className="row justify-content-center">
