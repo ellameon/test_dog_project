@@ -2,24 +2,25 @@ import {observer} from "mobx-react";
 import {ModalWindowCarouselImage} from "./ModalWindowCarouselImage";
 import {modalStore} from "../../../stores/ModalStore";
 import './modal-window-carousel.css'
-import {useCallback, useState} from "react";
+import {useCallback} from "react";
+import {DogController} from "../../../controller/DogController";
 
 
 export const ModalWindowCarousel = observer(function ModalWindowCarousel() {
 
-    const [activeIndex, setActiveIndex] = useState(0)
+    const activeIndex = modalStore.activeIndex
     const showNextImage = useCallback(() => {
         if (activeIndex === modalStore.dogIdsToDelete.length - 1) {
-            setActiveIndex(0)
+            DogController.setActiveIndex(0)
         } else {
-            setActiveIndex(activeIndex + 1)
+            DogController.setActiveIndex(activeIndex + 1)
         }
     }, [activeIndex])
     const showPrevImage = useCallback(() => {
         if (activeIndex === 0) {
-            setActiveIndex(modalStore.dogIdsToDelete.length - 1)
+            DogController.setActiveIndex(modalStore.dogIdsToDelete.length - 1)
         } else {
-            setActiveIndex(activeIndex - 1)
+            DogController.setActiveIndex(activeIndex - 1)
         }
     }, [activeIndex])
 

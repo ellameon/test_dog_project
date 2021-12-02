@@ -4,6 +4,7 @@ import {closeModalService} from "../service/closeModalService";
 import {toggleCheckedDogService} from "../service/toggleCheckedDogService";
 import {openMultiModalService} from "../service/openMultiModalService";
 import {deleteDogsService} from "../service/deleteDogsService";
+import {setActiveIndexService} from "../service/setActiveIndexService";
 
 
 export class DogController {
@@ -29,5 +30,9 @@ export class DogController {
 
     static deleteDogs() {
         deleteDogsService()
+    }
+
+    static setActiveIndex(activeIndex: number) {
+        setActiveIndexService(activeIndex)
     }
 }
