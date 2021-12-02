@@ -12,7 +12,7 @@ export const BottomPanel = observer(function BottomPanel() {
     const isLeastOneChecked = checkedDogsStore.checkedDogs.length > 0
     const isDisabled = lastDog === undefined || !isLeastOneChecked
     const openModal = useCallback(() => {
-        DogController.openMultiModal()
+        DogController.openModal(checkedDogsStore.checkedDogs)
     }, [])
 
     return <>

@@ -12,3 +12,8 @@
     height: 300px;
     margin-top: 62px;
 }
+
+.nav-button {
+    background-color: #282c34;
+    border-radius: 32%;
+}

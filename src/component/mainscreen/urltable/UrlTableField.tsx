@@ -11,13 +11,14 @@ type Props = {
 
 export const UrlTableField = observer(function UrlTableField(props: Props) {
     const dog = props.dog
-    const deleteId = dog.id
-    const deleteMessage = dog.url
+    let deleteId: number[];
+    deleteId = [dog.id];
     const isToggled = checkedDogsStore.checkedDogs.includes(dog.id)
 
     const openModal = useCallback(() => {
-        DogController.openModal(deleteId, deleteMessage)
-    }, [deleteMessage, deleteId])
+        DogController.openModal(deleteId)
+    }, [deleteId])
+
     const changeChecked = useCallback(() => {
         DogController.changeIsChecked(dog.id)
     }, [dog.id])
