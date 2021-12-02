@@ -1,5 +1,5 @@
 import {observer} from "mobx-react";
-import {dogsStore} from "../../../stores/DogStore";
+import {dogsStore} from "../../../store/DogStore";
 
 
 type Props = {

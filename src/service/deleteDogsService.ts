@@ -1,8 +1,8 @@
 import {runInAction} from "mobx";
 
-import {dogsStore} from "../stores/DogStore";
-import {modalStore} from "../stores/ModalStore";
-import {checkedDogsStore} from "../stores/CheckedDogsStore";
+import {dogsStore} from "../store/DogStore";
+import {modalStore} from "../store/ModalStore";
+import {checkedDogsStore} from "../store/CheckedDogsStore";
 
 
 export const deleteDogsService = () => {
@@ -25,5 +25,4 @@ function updateCheckedDogs() {
 
 function clearModalStore() {
   modalStore.dogIdsToDelete.length = 0
-  modalStore.deleteMessage = ''
 }

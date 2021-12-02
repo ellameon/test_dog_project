@@ -1,5 +1,5 @@
 import {Dog} from "../model/Dog";
-import {dogsStore} from "../stores/DogStore";
+import {dogsStore} from "../store/DogStore";
 import {runInAction} from "mobx";
 
 export const addDogService = (dog: Dog) => {

@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import {Dog} from "../../../model/Dog";
 import React, {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
-import {checkedDogsStore} from "../../../stores/CheckedDogsStore";
+import {checkedDogsStore} from "../../../store/CheckedDogsStore";
 
 
 type Props = {

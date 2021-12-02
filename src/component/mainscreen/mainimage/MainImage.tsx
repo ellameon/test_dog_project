@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import {observer} from "mobx-react";
 import './main-image.css'
 import {DogController} from "../../../controller/DogController";
-import {dogsStore} from "../../../stores/DogStore";
+import {dogsStore} from "../../../store/DogStore";
 
 
 export const MainImage = observer(function MainImage() {

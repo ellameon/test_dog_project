@@ -2,8 +2,8 @@ import {observer} from "mobx-react";
 import React, {useCallback} from "react";
 import './bottom-panel.css'
 import {DogController} from "../../../controller/DogController";
-import {dogsStore} from "../../../stores/DogStore";
-import {checkedDogsStore} from "../../../stores/CheckedDogsStore";
+import {dogsStore} from "../../../store/DogStore";
+import {checkedDogsStore} from "../../../store/CheckedDogsStore";
 
 
 export const BottomPanel = observer(function BottomPanel() {

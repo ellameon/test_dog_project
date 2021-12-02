@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {checkedDogsStore} from "../stores/CheckedDogsStore";
+import {checkedDogsStore} from "../store/CheckedDogsStore";
 
 
 export const toggleCheckedDogService = (toggleId: number) => {

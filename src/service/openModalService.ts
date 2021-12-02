@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {modalStore} from "../stores/ModalStore";
+import {modalStore} from "../store/ModalStore";
 
 
 export function openModalService(dogIds: Array<number>) {

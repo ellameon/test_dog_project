@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {UrlTableField} from "./UrlTableField";
-import {dogsStore} from "../../../stores/DogStore";
+import {dogsStore} from "../../../store/DogStore";
 import './url-table.css'
 
 
