@@ -7,6 +7,7 @@ import {useCallback, useEffect, useState} from "react";
 type Props = {
   urlArray: Array<string>
   activeIndex: number
+  className?: string
 }
 
 export const CarouselContent = observer(function CarouselContent(props: Props) {
@@ -40,7 +41,7 @@ export const CarouselContent = observer(function CarouselContent(props: Props) {
   }, [activeIndex, arrayLengthCurrent, setActiveIndex])
 
   return <>
-    <div className='image-area'>
+    <div className={'image-area ' + props.className}>
       {props.urlArray.map((url, index) => (
         <CarouselImage url={url} key={index} isShown={index === activeIndex}/>
       ))}

@@ -5,6 +5,7 @@ import {CarouselContent} from "./CarouselContent";
 type Props = {
   urlArray: Array<string>
   activeIndex: number
+  className?: string
 }
 
 export const Carousel = observer(function Carousel(props: Props) {

@@ -10,17 +10,27 @@ export const MainImage = observer(function MainImage() {
 
   const urlArray = dogsStore.dogs.map(dog => dog.url)
   const lastDog = dogsStore.dogs[dogsStore.dogs.length - 1]
-  const currentDogUrl = lastDog === undefined
-    ? <img src="https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg" alt={'...'}/>
-    : <Carousel urlArray={urlArray} activeIndex={dogsStore.dogs.length - 1}/>
+  const isDogExists = lastDog !== undefined
 
   const changeDog = useCallback(() => {
     DogController.changeDog()
   }, [])
 
-  return <div className="justify-content-md-center">
-    <div className=" pt-3 ">
-      {currentDogUrl}
+  return <div className="justify-content-center">
+    <div className="row pt-3  justify-content-center">
+      <div className=' col-7'>
+        {isDogExists && (
+          <Carousel
+            urlArray={urlArray}
+            activeIndex={dogsStore.dogs.length - 1}/>
+        )}
+        {!isDogExists && (
+          <img
+            src="https://cdnimg.rg.ru/img/content/181/86/29/bely_d_850.jpg"
+            alt={'...'}
+            className='main-image'/>
+        )}
+      </div>
     </div>
     <div className=" col p-3 ">
       <div className="row justify-content-center">
