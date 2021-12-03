@@ -4,7 +4,7 @@
     width: 750px;
 }
 
-.dog-anchor {
+.dog-table .dog-anchor {
     color: black;
     max-width: 500px;
     display: block;
@@ -13,15 +13,15 @@
     white-space: nowrap;
 }
 
-.dog-url {
+.dog-table .dog-url {
     width: 555px;
 }
 
-.close-button {
+.dog-table .close-button {
     text-align: center;
 }
 
-.toggle {
+.dog-table .toggle {
     display: flex;
     justify-content: center;
 }

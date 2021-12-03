@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {observer} from "mobx-react";
-import './main-image.css'
+import './MainImage.css'
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";
@@ -8,21 +8,22 @@ import {Carousel} from "../carousel/Carousel";
 
 export const MainImage = observer(function MainImage() {
 
-  const urlArray = dogsStore.dogs.map(dog => dog.url)
-  const lastDog = dogsStore.dogs[dogsStore.dogs.length - 1]
+  const dogsArray = dogsStore.dogs
+  const urlArray = dogsArray.map(dog => dog.url)
+  const lastDog = dogsArray[dogsArray.length - 1]
   const isDogExists = lastDog !== undefined
 
   const changeDog = useCallback(() => {
-    DogController.changeDog()
+    DogController.getNewDog()
   }, [])
 
-  return <div className="justify-content-center">
+  return <div className="justify-content-center main-image-container">
     <div className="row pt-3  justify-content-center">
       <div className=' col-7'>
         {isDogExists && (
           <Carousel
             urlArray={urlArray}
-            activeIndex={dogsStore.dogs.length - 1}/>
+            activeIndex={dogsArray.length - 1}/>
         )}
         {!isDogExists && (
           <img

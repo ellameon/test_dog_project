@@ -1,0 +1,8 @@
+.main-image-container .main-image {
+    max-width: 100%;
+    height: 300px;
+}
+
+.main-image-container .button-top {
+    width: 200px;
+}

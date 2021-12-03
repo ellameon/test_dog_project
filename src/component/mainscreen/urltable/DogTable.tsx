@@ -1,10 +1,10 @@
 import {observer} from "mobx-react";
-import {UrlTableField} from "./UrlTableField";
+import {DogTableField} from "./DogTableField";
 import {dogsStore} from "../../../store/DogStore";
-import './url-table.css'
+import './DogTable.css'
 
 
-export const UrlTable = observer(function UrlTable() {
+export const DogTable = observer(function DogTable() {
 
   return <>
     <div className="dog-table">
@@ -18,7 +18,7 @@ export const UrlTable = observer(function UrlTable() {
         </thead>
         <tbody>
         {dogsStore.dogs.map((dog) => (
-          <UrlTableField key={dog.id} dog={dog}/>
+          <DogTableField key={dog.id} dog={dog}/>
         ))}
         </tbody>
       </table>

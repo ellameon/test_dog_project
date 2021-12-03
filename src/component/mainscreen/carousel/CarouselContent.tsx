@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {CarouselImage} from "./CarouselImage";
-import './carousel.css'
+import './Carousel.css'
 import {useCallback, useEffect, useState} from "react";
 
 
@@ -47,13 +47,23 @@ export const CarouselContent = observer(function CarouselContent(props: Props) {
       ))}
       {showNavigationButtons && (
         <>
-          <button className="carousel-control-prev control-button" type="button" onClick={showPrevImage}>
-            <span className="carousel-control-prev-icon nav-button" aria-hidden="true"/>
-            <span className="visually-hidden">Previous</span>
+          <button className="carousel-control-prev control-button"
+                  type="button"
+                  onClick={showPrevImage}>
+            <span className="carousel-control-prev-icon nav-button"
+                  aria-hidden="true"/>
+            <span className="visually-hidden">
+              Previous
+            </span>
           </button>
-          <button className="carousel-control-next control-button" type="button" onClick={showNextImage}>
-            <span className="carousel-control-next-icon nav-button" aria-hidden="true"/>
-            <span className="visually-hidden">Next</span>
+          <button className="carousel-control-next control-button"
+                  type="button"
+                  onClick={showNextImage}>
+            <span className="carousel-control-next-icon nav-button"
+                  aria-hidden="true"/>
+            <span className="visually-hidden">
+              Next
+            </span>
           </button>
         </>
       )}

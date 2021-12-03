@@ -1,34 +1,29 @@
-import {changeDogService} from "../service/changeDogService";
+import {getDogFromServerAndAddService} from "../service/getDogFromServerAndAddService";
 import {closeModalService} from "../service/closeModalService";
 import {toggleCheckedDogService} from "../service/toggleCheckedDogService";
 import {openModalService} from "../service/openModalService";
 import {deleteDogsService} from "../service/deleteDogsService";
-import {setActiveIndexService} from "../service/setActiveIndexService";
 
 
 export class DogController {
 
-  static openModal(dogIds: Array<number>) {
+  static openModal(dogIds: Array<number>): void {
     openModalService(dogIds)
   }
 
-  static changeDog() {
-    changeDogService()
+  static getNewDog(): void {
+    getDogFromServerAndAddService()
   }
 
-  static closeModal() {
+  static closeModal(): void {
     closeModalService()
   }
 
-  static changeIsChecked(id: number) {
+  static changeIsChecked(id: number): void {
     toggleCheckedDogService(id)
   }
 
-  static deleteDogs() {
+  static deleteDogs(): void {
     deleteDogsService()
-  }
-
-  static setActiveIndex(activeIndex: number) {
-    setActiveIndexService(activeIndex)
   }
 }

@@ -1,7 +1,8 @@
 import {runInAction} from "mobx";
 import {modalStore} from "../store/ModalStore";
 
-export const closeModalService = () => {
+
+export function closeModalService(): void {
   runInAction(() => {
     modalStore.dogIdsToDelete = []
     modalStore.activeIndex = 0

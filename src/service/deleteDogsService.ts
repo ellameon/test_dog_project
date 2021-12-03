@@ -1,28 +1,30 @@
 import {runInAction} from "mobx";
-
 import {dogsStore} from "../store/DogStore";
 import {modalStore} from "../store/ModalStore";
 import {checkedDogsStore} from "../store/CheckedDogsStore";
 
 
-export const deleteDogsService = () => {
+export function deleteDogsService(): void {
+
+  const dogsArrayToDelete: Array<number> = modalStore.dogIdsToDelete
+
   runInAction(() => {
-    deleteDogs()
-    updateCheckedDogs()
-    clearModalStore()
+    deleteDogs(dogsArrayToDelete)
+    updateCheckedDogs(dogsArrayToDelete)
+    clearModalStore(dogsArrayToDelete)
   })
 }
 
-function deleteDogs() {
+function deleteDogs(dogsArrayToDelete: Array<number>) {
   dogsStore.dogs = dogsStore.dogs
-    .filter(dog => !modalStore.dogIdsToDelete.includes(dog.id))
+    .filter(dog => !dogsArrayToDelete.includes(dog.id))
 }
 
-function updateCheckedDogs() {
+function updateCheckedDogs(dogsArrayToDelete: Array<number>) {
   checkedDogsStore.checkedDogs = checkedDogsStore.checkedDogs
-    .filter(id => !modalStore.dogIdsToDelete.includes(id))
+    .filter(id => !dogsArrayToDelete.includes(id))
 }
 
-function clearModalStore() {
-  modalStore.dogIdsToDelete.length = 0
+function clearModalStore(dogsArrayToDelete: Array<number>) {
+  dogsArrayToDelete.length = 0
 }

@@ -1,23 +1,29 @@
 import {observer} from "mobx-react";
-import {UrlTable} from "./urltable/UrlTable";
+import {DogTable} from "./urltable/DogTable";
 import {BottomPanel} from "./bottomPanel/BottomPanel";
 import {DogController} from "../../controller/DogController";
 import {MainImage} from "./mainimage/MainImage";
-import './main-screen.css'
+import './MainScreen.css'
 import {useEffect} from "react";
 import {ModalWindow} from "./modalwindow/ModalWindow";
 
 
 export const MainScreen = observer(function MainScreen() {
 
-  useEffect(intervalRequest, [])
+  useEffect(() => {
+      const intervalId = intervalRequest();
+      return () => {
+        clearRequestInterval(intervalId)
+      }
+    }
+    , [])
 
   return <div className="main-div">
     <div className="card main-screen m-0 ">
       <div className="row justify-content-md-center m-0">
         <div className="col-md-auto">
           <MainImage/>
-          <UrlTable/>
+          <DogTable/>
           <ModalWindow/>
           <BottomPanel/>
         </div>
@@ -25,7 +31,11 @@ export const MainScreen = observer(function MainScreen() {
     </div>
   </div>
 
-  function intervalRequest() {
-    setInterval(DogController.changeDog, 30000)
+  function intervalRequest(): NodeJS.Timeout {
+    return setInterval(DogController.getNewDog, 30000);
+  }
+
+  function clearRequestInterval(intervalId: NodeJS.Timeout): void {
+    clearInterval(intervalId)
   }
 })
