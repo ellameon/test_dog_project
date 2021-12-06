@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {observer} from "mobx-react";
-import './MainImage.css'
+import './MainImage.scss'
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";

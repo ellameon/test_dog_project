@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import {DogTableField} from "./DogTableField";
 import {dogsStore} from "../../../store/DogStore";
-import './DogTable.css'
+import './DogTable.scss'
 
 
 export const DogTable = observer(function DogTable() {

@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {CarouselImage} from "./CarouselImage";
-import './Carousel.css'
+import './Carousel.scss'
 import {useCallback, useEffect, useState} from "react";
 
 

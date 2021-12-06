@@ -1,27 +1,27 @@
 .dog-table {
-    height: 200px;
-    overflow: auto;
-    width: 750px;
-}
+  height: 200px;
+  overflow: auto;
+  width: 750px;
 
-.dog-table .dog-anchor {
+  .dog-anchor {
     color: black;
     max-width: 500px;
     display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-}
+  }
 
-.dog-table .dog-url {
+  .dog-url {
     width: 555px;
-}
+  }
 
-.dog-table .close-button {
+  .close-button {
     text-align: center;
-}
+  }
 
-.dog-table .toggle {
+  .toggle {
     display: flex;
     justify-content: center;
+  }
 }

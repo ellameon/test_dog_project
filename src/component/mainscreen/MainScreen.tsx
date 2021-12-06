@@ -3,7 +3,7 @@ import {DogTable} from "./urltable/DogTable";
 import {BottomPanel} from "./bottomPanel/BottomPanel";
 import {DogController} from "../../controller/DogController";
 import {MainImage} from "./mainimage/MainImage";
-import './MainScreen.css'
+import './MainScreen.scss'
 import {useEffect} from "react";
 import {ModalWindow} from "./modalwindow/ModalWindow";
 
