@@ -6,6 +6,7 @@ import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";
 
 
+
 export const MainImage = observer(function MainImage() {
 
   const dogsArray = dogsStore.dogs
@@ -15,6 +16,11 @@ export const MainImage = observer(function MainImage() {
 
   const changeDog = useCallback(() => {
     DogController.getNewDog()
+  }, [])
+
+  const timerSwitch = useCallback(() => {
+    DogController.timerToggle()
+
   }, [])
 
   return <div className="justify-content-center main-image-container">
@@ -39,6 +45,11 @@ export const MainImage = observer(function MainImage() {
                 onClick={changeDog}
                 className="btn button-top btn-outline-dark">
           сменить картинку
+        </button>
+        <button type="button"
+                onClick={timerSwitch}
+                className="btn button-top btn-outline-dark">
+          Остановить / Запустить таймер
         </button>
       </div>
     </div>

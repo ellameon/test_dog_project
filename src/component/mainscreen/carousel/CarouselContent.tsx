@@ -41,7 +41,7 @@ export const CarouselContent = observer(function CarouselContent(props: Props) {
   }, [activeIndex, arrayLengthCurrent, setActiveIndex])
 
   return <>
-    <div className={'image-area ' + props.className}>
+    <div className={'carousel-widget '}>
       {props.urlArray.map((url, index) => (
         <CarouselImage url={url} key={index} isShown={index === activeIndex}/>
       ))}

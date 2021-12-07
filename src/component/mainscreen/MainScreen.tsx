@@ -6,17 +6,17 @@ import {MainImage} from "./mainimage/MainImage";
 import './MainScreen.scss'
 import {useEffect} from "react";
 import {ModalWindow} from "./modalwindow/ModalWindow";
+import {timerStore} from "../../store/TimerStore";
 
 
 export const MainScreen = observer(function MainScreen() {
 
+  const timer = timerStore.timerIsRun
+
   useEffect(() => {
-      const intervalId = intervalRequest();
-      return () => {
-        clearRequestInterval(intervalId)
-      }
+      DogController.dogRequest(timer)
     }
-    , [])
+    , [timer])
 
   return <div className="main-div">
     <div className="card main-screen m-0 ">
@@ -30,12 +30,4 @@ export const MainScreen = observer(function MainScreen() {
       </div>
     </div>
   </div>
-
-  function intervalRequest(): NodeJS.Timeout {
-    return setInterval(DogController.getNewDog, 30000);
-  }
-
-  function clearRequestInterval(intervalId: NodeJS.Timeout): void {
-    clearInterval(intervalId)
-  }
 })
