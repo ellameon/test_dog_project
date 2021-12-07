@@ -3,8 +3,9 @@ import {closeModalService} from "../service/closeModalService";
 import {toggleCheckedDogService} from "../service/toggleCheckedDogService";
 import {openModalService} from "../service/openModalService";
 import {deleteDogsService} from "../service/deleteDogsService";
-import {timerToggleService} from "../service/timerToggleService";
+import {autoRequestStopService} from "../service/autoRequestStopService";
 import {dogRequestService} from "../service/dogRequestService";
+import {autoRequestRestartService} from "../service/autoRequestRestartService";
 
 
 export class DogController {
@@ -29,11 +30,15 @@ export class DogController {
     deleteDogsService()
   }
 
-  static timerToggle(): void {
-    timerToggleService()
+  static autoRequestStop(): void {
+    autoRequestStopService()
   }
 
   static dogRequest(timer: boolean): void {
     dogRequestService(timer)
+  }
+
+  static autoRequestRestart(): void {
+    autoRequestRestartService()
   }
 }

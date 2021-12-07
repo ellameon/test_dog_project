@@ -16,10 +16,11 @@ export const MainImage = observer(function MainImage() {
 
   const changeDog = useCallback(() => {
     DogController.getNewDog()
+    DogController.autoRequestRestart()
   }, [])
 
   const timerSwitch = useCallback(() => {
-    DogController.timerToggle()
+    DogController.autoRequestStop()
 
   }, [])
 
