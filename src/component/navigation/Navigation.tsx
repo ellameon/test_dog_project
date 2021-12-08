@@ -34,7 +34,11 @@ export const Navigation = observer(function Navigation() {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <a className="nav-link active"
+                <a className="nav-link"
+                   href={"./AuthScreen"}>Auth Screen</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link d"
                    aria-current="page"
                    href={"./MainScreen"}>Main Screen</a>
               </li>
