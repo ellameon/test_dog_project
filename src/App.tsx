@@ -1,13 +1,18 @@
 import React from 'react';
 import {MainScreen} from "./component/mainscreen/MainScreen";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {SecondPage} from "./component/secondpage/SecondPage";
 
 
 function App() {
 
   return <>
-    <div>
-      <MainScreen/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/MainScreen" element={<MainScreen/>}/>
+        <Route path="/SecondPage" element={<SecondPage/>}/>
+      </Routes>
+    </BrowserRouter>
   </>
 }
 

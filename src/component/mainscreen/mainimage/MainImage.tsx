@@ -4,6 +4,7 @@ import './MainImage.scss'
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";
+import {timerStore} from "../../../store/TimerStore";
 
 
 
@@ -23,6 +24,12 @@ export const MainImage = observer(function MainImage() {
     DogController.toggleAutoRequest()
 
   }, [])
+
+  let toggleButton = "Остановить"
+  if (timerStore.intervalId === 0) {
+    toggleButton = 'Запустить'
+  }
+
 
   return <div className="justify-content-center main-image-container">
     <div className="row pt-3  justify-content-center">
@@ -50,7 +57,9 @@ export const MainImage = observer(function MainImage() {
         <button type="button"
                 onClick={timerToggle}
                 className="btn button-top btn-outline-dark">
-          Остановить / Запустить таймер
+
+
+          {toggleButton} таймер
         </button>
       </div>
     </div>
