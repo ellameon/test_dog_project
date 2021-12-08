@@ -1,24 +1,17 @@
 import {runInAction} from "mobx";
-import {DogController} from "../controller/DogController";
 import {timerStore} from "../store/TimerStore";
+import {intervalRequestService} from "./intervalRequestService";
+import {clearIntervalRequestService} from "./clearIntervalRequestService";
 
 
-export function dogRequestService(timer: boolean): void {
+export function dogRequestService(): void {
 
   runInAction(() => {
 
-    if (timer) {
-     timerStore.intervalId = intervalRequest()
+    if (timerStore.intervalId === 0) {
+      timerStore.intervalId = intervalRequestService()
     } else {
-      clearRequestInterval(timerStore.intervalId)
+      clearIntervalRequestService(timerStore.intervalId)
     }
   })
-
-  function intervalRequest(): number {
-    return window.setInterval(DogController.getNewDog, 30000);
-  }
-
-  function clearRequestInterval(intervalId: number): void {
-    window.clearInterval(intervalId)
-  }
 }

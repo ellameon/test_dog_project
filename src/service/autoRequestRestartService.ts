@@ -1,5 +1,7 @@
 import {runInAction} from "mobx";
 import {timerStore} from "../store/TimerStore";
+import {intervalRequestService} from "./intervalRequestService";
+import {clearIntervalRequestService} from "./clearIntervalRequestService";
 
 export function autoRequestRestartService(): void {
   requestRestart()
@@ -7,7 +9,7 @@ export function autoRequestRestartService(): void {
 
 function requestRestart(): void {
   runInAction(() => {
-    timerStore.timerIsRun = false
-    timerStore.timerIsRun = true
+    clearIntervalRequestService(timerStore.intervalId)
+    timerStore.intervalId = intervalRequestService()
   })
 }

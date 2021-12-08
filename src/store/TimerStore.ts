@@ -1,11 +1,9 @@
 import {observable} from "mobx";
 
 export interface TimerStore {
-  timerIsRun: boolean
-  intervalId: number
+  intervalId: number | undefined
 }
 
 export const timerStore = observable <TimerStore>( {
-  timerIsRun: true,
   intervalId: 0
 })

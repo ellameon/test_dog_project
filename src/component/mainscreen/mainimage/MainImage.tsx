@@ -19,8 +19,8 @@ export const MainImage = observer(function MainImage() {
     DogController.autoRequestRestart()
   }, [])
 
-  const timerSwitch = useCallback(() => {
-    DogController.autoRequestStop()
+  const timerToggle = useCallback(() => {
+    DogController.toggleAutoRequest()
 
   }, [])
 
@@ -41,14 +41,14 @@ export const MainImage = observer(function MainImage() {
       </div>
     </div>
     <div className=" col p-3 ">
-      <div className="row justify-content-center">
+      <div className="row justify-content-sm-between">
         <button type="button"
                 onClick={changeDog}
                 className="btn button-top btn-outline-dark">
           сменить картинку
         </button>
         <button type="button"
-                onClick={timerSwitch}
+                onClick={timerToggle}
                 className="btn button-top btn-outline-dark">
           Остановить / Запустить таймер
         </button>

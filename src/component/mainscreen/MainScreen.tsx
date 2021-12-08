@@ -6,17 +6,15 @@ import {MainImage} from "./mainimage/MainImage";
 import './MainScreen.scss'
 import {useEffect} from "react";
 import {ModalWindow} from "./modalwindow/ModalWindow";
-import {timerStore} from "../../store/TimerStore";
+
 
 
 export const MainScreen = observer(function MainScreen() {
 
-  const timer = timerStore.timerIsRun
-
   useEffect(() => {
-      DogController.dogRequest(timer)
+      DogController.dogRequest()
     }
-    , [timer])
+    , [])
 
   return <div className="main-div">
     <div className="card main-screen m-0 ">
