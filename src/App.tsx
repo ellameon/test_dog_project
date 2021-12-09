@@ -3,10 +3,11 @@ import {MainScreen} from "./component/mainscreen/MainScreen";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {SecondPage} from "./component/secondpage/SecondPage";
 import {AuthScreen} from "./component/auth/AuthScreen";
+import {DogController} from "./controller/DogController";
 
 
 function App() {
-
+  DogController.setUser()
   return <>
     <BrowserRouter>
       <Routes>
