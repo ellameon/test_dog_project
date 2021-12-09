@@ -10,9 +10,10 @@ function App() {
   return <>
     <BrowserRouter>
       <Routes>
-        <Route path="/MainScreen" element={<MainScreen/>}/>
-        <Route path="/SecondPage" element={<SecondPage/>}/>
-        <Route path="/AuthScreen" element={<AuthScreen/>}/>
+        <Route path='' element={<AuthScreen/>}/>
+        <Route path='AuthScreen' element={<AuthScreen/>}/>
+        <Route path="MainScreen" element={<MainScreen/>}/>
+        <Route path="SecondPage" element={<SecondPage/>}/>
       </Routes>
     </BrowserRouter>
   </>

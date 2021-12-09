@@ -7,13 +7,13 @@ import {Carousel} from "../carousel/Carousel";
 import {timerStore} from "../../../store/TimerStore";
 
 
-
 export const MainImage = observer(function MainImage() {
 
   const dogsArray = dogsStore.dogs
   const urlArray = dogsArray.map(dog => dog.url)
   const lastDog = dogsArray[dogsArray.length - 1]
   const isDogExists = lastDog !== undefined
+  const toggleButton = (timerStore.intervalId === 0) ? 'Запустить таймер' : "Остановить таймер"
 
   const changeDog = useCallback(() => {
     DogController.getNewDog()
@@ -24,12 +24,6 @@ export const MainImage = observer(function MainImage() {
     DogController.toggleAutoRequest()
 
   }, [])
-
-  let toggleButton = "Остановить"
-  if (timerStore.intervalId === 0) {
-    toggleButton = 'Запустить'
-  }
-
 
   return <div className="justify-content-center main-image-container">
     <div className="row pt-3  justify-content-center">
@@ -57,9 +51,7 @@ export const MainImage = observer(function MainImage() {
         <button type="button"
                 onClick={timerToggle}
                 className="btn button-top btn-outline-dark">
-
-
-          {toggleButton} таймер
+          {toggleButton}
         </button>
       </div>
     </div>
