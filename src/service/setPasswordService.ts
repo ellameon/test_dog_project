@@ -1,8 +1,8 @@
 import {runInAction} from "mobx";
-import {userStore} from "../store/UserStore";
+import {authStore} from "../store/AuthStore";
 
 export function setPasswordService(password: string) {
   runInAction(() => {
-    userStore.password = password
+    authStore.password = password
   })
 }

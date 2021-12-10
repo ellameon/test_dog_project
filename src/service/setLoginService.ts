@@ -1,8 +1,8 @@
 import {runInAction} from "mobx";
-import {userStore} from "../store/UserStore";
+import {authStore} from "../store/AuthStore";
 
-export function setLoginService(login: string) {
+export function setLoginService(login: string): void {
   runInAction(() => {
-    userStore.login = login
+    authStore.login = login
   })
 }

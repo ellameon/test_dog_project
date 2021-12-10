@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
-import React, {ChangeEvent, useCallback} from "react";
+import React, {ChangeEvent, useCallback, useEffect} from "react";
 import {DogController} from "../../../controller/DogController";
-import {userStore} from "../../../store/UserStore";
+import {authStore} from "../../../store/AuthStore";
 
 
 export const Auth = observer(function Auth() {
@@ -9,11 +9,11 @@ export const Auth = observer(function Auth() {
   const {
     login,
     password
-  } = userStore
+  } = authStore
 
   const onSubmit = useCallback(() => {
-    DogController.getUser(login,password)
-  }, [login, password])
+    DogController.getUser()
+  }, [])
 
   const onChangeLogin = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const login = event.target.value
@@ -25,6 +25,17 @@ export const Auth = observer(function Auth() {
     DogController.setPassword(password)
   }, [])
 
+  useEffect(() => {
+    const listener = (event: { code: string; }) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        onSubmit()
+      }
+    }
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, [onSubmit]);
 
   return <div className="justify-content-center main-image-container">
     <div className="row pt-3  justify-content-center">

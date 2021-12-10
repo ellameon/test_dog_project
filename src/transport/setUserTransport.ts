@@ -1,4 +1,4 @@
-import {User} from "../store/UserStore";
+import {User} from "../store/AuthStore";
 
 
 export function setUserTransport() {
@@ -13,14 +13,5 @@ export function setUserTransport() {
   }
 
   const allowedUsers: Array<User> = [admin, operator]
-
-  const allowedUsersToServer = new Map()
-  allowedUsers.map((user) => {
-    for (user of allowedUsers) {
-      allowedUsersToServer.set(user.login, user.password)
-    }
-  })
-
-
-  localStorage.setItem("users", JSON.stringify(allowedUsersToServer))
+  localStorage.setItem("users", JSON.stringify(allowedUsers))
 }

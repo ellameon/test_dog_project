@@ -7,9 +7,10 @@ import {toggleRequestService} from "../service/toggleRequestService";
 import {dogRequestService} from "../service/dogRequestService";
 import {autoRequestRestartService} from "../service/autoRequestRestartService";
 import {setUserService} from "../service/setUserService";
-import {getUserService} from "../service/getUserService";
+import {authService} from "../service/authService";
 import {setLoginService} from "../service/setLoginService";
 import {setPasswordService} from "../service/setPasswordService";
+import {logOutService} from "../service/logOutService";
 
 
 export class DogController {
@@ -50,8 +51,8 @@ export class DogController {
     setUserService()
   }
 
-  static getUser(login: string, password: string): void {
-    getUserService(login, password)
+  static getUser(): void {
+    authService()
   }
 
   static setLogin(login: string): void {
@@ -59,5 +60,8 @@ export class DogController {
   }
   static setPassword(password: string): void {
     setPasswordService(password)
+  }
+  static logOut(): void {
+    logOutService()
   }
 }

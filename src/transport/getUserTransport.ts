@@ -1,14 +1,19 @@
-export function getUserTransport(login: string, password: string) {
+import {authStore, User} from "../store/AuthStore";
 
-  const stringUsers = localStorage.getItem('users')
 
-  let usersFromServer: Map<string, string>
+
+export function getUserTransport(): User | undefined {
+
+  const stringUsers: string | null = localStorage.getItem('users')
+
   if (stringUsers !== null) {
+    const usersFromServer: Array<User> = JSON.parse(stringUsers)
 
-    usersFromServer = JSON.parse(stringUsers)
-
-    if (usersFromServer.has("admin") ) {
-      return usersFromServer.get('admin')
-    } else alert('error')
+    let user;
+    for (user of usersFromServer) {
+      if (user.login === authStore.login && user.password === authStore.password) {
+        return user
+      }
+    }
   }
 }

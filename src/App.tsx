@@ -2,7 +2,7 @@ import React from 'react';
 import {MainScreen} from "./component/mainscreen/MainScreen";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {SecondPage} from "./component/secondpage/SecondPage";
-import {AuthScreen} from "./component/auth/AuthScreen";
+import {AuthScreen} from "./component/authscreen/AuthScreen";
 import {DogController} from "./controller/DogController";
 
 

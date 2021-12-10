@@ -1,8 +1,16 @@
 import {observer} from "mobx-react";
 import {NavLink} from "react-router-dom";
+import {userStore} from "../../store/UserStore";
+import {useCallback} from "react";
+import {DogController} from "../../controller/DogController";
 
 
 export const Navigation = observer(function Navigation() {
+
+  const onLogOut = useCallback(() => {
+    DogController.logOut()
+  }, [])
+
   return <>
     <div className='nav-screen'>
       <nav className="navbar navbar-light  fixed-top">
@@ -20,10 +28,11 @@ export const Navigation = observer(function Navigation() {
                aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title"
-                  id="offcanvasNavbarLabel">Страницы</h5>
+                  id="offcanvasNavbarLabel">{userStore.login}</h5>
               <button type="button"
                       className="btn "
                       data-bs-dismiss="offcanvas"
+                      onClick={onLogOut}
                       aria-label="Close">
                 <svg xmlns="http://www.w3.org/2000/svg"
                      width="32" height="32"
@@ -37,10 +46,6 @@ export const Navigation = observer(function Navigation() {
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
-                  <NavLink className="nav-link"
-                     to="/AuthScreen">Auth Screen</NavLink>
-                </li>
                 <li className="nav-item">
                   <NavLink className="nav-link"
                      aria-current="page"
