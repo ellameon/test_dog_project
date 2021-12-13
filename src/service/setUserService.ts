@@ -1,5 +1,9 @@
 import {setUserTransport} from "../transport/setUserTransport";
+import {runInAction} from "mobx";
 
-export function setUserService(): void {
-  setUserTransport()
+
+export async function setUserService(): Promise<void>{
+  runInAction(() => {
+     setUserTransport()
+  })
 }

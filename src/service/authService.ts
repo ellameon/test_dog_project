@@ -4,13 +4,21 @@ import {userStore} from "../store/UserStore";
 import {authStore} from "../store/AuthStore";
 
 
-export function authService(): void {
-  runInAction(() => {
-    const user = getUserTransport()
+export async function authService(): Promise<void> {
 
-    userStore.login = user?.login as string
-    userStore.password = user?.password as string
+  const user = await getUserTransport()
+
+  runInAction(() => {
+
+    if (user === undefined) {
+      authStore.isError = true
+      return
+    }
+
+    userStore.login = user.login
+    userStore.password = user.password
     authStore.login = ''
     authStore.password = ''
+    authStore.isError = false
   })
 }

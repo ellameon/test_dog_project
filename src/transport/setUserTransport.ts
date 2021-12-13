@@ -1,7 +1,8 @@
-import {User} from "../store/AuthStore";
+import {User} from "../store/UserStore";
 
 
-export function setUserTransport() {
+export async function setUserTransport(): Promise<void> {
+
   const admin: User = {
     login: 'admin',
     password: 'elephant'

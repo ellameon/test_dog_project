@@ -1,12 +1,14 @@
 import {observable} from "mobx";
 
 
-export interface User {
+export interface Auth {
   login: string
   password: string
+  isError: boolean
 }
 
-export const authStore = observable<User>({
+export const authStore = observable<Auth>({
   login: '',
-  password: ''
+  password: '',
+  isError: false
 })

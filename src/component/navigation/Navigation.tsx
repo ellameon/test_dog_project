@@ -3,13 +3,21 @@ import {NavLink} from "react-router-dom";
 import {userStore} from "../../store/UserStore";
 import {useCallback} from "react";
 import {DogController} from "../../controller/DogController";
+import {useIsLogged} from "../../hook/useIsLogged";
+import {Navigate} from "react-router";
 
 
 export const Navigation = observer(function Navigation() {
 
+  const userName = userStore.login
   const onLogOut = useCallback(() => {
     DogController.logOut()
   }, [])
+
+  const isUserLogged = useIsLogged()
+  if (!isUserLogged) {
+    return <Navigate to='/AuthScreen'/>
+  }
 
   return <>
     <div className='nav-screen'>
@@ -28,7 +36,7 @@ export const Navigation = observer(function Navigation() {
                aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title"
-                  id="offcanvasNavbarLabel">{userStore.login}</h5>
+                  id="offcanvasNavbarLabel">{userName}</h5>
               <button type="button"
                       className="btn "
                       data-bs-dismiss="offcanvas"
@@ -48,16 +56,17 @@ export const Navigation = observer(function Navigation() {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                   <NavLink className="nav-link"
-                     aria-current="page"
-                     to="/MainScreen">Main Screen</NavLink>
+                           aria-current="page"
+                           to="/MainScreen">Main Screen</NavLink>
                 </li>
-                <li className="nav-item">
+                {userName !== 'operator' &&
+                  (<li className="nav-item">
                   <NavLink className="nav-link"
-                     to="/SecondPage">Second Page</NavLink>
-                </li>
+                           to="/SecondScreen">Second Page</NavLink>
+                </li>)}
               </ul>
-              </div>
             </div>
+          </div>
         </div>
       </nav>
     </div>

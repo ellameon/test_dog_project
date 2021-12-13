@@ -8,8 +8,10 @@ export const Auth = observer(function Auth() {
 
   const {
     login,
-    password
+    password,
   } = authStore
+
+  const isError = authStore.isError
 
   const onSubmit = useCallback(() => {
     DogController.getUser()
@@ -37,9 +39,9 @@ export const Auth = observer(function Auth() {
     };
   }, [onSubmit]);
 
-  return <div className="justify-content-center main-image-container">
+  return <div className="justify-content-center">
     <div className="row pt-3  justify-content-center">
-      <div className=' col-7 align-items-center'>
+      <div className=' col-9 align-items-center'>
         <div>
           <label htmlFor="validationLogin"
                  className="form-label">Login</label>
@@ -50,14 +52,8 @@ export const Auth = observer(function Auth() {
                  value={login}
                  onChange={onChangeLogin}
                  required={true}/>
-          <div className="valid-feedback">
-            Все хорошо!
-          </div>
-          <div className="invalid-feedback">
-            Неверный логин
-          </div>
           <label htmlFor="validationPassword"
-                 className="form-label">Password</label>
+                 className="form-label mt-2">Password</label>
           <input type="password"
                  className="form-control"
                  autoComplete='off'
@@ -65,12 +61,9 @@ export const Auth = observer(function Auth() {
                  value={password}
                  onChange={onChangePassword}
                  required={true}/>
-          <div className="valid-feedback">
-            Все хорошо!
-          </div>
-          <div className="invalid-feedback">
-            Неверный пароль
-          </div>
+          {isError && (<div className='invalid-auth'>
+            Неверная пара логин/пароль
+          </div>)}
         </div>
       </div>
     </div>
@@ -81,7 +74,6 @@ export const Auth = observer(function Auth() {
                 className="btn button-top btn-outline-dark">
           Войти
         </button>
-
       </div>
     </div>
   </div>
