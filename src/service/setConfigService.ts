@@ -2,7 +2,7 @@ import {setUserTransport} from "../transport/setUserTransport";
 import {runInAction} from "mobx";
 
 
-export async function setUserService(): Promise<void>{
+export async function setConfigService(): Promise<void>{
   runInAction(() => {
      setUserTransport()
   })

@@ -7,7 +7,7 @@ import {DogController} from "./controller/DogController";
 
 
 function App() {
-  DogController.setUser()
+  DogController.setConfig()
   return <>
     <BrowserRouter>
       <Routes>

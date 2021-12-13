@@ -6,7 +6,7 @@ import {deleteDogsService} from "../service/deleteDogsService";
 import {toggleRequestService} from "../service/toggleRequestService";
 import {dogRequestService} from "../service/dogRequestService";
 import {autoRequestRestartService} from "../service/autoRequestRestartService";
-import {setUserService} from "../service/setUserService";
+import {setConfigService} from "../service/setConfigService";
 import {authService} from "../service/authService";
 import {setLoginService} from "../service/setLoginService";
 import {setPasswordService} from "../service/setPasswordService";
@@ -47,12 +47,12 @@ export class DogController {
     autoRequestRestartService()
   }
 
-  static setUser(): void {
-    setUserService()
+  static setConfig(): void {
+    setConfigService().then(r => {})
   }
 
   static getUser(): void {
-    authService()
+    authService().then(r => {})
   }
 
   static setLogin(login: string): void {
