@@ -3,10 +3,8 @@ import '../configuration/configuration.json'
 
 
 export async function getUserTransport(): Promise<ConfigStore> {
+  const response = await fetch("/src/configuration/configuration.json")
+  return await response.json()
 
-  return await fetch("http://localhost:3000/home/milyukov/IdeaProjects/test_dog_project/src/configuration/configuration.json")
-    .then(res => res.json())
-    .then(
-      (result) => JSON.parse(result)
-    )
+
 }
