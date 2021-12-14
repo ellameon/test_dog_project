@@ -6,11 +6,11 @@ import {deleteDogsService} from "../service/deleteDogsService";
 import {toggleRequestService} from "../service/toggleRequestService";
 import {dogRequestService} from "../service/dogRequestService";
 import {autoRequestRestartService} from "../service/autoRequestRestartService";
-import {setConfigService} from "../service/setConfigService";
-import {authService} from "../service/authService";
+import {configService} from "../service/configService";
 import {setLoginService} from "../service/setLoginService";
 import {setPasswordService} from "../service/setPasswordService";
 import {logOutService} from "../service/logOutService";
+import {authService} from "../service/authService";
 
 
 export class DogController {
@@ -19,8 +19,8 @@ export class DogController {
     openModalService(dogIds)
   }
 
-  static getNewDog(): void {
-    getDogFromServerAndAddService()
+  static getNewDog(url: string): void {
+    getDogFromServerAndAddService(url).then(r => url)
   }
 
   static closeModal(): void {
@@ -48,19 +48,21 @@ export class DogController {
   }
 
   static setConfig(): void {
-    setConfigService().then(r => {})
+    configService().then()
   }
 
-  static getUser(): void {
-    authService().then(r => {})
+  static auth(): void {
+    authService()
   }
 
   static setLogin(login: string): void {
     setLoginService(login)
   }
+
   static setPassword(password: string): void {
     setPasswordService(password)
   }
+
   static logOut(): void {
     logOutService()
   }

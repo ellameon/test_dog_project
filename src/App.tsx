@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {MainScreen} from "./component/mainscreen/MainScreen";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {SecondScreen} from "./component/secondscreen/SecondScreen";
@@ -6,8 +6,12 @@ import {AuthScreen} from "./component/authscreen/AuthScreen";
 import {DogController} from "./controller/DogController";
 
 
+
 function App() {
-  DogController.setConfig()
+  useEffect( () => {
+    DogController.setConfig()
+  }, [])
+
   return <>
     <BrowserRouter>
       <Routes>

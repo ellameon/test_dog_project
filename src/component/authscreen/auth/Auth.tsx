@@ -14,7 +14,7 @@ export const Auth = observer(function Auth() {
   const isError = authStore.isError
 
   const onSubmit = useCallback(() => {
-    DogController.getUser()
+    DogController.auth()
   }, [])
 
   const onChangeLogin = useCallback((event: ChangeEvent<HTMLInputElement>) => {

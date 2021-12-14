@@ -1,8 +1,7 @@
 import {DogDto} from "../model/DogDto";
 
 
-export async function getDogTransport(): Promise<DogDto> {
-  const url = "https://dog.ceo/api/breeds/image/random"
+export async function getDogTransport(url: string): Promise<DogDto> {
   const response = await fetch(url)
   return await response.json()
 }

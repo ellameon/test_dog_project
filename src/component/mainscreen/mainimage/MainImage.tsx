@@ -5,6 +5,7 @@ import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";
 import {timerStore} from "../../../store/TimerStore";
+import {configStore} from "../../../store/ConfigStore";
 
 
 export const MainImage = observer(function MainImage() {
@@ -14,11 +15,13 @@ export const MainImage = observer(function MainImage() {
   const lastDog = dogsArray[dogsArray.length - 1]
   const isDogExists = lastDog !== undefined
   const toggleButton = (timerStore.intervalId === 0) ? 'Запустить таймер' : "Остановить таймер"
+  const url = configStore.url
 
   const changeDog = useCallback(() => {
-    DogController.getNewDog()
+    DogController.getNewDog(url)
     DogController.autoRequestRestart()
-  }, [])
+  }, [url])
+
 
   const timerToggle = useCallback(() => {
     DogController.toggleAutoRequest()

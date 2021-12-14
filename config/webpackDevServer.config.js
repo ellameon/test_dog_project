@@ -25,7 +25,7 @@ module.exports = function (proxy, allowedHost) {
     // https://github.com/facebook/create-react-app/issues/2271
     // https://github.com/facebook/create-react-app/issues/2233
     // While we're investigating better solutions, for now we will take a
-    // compromise. Since our WDS configuration only serves files in the `public`
+    // compromise. Since our WDS configuration.json only serves files in the `public`
     // folder we won't consider accessing them a vulnerability. However, if you
     // use the `proxy` feature, it gets more dangerous because it can expose
     // remote code execution vulnerabilities in backends like Django and Rails.
@@ -60,7 +60,7 @@ module.exports = function (proxy, allowedHost) {
     // Enable hot reloading server. It will provide WDS_SOCKET_PATH endpoint
     // for the WebpackDevServer client so it can learn when the files were
     // updated. The WebpackDevServer client is included as an entry point
-    // in the webpack development configuration. Note that only changes
+    // in the webpack development configuration.json. Note that only changes
     // to CSS are currently hot reloaded. JS changes will refresh the browser.
     hot: true,
     // Use 'ws' instead of 'sockjs-node' on server since we're using native

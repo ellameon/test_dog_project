@@ -1,24 +1,27 @@
-import {getUserTransport} from "../transport/getUserTransport";
 import {runInAction} from "mobx";
 import {userStore} from "../store/UserStore";
 import {authStore} from "../store/AuthStore";
+import {configStore} from "../store/ConfigStore";
 
 
-export async function authService(): Promise<void> {
 
-  const user = await getUserTransport()
+export function authService() {
 
   runInAction(() => {
 
-    if (user === undefined) {
-      authStore.isError = true
-      return
+    for (let user of configStore.users) {
+      if (user.login !== authStore.login && user.password !== authStore.password) {
+        authStore.isError = true
+        return
+      }
     }
 
-    userStore.login = user.login
-    userStore.password = user.password
+
+    userStore.login = authStore.login
+    userStore.password = authStore.password
     authStore.login = ''
     authStore.password = ''
     authStore.isError = false
   })
+
 }

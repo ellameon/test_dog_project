@@ -1,18 +1,12 @@
-import {authStore} from "../store/AuthStore";
-import {User} from "../store/UserStore";
+import {ConfigStore} from "../store/ConfigStore";
+import '../configuration/configuration.json'
 
 
-export async function getUserTransport(): Promise<User | undefined> {
+export async function getUserTransport(): Promise<ConfigStore> {
 
-  const stringUsers: string | null = localStorage.getItem('users')
-
-  if (stringUsers !== null) {
-    const usersFromServer: Array<User> = JSON.parse(stringUsers)
-
-    for (let user of usersFromServer) {
-      if (user.login === authStore.login && user.password === authStore.password) {
-        return user
-      }
-    }
-  }
+  return await fetch("http://localhost:3000/home/milyukov/IdeaProjects/test_dog_project/src/configuration/configuration.json")
+    .then(res => res.json())
+    .then(
+      (result) => JSON.parse(result)
+    )
 }
