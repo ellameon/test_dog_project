@@ -3,10 +3,10 @@ import {observable} from "mobx";
 
 export interface ConfigStore {
   users: Array<User>,
-  url: string
+  dogUrl: string
 }
 
 export const configStore = observable<ConfigStore>({
   users: [],
-  url: ''
+  dogUrl: ''
 })

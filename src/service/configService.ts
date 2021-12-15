@@ -11,7 +11,8 @@ export async function configService() {
 
     runInAction(() => {
       configStore.users = config.users
-      configStore.url = config.url
+      configStore.dogUrl = config.dogUrl
     })
   })
+  console.log(configStore.dogUrl)
 }

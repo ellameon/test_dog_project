@@ -1,0 +1,11 @@
+{
+  "Auth": {
+    "user": "Пользователь",
+    "password": "Пароль"
+  },
+  "SubmitButton": "Войти",
+
+  "MainScreen": {
+
+  }
+}

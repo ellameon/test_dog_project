@@ -15,7 +15,7 @@ export const MainImage = observer(function MainImage() {
   const lastDog = dogsArray[dogsArray.length - 1]
   const isDogExists = lastDog !== undefined
   const toggleButton = (timerStore.intervalId === 0) ? 'Запустить таймер' : "Остановить таймер"
-  const url = configStore.url
+  const url = configStore.dogUrl
 
   const changeDog = useCallback(() => {
     DogController.getNewDog(url)
