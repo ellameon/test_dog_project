@@ -19,8 +19,8 @@ export class DogController {
     openModalService(dogIds)
   }
 
-  static getNewDog(url: string): void {
-    getDogFromServerAndAddService(url).then(r => url)
+  static getNewDog(): void {
+    getDogFromServerAndAddService().then()
   }
 
   static closeModal(): void {

@@ -5,9 +5,9 @@ import {addDogService} from "./addDogService";
 import {DogDto} from "../model/DogDto";
 
 
-export async function getDogFromServerAndAddService(url:string): Promise<void> {
+export async function getDogFromServerAndAddService(): Promise<void> {
 
-  await getDogTransport(url).then((dogDto) => {
+  await getDogTransport().then((dogDto) => {
     const dog = dogDtoToDog(dogDto);
     addDogService(dog)
   })
