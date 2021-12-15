@@ -11,7 +11,7 @@ export const DogTable = observer(function DogTable() {
       <table className="table">
         <thead>
         <tr>
-          <th className="dog-url">Url</th>
+          <th className="dog-url">Адрес</th>
           <th>Выбрать</th>
           <th>Удалить</th>
         </tr>

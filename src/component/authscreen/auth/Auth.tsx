@@ -44,7 +44,7 @@ export const Auth = observer(function Auth() {
       <div className=' col-9 align-items-center'>
         <div>
           <label htmlFor="validationLogin"
-                 className="form-label">Login</label>
+                 className="form-label">Пользователь</label>
           <input type="text"
                  className="form-control"
                  autoComplete={"off"}
@@ -53,7 +53,7 @@ export const Auth = observer(function Auth() {
                  onChange={onChangeLogin}
                  required={true}/>
           <label htmlFor="validationPassword"
-                 className="form-label mt-2">Password</label>
+                 className="form-label mt-2">Пароль</label>
           <input type="password"
                  className="form-control"
                  autoComplete='off'

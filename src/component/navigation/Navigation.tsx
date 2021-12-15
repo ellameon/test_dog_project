@@ -58,12 +58,12 @@ export const Navigation = observer(function Navigation() {
                 <li className="nav-item">
                   <NavLink className="nav-link"
                            aria-current="page"
-                           to="/MainScreen">Main Screen</NavLink>
+                           to="/MainScreen">Главная страница</NavLink>
                 </li>
                 {userName !== 'operator' &&
                   (<li className="nav-item">
                   <NavLink className="nav-link"
-                           to="/SecondScreen">Second Page</NavLink>
+                           to="/SecondScreen">Вторая страница</NavLink>
                 </li>)}
               </ul>
             </div>

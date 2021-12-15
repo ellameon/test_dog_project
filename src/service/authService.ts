@@ -16,12 +16,10 @@ export function authService() {
       }
     }
 
-
     userStore.login = authStore.login
     userStore.password = authStore.password
     authStore.login = ''
     authStore.password = ''
     authStore.isError = false
   })
-
 }

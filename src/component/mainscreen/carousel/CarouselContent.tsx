@@ -53,7 +53,7 @@ export const CarouselContent = observer(function CarouselContent(props: Props) {
             <span className="carousel-control-prev-icon nav-button"
                   aria-hidden="true"/>
             <span className="visually-hidden">
-              Previous
+              Предыдущая
             </span>
           </button>
           <button className="carousel-control-next control-button"
@@ -62,7 +62,7 @@ export const CarouselContent = observer(function CarouselContent(props: Props) {
             <span className="carousel-control-next-icon nav-button"
                   aria-hidden="true"/>
             <span className="visually-hidden">
-              Next
+              Следующая
             </span>
           </button>
         </>
