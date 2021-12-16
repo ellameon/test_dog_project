@@ -47,7 +47,7 @@ export const Auth = observer(function Auth() {
 
   return <div className="justify-content-center">
     <div className="row pt-3  justify-content-center">
-      <div className=' col-9 align-items-center'>
+      <div className=' col-10 align-items-center'>
         <div>
           <label htmlFor="validationLogin"
                  className="form-label">{t("Auth.user")}</label>
@@ -73,28 +73,30 @@ export const Auth = observer(function Auth() {
         </div>
       </div>
     </div>
-    <div className=" col p-3 ">
-      <div className="row justify-content-center">
-        <button type="submit"
-                onClick={onSubmit}
-                className="btn button-top btn-outline-dark">
-          {t("SubmitButton")}
-        </button>
-        <button className="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-expanded="false">
-        </button>
-        <div className="dropdown">
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li>
-              <button className="dropdown-item" onClick={() => cLanguage("ru")} type="button">RU</button>
+    <div className=" row p-3 ">
+
+        <div className="col">
+          <button type="submit"
+                  onClick={onSubmit}
+                  className="btn button-top btn-outline-dark">
+            {t("SubmitButton")}
+          </button>
+        </div>
+        <div className="col">
+          <button className="btn btn-outline-dark " type="button" id="dropdownMenu2"
+                  data-toggle="dropdown"
+                  aria-expanded="false" data-bs-toggle="dropdown">{t("Language")}
+          </button>
+          <ul className="dropdown-menu" id="dropdownMenu2">
+            <li className="dropdown-item p-1">
+              <button className=" btn btn-outline-secondary p-1" onClick={() => cLanguage("ru")}>RU</button>
             </li>
-            <li>
-              <button className="dropdown-item" onClick={() => cLanguage("en")} type="button">EN</button>
+            <li className="dropdown-item p-1">
+              <button className=" btn btn-outline-secondary p-1" onClick={() => cLanguage("en")}>EN</button>
             </li>
           </ul>
         </div>
-
       </div>
-    </div>
+
   </div>
 })
