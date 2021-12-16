@@ -1,0 +1,25 @@
+{
+  "Auth": {
+    "user": "Пользователь",
+    "password": "Пароль",
+    "error": "неверный логин или пароль"
+  },
+  "SubmitButton": "Войти",
+  "MainScreen": {
+    "buttons": {
+      "changeDogButton": "Сменить картинку",
+      "stopTimerButton": "Остановить таймер",
+      "startTimerButton": "Запустить таймер",
+      "deleteSomeDogsButton": "Удалить выделенные картинки"
+    },
+    "Table": {
+      "url": "Адрес",
+      "check": "Выбрать",
+      "delete": "Удалить"
+    }
+  },
+  "Navigation": {
+    "mainScreen": "Главная страница",
+    "secondScreen": "Вторая страница"
+  }
+}

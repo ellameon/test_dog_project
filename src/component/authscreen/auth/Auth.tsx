@@ -2,6 +2,7 @@ import {observer} from "mobx-react";
 import React, {ChangeEvent, useCallback, useEffect} from "react";
 import {DogController} from "../../../controller/DogController";
 import {authStore} from "../../../store/AuthStore";
+import {useTranslation} from "react-i18next";
 
 
 export const Auth = observer(function Auth() {
@@ -12,6 +13,11 @@ export const Auth = observer(function Auth() {
   } = authStore
 
   const isError = authStore.isError
+
+  const {t, i18n} = useTranslation();
+  const cLanguage = (language: string) => {
+    i18n.changeLanguage(language).then();
+  };
 
   const onSubmit = useCallback(() => {
     DogController.auth()
@@ -44,7 +50,7 @@ export const Auth = observer(function Auth() {
       <div className=' col-9 align-items-center'>
         <div>
           <label htmlFor="validationLogin"
-                 className="form-label">Пользователь</label>
+                 className="form-label">{t("Auth.user")}</label>
           <input type="text"
                  className="form-control"
                  autoComplete={"off"}
@@ -53,7 +59,7 @@ export const Auth = observer(function Auth() {
                  onChange={onChangeLogin}
                  required={true}/>
           <label htmlFor="validationPassword"
-                 className="form-label mt-2">Пароль</label>
+                 className="form-label mt-2">{t("Auth.password")}</label>
           <input type="password"
                  className="form-control"
                  autoComplete='off'
@@ -62,7 +68,7 @@ export const Auth = observer(function Auth() {
                  onChange={onChangePassword}
                  required={true}/>
           {isError && (<div className='invalid-auth'>
-            Неверная пара логин/пароль
+            {t("Auth.error")}
           </div>)}
         </div>
       </div>
@@ -72,8 +78,22 @@ export const Auth = observer(function Auth() {
         <button type="submit"
                 onClick={onSubmit}
                 className="btn button-top btn-outline-dark">
-          Войти
+          {t("SubmitButton")}
         </button>
+        <button className="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-expanded="false">
+        </button>
+        <div className="dropdown">
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li>
+              <button className="dropdown-item" onClick={() => cLanguage("ru")} type="button">RU</button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => cLanguage("en")} type="button">EN</button>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </div>

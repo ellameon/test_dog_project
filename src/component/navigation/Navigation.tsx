@@ -1,15 +1,24 @@
 import {observer} from "mobx-react";
 import {NavLink} from "react-router-dom";
 import {userStore} from "../../store/UserStore";
-import {useCallback} from "react";
+import React, {useCallback} from "react";
 import {DogController} from "../../controller/DogController";
 import {useIsLogged} from "../../hook/useIsLogged";
 import {Navigate} from "react-router";
+import {useTranslation} from "react-i18next";
+
+
 
 
 export const Navigation = observer(function Navigation() {
 
   const userName = userStore.login
+
+  const { t, i18n } = useTranslation();
+  const cLanguage = (language: string) => {
+    i18n.changeLanguage(language).then();
+  };
+
   const onLogOut = useCallback(() => {
     DogController.logOut()
   }, [])
@@ -37,6 +46,10 @@ export const Navigation = observer(function Navigation() {
             <div className="offcanvas-header">
               <h5 className="offcanvas-title"
                   id="offcanvasNavbarLabel">{userName}</h5>
+              <button onClick={() => cLanguage("ru")}>RU</button>
+              <button onClick={() => cLanguage("en")}>EN</button>
+
+
               <button type="button"
                       className="btn "
                       data-bs-dismiss="offcanvas"
@@ -58,12 +71,12 @@ export const Navigation = observer(function Navigation() {
                 <li className="nav-item">
                   <NavLink className="nav-link"
                            aria-current="page"
-                           to="/MainScreen">Главная страница</NavLink>
+                           to="/MainScreen">{t("Navigation.mainScreen")}</NavLink>
                 </li>
                 {userName !== 'operator' &&
                   (<li className="nav-item">
                   <NavLink className="nav-link"
-                           to="/SecondScreen">Вторая страница</NavLink>
+                           to="/SecondScreen">{t("Navigation.secondScreen")}</NavLink>
                 </li>)}
               </ul>
             </div>

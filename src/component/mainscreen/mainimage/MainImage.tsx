@@ -5,22 +5,25 @@ import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";
 import {timerStore} from "../../../store/TimerStore";
-
+import {useTranslation} from "react-i18next";
 
 
 export const MainImage = observer(function MainImage() {
 
+  const {t} = useTranslation();
   const dogsArray = dogsStore.dogs
   const urlArray = dogsArray.map(dog => dog.url)
   const lastDog = dogsArray[dogsArray.length - 1]
   const isDogExists = lastDog !== undefined
-  const toggleButton = (timerStore.intervalId === 0) ? 'Запустить таймер' : "Остановить таймер"
+  const stopButton = "MainScreen.buttons.stopTimerButton"
+  const startButton = "MainScreen.buttons.startTimerButton"
+  const toggleButton = (timerStore.intervalId === 0) ? stopButton : startButton
+
 
   const changeDog = useCallback(() => {
     DogController.getNewDog()
     DogController.autoRequestRestart()
   }, [])
-
 
   const timerToggle = useCallback(() => {
     DogController.toggleAutoRequest()
@@ -48,14 +51,14 @@ export const MainImage = observer(function MainImage() {
         <button type="button"
                 onClick={changeDog}
                 className="btn button-top btn-outline-dark">
-          сменить картинку
+          {t("MainScreen.buttons.changeDogButton")}
         </button>
         <button type="button"
                 onClick={timerToggle}
                 className="btn button-top btn-outline-dark">
-          {toggleButton}
+          {t(toggleButton)}
         </button>
       </div>
     </div>
-  </div>
+  </div>;
 })

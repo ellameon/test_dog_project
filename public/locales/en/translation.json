@@ -1,0 +1,25 @@
+{
+  "Auth": {
+    "user": "User",
+    "password": "Password",
+    "error": "Wrong login or password"
+  },
+  "SubmitButton": "Log in",
+  "MainScreen": {
+    "buttons": {
+      "changeDogButton": "Change image",
+      "stopTimerButton": "Stop timer",
+      "startTimerButton": "Start timer",
+      "deleteSomeDogsButton": "Delete chosen images"
+    },
+    "Table": {
+      "url": "Url",
+      "check": "Choose",
+      "delete": "Delete"
+    }
+  },
+  "Navigation": {
+    "mainScreen": "Main page",
+    "secondScreen": "Second page"
+  }
+}

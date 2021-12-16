@@ -4,9 +4,11 @@ import './BottomPanel.scss'
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {checkedDogsStore} from "../../../store/CheckedDogsStore";
+import {useTranslation} from "react-i18next";
 
 
 export const BottomPanel = observer(function BottomPanel() {
+  const {t} = useTranslation();
   const dogs = dogsStore.dogs
   const lastDog = dogs[dogs.length - 1]
   const isLeastOneChecked = checkedDogsStore.checkedDogs.length > 0
@@ -24,7 +26,7 @@ export const BottomPanel = observer(function BottomPanel() {
           onClick={openModal}
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop">
-          удалить выделенные картинки
+          {t("MainScreen.buttons.deleteSomeDogsButton")}
         </button>
       </div>
     </div>
