@@ -14,5 +14,4 @@ export async function configService() {
       configStore.dogUrl = config.dogUrl
     })
   })
-  console.log(configStore.dogUrl)
 }
