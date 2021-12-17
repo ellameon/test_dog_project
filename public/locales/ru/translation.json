@@ -22,5 +22,11 @@
   "Navigation": {
     "mainScreen": "Главная страница",
     "secondScreen": "Вторая страница"
+  },
+  "ModalWindow": {
+    "cancelButton": "Отмена",
+    "deleteButton": "Удалить",
+    "modalTextDelete": "Вы желаете удалить?",
+    "modalTextDeleteChecked": "Вы желаете удалить выбранные картинки?"
   }
 }

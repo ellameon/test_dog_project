@@ -4,14 +4,18 @@ import {modalStore} from "../../../store/ModalStore";
 import {DogController} from "../../../controller/DogController";
 import {dogsStore} from "../../../store/DogStore";
 import {Carousel} from "../carousel/Carousel";
+import {useTranslation} from "react-i18next";
 
 
 export const ModalWindow = observer(function ModalWindow() {
 
+  const {t} = useTranslation();
   const dogsToDelete = modalStore.dogIdsToDelete
+  const modalTextDelete = "ModalWindow.modalTextDelete"
+  const modalTextDeleteChecked = "ModalWindow.modalTextDeleteChecked"
   const modalText = dogsToDelete.length > 1
-    ? "Вы желаете удалить выбранные картинки?"
-    : "Вы желаете удалить?"
+    ? modalTextDeleteChecked
+    : modalTextDelete
 
   const deleteDogArray = dogsStore.dogs
     .filter(dog => dogsToDelete.includes(dog.id))
@@ -39,7 +43,7 @@ export const ModalWindow = observer(function ModalWindow() {
           <div className="modal-header bg-light b-0">
             <h5 className="modal-title"
                 id="staticBackdropLabel">
-              {modalText}
+              {t(modalText)}
             </h5>
             <button type="button"
                     onClick={closeModal}
@@ -54,13 +58,13 @@ export const ModalWindow = observer(function ModalWindow() {
                     onClick={deleteDogs}
                     className="btn btn-outline-danger"
                     data-bs-dismiss="modal">
-              Удалить
+              {t("ModalWindow.deleteButton")}
             </button>
             <button type="button"
                     onClick={closeModal}
                     className="btn btn-outline-primary"
                     data-bs-dismiss="modal">
-              Отмена
+              {t("ModalWindow.cancelButton")}
             </button>
           </div>
         </div>

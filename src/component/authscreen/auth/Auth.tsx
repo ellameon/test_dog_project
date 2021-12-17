@@ -74,8 +74,7 @@ export const Auth = observer(function Auth() {
       </div>
     </div>
     <div className=" row p-3 ">
-
-        <div className="col">
+        <div className="col submit-button">
           <button type="submit"
                   onClick={onSubmit}
                   className="btn button-top btn-outline-dark">
@@ -97,6 +96,5 @@ export const Auth = observer(function Auth() {
           </ul>
         </div>
       </div>
-
   </div>
 })
