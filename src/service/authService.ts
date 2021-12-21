@@ -4,7 +4,6 @@ import {authStore} from "../store/AuthStore";
 import {configStore} from "../store/ConfigStore";
 
 
-
 export function authService() {
 
   runInAction(() => {

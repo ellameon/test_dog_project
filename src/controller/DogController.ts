@@ -11,12 +11,22 @@ import {setLoginService} from "../service/setLoginService";
 import {setPasswordService} from "../service/setPasswordService";
 import {logOutService} from "../service/logOutService";
 import {authService} from "../service/authService";
+import {webSocketService} from "../service/webSocketService";
+import {webSocketSendService} from "../service/webSocketSendService";
 
 
 export class DogController {
 
   static openModal(dogIds: Array<number>): void {
     openModalService(dogIds)
+  }
+
+  static webSocket(): void {
+    webSocketService()
+  }
+
+  static webSocketSend(value: number): void{
+    webSocketSendService(value)
   }
 
   static getNewDog(): void {

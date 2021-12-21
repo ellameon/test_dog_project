@@ -21,6 +21,7 @@ export const Auth = observer(function Auth() {
 
   const onSubmit = useCallback(() => {
     DogController.auth()
+    DogController.webSocket()
   }, [])
 
   const onChangeLogin = useCallback((event: ChangeEvent<HTMLInputElement>) => {
