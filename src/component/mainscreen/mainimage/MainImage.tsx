@@ -17,7 +17,7 @@ export const MainImage = observer(function MainImage() {
   const isDogExists = lastDog !== undefined
   const stopButton = "MainScreen.buttons.stopTimerButton"
   const startButton = "MainScreen.buttons.startTimerButton"
-  const toggleButton = (timerStore.intervalId === 0) ? stopButton : startButton
+  const toggleButton = (timerStore.intervalId === 0) ? startButton : stopButton
 
 
   const changeDog = useCallback(() => {
@@ -27,7 +27,6 @@ export const MainImage = observer(function MainImage() {
 
   const timerToggle = useCallback(() => {
     DogController.toggleAutoRequest()
-
   }, [])
 
   return <div className="justify-content-center main-image-container">

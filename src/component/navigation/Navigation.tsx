@@ -12,7 +12,6 @@ import './Navigation.scss'
 export const Navigation = observer(function Navigation() {
 
   const userName = userStore.login
-
   const {t, i18n} = useTranslation();
   const cLanguage = (language: string) => {
     i18n.changeLanguage(language).then();
@@ -20,6 +19,7 @@ export const Navigation = observer(function Navigation() {
 
   const onLogOut = useCallback(() => {
     DogController.logOut()
+
   }, [])
 
   const isUserLogged = useIsLogged()

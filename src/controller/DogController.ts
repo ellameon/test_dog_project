@@ -11,8 +11,8 @@ import {setLoginService} from "../service/setLoginService";
 import {setPasswordService} from "../service/setPasswordService";
 import {logOutService} from "../service/logOutService";
 import {authService} from "../service/authService";
-import {webSocketService} from "../service/webSocketService";
-import {webSocketSendService} from "../service/webSocketSendService";
+import {getWebSocketService} from "../service/getWebSocketService";
+import {alertTimerSetService} from "../service/alertTimerSetService";
 
 
 export class DogController {
@@ -21,12 +21,8 @@ export class DogController {
     openModalService(dogIds)
   }
 
-  static webSocket(): void {
-    webSocketService()
-  }
-
-  static webSocketSend(value: number): void{
-    webSocketSendService(value)
+  static webSocketOpen(): WebSocket{
+    return getWebSocketService() as WebSocket;
   }
 
   static getNewDog(): void {
@@ -35,6 +31,10 @@ export class DogController {
 
   static closeModal(): void {
     closeModalService()
+  }
+
+  static alertShow(): void {
+    alertTimerSetService()
   }
 
   static changeIsChecked(id: number): void {
