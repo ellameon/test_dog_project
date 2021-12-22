@@ -1,21 +1,14 @@
 import {observer} from "mobx-react";
-import {useEffect, useState} from "react";
-import {webSocketStore} from "../../store/webSocketOpenStore";
+import React from "react";
+import {webSocketStore} from "../../store/webSocketStore";
+import {DogController} from "../../controller/DogController";
+import {alertShowStore} from "../../store/AlertShowStore";
 
 
 export const AlertTab = observer(function AlertTab() {
+  const isShown = alertShowStore.isAlertShown
 
-  const [isShown, setIsShown] = useState(true)
-
-  function AlertShow() {
-    setTimeout(() => {
-      setIsShown(false)
-    }, 5000)
-  }
-
-  useEffect(() => {
-    AlertShow()
-  }, [setIsShown])
+  DogController.alertShow()
 
   if (!isShown) {
     return <div/>
