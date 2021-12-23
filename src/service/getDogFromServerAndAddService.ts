@@ -7,12 +7,12 @@ import {DogToDataBase} from "../model/DogToDataBase";
 import {dogDataBaseStore} from "../store/DogDataBaseStore";
 import {addDogToDataBaseStoreService} from "./addDogToDataBaseStoreService";
 import {setDogsToDataBaseService} from "./setDogsToDataBaseService";
-import {getDogsFromDataBaseToStore} from "./getDogsFromDataBaseToStore";
+import {getDogsFromDataBaseToStoreService} from "./getDogsFromDataBaseToStoreService";
 
 
 export async function getDogFromServerAndAddService(): Promise<void> {
 
-  getDogsFromDataBaseToStore()
+  getDogsFromDataBaseToStoreService()
 
   await getDogTransport().then((dogDto) => {
 

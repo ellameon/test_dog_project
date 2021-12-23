@@ -2,7 +2,7 @@ import {dogDataBaseStore} from "../store/DogDataBaseStore";
 import {getDogsFromDataBaseService} from "./getDogsFromDataBaseService";
 
 
-export function getDogsFromDataBaseToStore(): void {
+export function getDogsFromDataBaseToStoreService(): void {
 
   const dogsFromDataBase = getDogsFromDataBaseService()
 
