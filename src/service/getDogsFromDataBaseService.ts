@@ -4,7 +4,9 @@ import {DogToDataBase} from "../model/DogToDataBase";
 
 export function getDogsFromDataBaseService(): Array<DogToDataBase> | undefined {
 
-  let dogsFromData = localStorage.getItem("dogsInBase")
+  const today = new Date().toLocaleDateString("ru")
+
+  let dogsFromData = localStorage.getItem(today)
   let dogsFromDataBase;
 
   runInAction(() => {

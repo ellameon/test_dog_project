@@ -7,6 +7,9 @@ export function setDogsToDataBaseService(): void {
   const dataJSON = JSON.stringify(dogsToDataBase)
 
   runInAction(() => {
-    localStorage.setItem("dogsInBase", dataJSON)
+
+    const today = new Date().toLocaleDateString("ru")
+
+    localStorage.setItem(today, dataJSON)
   })
 }
