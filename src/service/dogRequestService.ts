@@ -10,7 +10,6 @@ export function dogRequestService(): void {
 
     if (timerStore.intervalId === 0) {
       timerStore.intervalId = intervalRequestService()
-      intervalRequestService()
     } else {
       clearIntervalRequestService(timerStore.intervalId)
     }
