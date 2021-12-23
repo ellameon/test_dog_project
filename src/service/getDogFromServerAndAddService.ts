@@ -10,6 +10,7 @@ import {setDogsToDataBaseService} from "./setDogsToDataBaseService";
 import {getDogsFromDataBaseToStoreService} from "./getDogsFromDataBaseToStoreService";
 
 
+
 export async function getDogFromServerAndAddService(): Promise<void> {
 
   getDogsFromDataBaseToStoreService()
