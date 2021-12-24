@@ -1,4 +1,4 @@
-import {timerStore} from "../store/TimerStore";
+import {timerStore} from "../../store/TimerStore";
 import {runInAction} from "mobx";
 import {intervalRequestService} from "./intervalRequestService";
 import {clearIntervalRequestService} from "./clearIntervalRequestService";

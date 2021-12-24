@@ -1,5 +1,5 @@
-import {getUserTransport} from "../transport/getUserTransport";
-import {configStore} from "../store/ConfigStore";
+import {getUserTransport} from "../../transport/getUserTransport";
+import {configStore} from "../../store/ConfigStore";
 import {runInAction} from "mobx";
 
 

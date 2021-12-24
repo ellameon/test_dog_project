@@ -1,7 +1,7 @@
 import {runInAction} from "mobx";
-import {dogsStore} from "../store/DogStore";
-import {modalStore} from "../store/ModalStore";
-import {checkedDogsStore} from "../store/CheckedDogsStore";
+import {dogsStore} from "../../store/DogStore";
+import {modalStore} from "../../store/ModalStore";
+import {checkedDogsStore} from "../../store/CheckedDogsStore";
 
 
 export function deleteDogsService(): void {

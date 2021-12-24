@@ -1,7 +1,7 @@
 import {runInAction} from "mobx";
 import {getWebSocketService} from "./getWebSocketService";
-import {webSocketStore} from "../store/webSocketStore";
-import {useIsLogged} from "../hook/useIsLogged";
+import {webSocketStore} from "../../store/webSocketStore";
+import {useIsLogged} from "../../hook/useIsLogged";
 
 export function webSocketSendService(value: number): void {
 

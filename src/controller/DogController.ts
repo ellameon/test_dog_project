@@ -1,18 +1,18 @@
-import {getDogFromServerAndAddService} from "../service/getDogFromServerAndAddService";
-import {closeModalService} from "../service/closeModalService";
-import {toggleCheckedDogService} from "../service/toggleCheckedDogService";
-import {openModalService} from "../service/openModalService";
-import {deleteDogsService} from "../service/deleteDogsService";
-import {toggleRequestService} from "../service/toggleRequestService";
-import {dogRequestService} from "../service/dogRequestService";
-import {autoRequestRestartService} from "../service/autoRequestRestartService";
-import {configService} from "../service/configService";
-import {setLoginService} from "../service/setLoginService";
-import {setPasswordService} from "../service/setPasswordService";
-import {logOutService} from "../service/logOutService";
-import {authService} from "../service/authService";
-import {getWebSocketService} from "../service/getWebSocketService";
-import {alertTimerSetService} from "../service/alertTimerSetService";
+import {getDogFromServerService} from "../service/dogoperationservice/getDogFromServerService";
+import {closeModalService} from "../service/modalservice/closeModalService";
+import {toggleCheckedDogService} from "../service/dogoperationservice/toggleCheckedDogService";
+import {openModalService} from "../service/modalservice/openModalService";
+import {deleteDogsService} from "../service/dogoperationservice/deleteDogsService";
+import {toggleRequestService} from "../service/requestservice/toggleRequestService";
+import {dogRequestService} from "../service/requestservice/dogRequestService";
+import {autoRequestRestartService} from "../service/requestservice/autoRequestRestartService";
+import {configService} from "../service/configservise/configService";
+import {setLoginService} from "../service/authservice/setLoginService";
+import {setPasswordService} from "../service/authservice/setPasswordService";
+import {logOutService} from "../service/authservice/logOutService";
+import {authService} from "../service/authservice/authService";
+import {getWebSocketService} from "../service/websocketservice/getWebSocketService";
+import {alertTimerSetService} from "../service/alertservice/alertTimerSetService";
 
 
 export class DogController {
@@ -26,7 +26,7 @@ export class DogController {
   }
 
   static getNewDog(): void {
-    getDogFromServerAndAddService().then()
+    getDogFromServerService().then()
   }
 
   static closeModal(): void {

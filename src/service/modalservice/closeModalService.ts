@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {modalStore} from "../store/ModalStore";
+import {modalStore} from "../../store/ModalStore";
 
 
 export function closeModalService(): void {

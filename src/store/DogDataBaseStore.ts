@@ -1,12 +1,14 @@
-import {DogToDataBase} from "../model/DogToDataBase";
+import {DogJournalRecord} from "../model/DogDtoToDataBase";
 import {observable} from "mobx";
 
-export interface DogDataBaseStore  {
-  dogsToDataBase: Array<DogToDataBase>,
-  dogsToDataBaseLastId: number
+export interface DogDataBaseStore {
+  init: boolean
+  dogs: Array<DogJournalRecord>,
+  dogsLastId: number
 }
 
 export const dogDataBaseStore = observable<DogDataBaseStore>({
-  dogsToDataBase: [],
-  dogsToDataBaseLastId: 0
+  init: false,
+  dogs: [],
+  dogsLastId: 0
 })

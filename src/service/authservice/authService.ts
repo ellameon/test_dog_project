@@ -1,7 +1,7 @@
 import {runInAction} from "mobx";
-import {userStore} from "../store/UserStore";
-import {authStore} from "../store/AuthStore";
-import {configStore} from "../store/ConfigStore";
+import {userStore} from "../../store/UserStore";
+import {authStore} from "../../store/AuthStore";
+import {configStore} from "../../store/ConfigStore";
 
 
 export function authService() {
