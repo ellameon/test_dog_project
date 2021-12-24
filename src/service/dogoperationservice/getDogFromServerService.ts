@@ -5,6 +5,8 @@ import {addDogToStoreService} from "./addDogToStoreService";
 import {DogDto} from "../../model/DogDto";
 import {DogDtoToDataBase} from "../../model/DogDtoToDataBase";
 import {saveDogToDataBaseService} from "../databaseservice/saveDogToDataBaseService";
+import {fillJournalStoreFromDataBaseService} from "../databaseservice/fillJournalStoreFromDataBaseService";
+import {setDateRangeService} from "../databaseservice/setDateRangeService";
 
 
 export async function getDogFromServerService(): Promise<void> {
@@ -12,6 +14,7 @@ export async function getDogFromServerService(): Promise<void> {
   await getDogTransport().then((dogDto) => {
     const dog = convertDogDtoToDog(dogDto);
     const dogDtoToDataBase = convertDogDtoToDogDbDto(dogDto)
+    fillJournalStoreFromDataBaseService(setDateRangeService())
     addDogToStoreService(dog)
     saveDogToDataBaseService(dogDtoToDataBase)
   })

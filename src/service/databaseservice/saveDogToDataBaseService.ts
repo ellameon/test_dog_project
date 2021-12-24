@@ -6,7 +6,6 @@ import {dogDataBaseStore} from "../../store/DogDataBaseStore";
 
 
 export function saveDogToDataBaseService(dogToDataBase: DogDtoToDataBase): void {
-  console.log("saveDogToDataBaseService run")
   fillDbStoreFromDataBaseService()
   const journalRecord = createDogJournalRecord(dogToDataBase)
   addDogToDataBaseStoreService(journalRecord)
