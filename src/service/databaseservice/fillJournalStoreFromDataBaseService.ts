@@ -1,6 +1,6 @@
 import {runInAction} from "mobx";
 import {journalStore} from "../../store/JournalStore";
-import {createDateRangeService} from "./createDateRangeService";
+import {createDateRangeService} from "../dateservice/createDateRangeService";
 import {DogJournalRecord} from "../../model/DogDtoToDataBase";
 import {dateStore} from "../../store/DateStore";
 
@@ -21,7 +21,7 @@ export function fillJournalStoreFromDataBaseService(): void {
     if (dogsOfDayFromDBJSON !== null) {
       const dogsOfDayFromDB: Array<DogJournalRecord> = JSON.parse(dogsOfDayFromDBJSON)
 
-      dogsOfDayFromDB.forEach(dog => {
+      dogsOfDayFromDB.forEach(function (dog): void {
         dog.id = dog.id + (allDogsFromDB.length)
       })
       allDogsFromDB = allDogsFromDB.concat(dogsOfDayFromDB)
