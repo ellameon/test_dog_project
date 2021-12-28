@@ -1,7 +1,10 @@
 .journal {
+  width: 750px;
+
   .journal-header {
     text-align: center;
     font-size: 30px;
+    max-width: 750px;
   }
 
   .journal-button {

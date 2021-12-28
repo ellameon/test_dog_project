@@ -35,6 +35,7 @@
     "url": "Url",
 
     "JournalHeader": {
+      "header": "Dog request journal",
       "chooseDate": "Choose date",
       "fromDate": "From date",
       "toDate": "To date",

@@ -28,6 +28,9 @@ export const JournalTable = observer(function JournalTable() {
     <div className="journal">
       <div className="row p-3">
         <div className="journal-header">
+          {t("JournalScreen.JournalHeader.header")}
+        </div>
+        <div className="journal-header">
           {t("JournalScreen.JournalHeader.chooseDate")}
         </div>
         <div className='col'>
