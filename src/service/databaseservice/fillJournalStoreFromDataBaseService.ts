@@ -20,7 +20,6 @@ export function fillJournalStoreFromDataBaseService(): void {
     const dogsOfDayFromDBJSON = localStorage.getItem(key)
     if (dogsOfDayFromDBJSON !== null) {
       const dogsOfDayFromDB: Array<DogJournalRecord> = JSON.parse(dogsOfDayFromDBJSON)
-
       for (const dogJournalRecord of dogsOfDayFromDB) {
         dogJournalRecord.id = dogJournalRecord.id + allDogsFromDB.length
       }
@@ -30,7 +29,5 @@ export function fillJournalStoreFromDataBaseService(): void {
   runInAction(() => {
     journalStore.dogs = [...allDogsFromDB]
   })
-
-  console.log(journalStore.dogs.length)
 }
 
