@@ -21,12 +21,24 @@
   },
   "Navigation": {
     "mainScreen": "Главная страница",
-    "secondScreen": "Вторая страница"
+    "journalScreen": "Страница журнала"
   },
   "ModalWindow": {
     "cancelButton": "Отмена",
     "deleteButton": "Удалить",
     "modalTextDelete": "Вы желаете удалить?",
     "modalTextDeleteChecked": "Вы желаете удалить выбранные картинки?"
+  },
+  "JournalScreen": {
+    "id": "Номер",
+    "date": "Дата",
+    "url": "Адрес",
+
+    "JournalHeader": {
+      "chooseDate": "Выберите даты",
+      "fromDate": "Начальная дата",
+      "toDate": "Конечная дата",
+      "journalButton": "Обновить журнал"
+    }
   }
 }

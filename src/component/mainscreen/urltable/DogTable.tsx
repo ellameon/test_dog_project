@@ -11,6 +11,7 @@ export const DogTable = observer(function DogTable() {
 
   return <>
     <div className="dog-table">
+
       <table className="table">
         <thead>
         <tr>

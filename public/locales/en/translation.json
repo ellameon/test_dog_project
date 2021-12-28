@@ -21,12 +21,24 @@
   },
   "Navigation": {
     "mainScreen": "Main page",
-    "secondScreen": "Second page"
+    "journalScreen": "Journal page"
   },
   "ModalWindow": {
   "cancelButton": "Cancel",
   "deleteButton": "Delete",
   "modalTextDelete": "Do you want to delete?",
   "modalTextDeleteChecked": "Do you want to delete chosen pictures?"
-}
+},
+  "JournalScreen": {
+    "id": "Id",
+    "date": "Date",
+    "url": "Url",
+
+    "JournalHeader": {
+      "chooseDate": "Choose date",
+      "fromDate": "From date",
+      "toDate": "To date",
+      "journalButton": "Refresh journal"
+    }
+  }
 }

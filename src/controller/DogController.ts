@@ -13,6 +13,9 @@ import {logOutService} from "../service/authservice/logOutService";
 import {authService} from "../service/authservice/authService";
 import {getWebSocketService} from "../service/websocketservice/getWebSocketService";
 import {alertTimerSetService} from "../service/alertservice/alertTimerSetService";
+import {setFromDateService} from "../service/setFromDateService";
+import {setToDateService} from "../service/setToDateService";
+import {fillJournalStoreFromDataBaseService} from "../service/databaseservice/fillJournalStoreFromDataBaseService";
 
 
 export class DogController {
@@ -75,5 +78,17 @@ export class DogController {
 
   static logOut(): void {
     logOutService()
+  }
+
+  static setFromDate(fromDate: Date): void {
+    setFromDateService(fromDate)
+  }
+
+  static setToDate(toDate: Date): void {
+    setToDateService(toDate)
+  }
+
+  static fillJournalStoreFromDataBase(): void {
+    fillJournalStoreFromDataBaseService()
   }
 }

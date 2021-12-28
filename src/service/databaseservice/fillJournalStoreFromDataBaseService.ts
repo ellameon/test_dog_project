@@ -1,24 +1,36 @@
-import {selectDogsOfDateFromDataBaseService} from "./selectDogsOfDateFromDataBaseService";
 import {runInAction} from "mobx";
 import {journalStore} from "../../store/JournalStore";
+import {createDateRangeService} from "./createDateRangeService";
+import {DogJournalRecord} from "../../model/DogDtoToDataBase";
+import {dateStore} from "../../store/DateStore";
 
 
-export function fillJournalStoreFromDataBaseService(dateRange: Array<string>): void {
+export function fillJournalStoreFromDataBaseService(): void {
 
+  const fromDate = dateStore.fromDate
+  const toDate = dateStore.toDate
+
+  const dateRange = createDateRangeService(fromDate, toDate)
   const dateRangeLength = dateRange.length
-  const date = new Date().toLocaleDateString("ru")
+  let allDogsFromDB: Array<DogJournalRecord> = []
 
-  for (let i = Number(dateRange[0]); i <= Number(dateRange[dateRangeLength - 1]); i++) {
-    const dataKey = localStorage.key(i)
-    console.log(dataKey)
-    if (typeof dataKey === typeof date && dataKey !== null) {
-      const dogsOfDateFromDataBase = selectDogsOfDateFromDataBaseService(dataKey)
-      if (dogsOfDateFromDataBase !== undefined) {
-        runInAction(() => {
-          journalStore.dogs = journalStore.dogs.concat(dogsOfDateFromDataBase)
-        })
-      }
+  for (let i = 0; i <= dateRangeLength; i++) {
+    const key = dateRange[i]
+
+    const dogsOfDayFromDBJSON = localStorage.getItem(key)
+    if (dogsOfDayFromDBJSON !== null) {
+      const dogsOfDayFromDB: Array<DogJournalRecord> = JSON.parse(dogsOfDayFromDBJSON)
+
+      dogsOfDayFromDB.forEach(dog => {
+        dog.id = dog.id + (allDogsFromDB.length)
+      })
+      allDogsFromDB = allDogsFromDB.concat(dogsOfDayFromDB)
     }
   }
+  runInAction(() => {
+    journalStore.dogs = [...allDogsFromDB]
+  })
+
   console.log(journalStore.dogs.length)
 }
+

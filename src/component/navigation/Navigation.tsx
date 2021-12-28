@@ -101,7 +101,7 @@ export const Navigation = observer(function Navigation() {
                 {userName !== 'operator' &&
                   (<li className="nav-item">
                     <NavLink className="nav-link"
-                             to="/SecondScreen">{t("Navigation.secondScreen")}</NavLink>
+                             to="/JournalScreen">{t("Navigation.journalScreen")}</NavLink>
                   </li>)}
               </ul>
             </div>
