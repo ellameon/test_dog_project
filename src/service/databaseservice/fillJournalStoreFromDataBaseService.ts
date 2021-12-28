@@ -21,9 +21,9 @@ export function fillJournalStoreFromDataBaseService(): void {
     if (dogsOfDayFromDBJSON !== null) {
       const dogsOfDayFromDB: Array<DogJournalRecord> = JSON.parse(dogsOfDayFromDBJSON)
 
-      dogsOfDayFromDB.forEach(function (dog): void {
-        dog.id = dog.id + (allDogsFromDB.length)
-      })
+      for (const dogJournalRecord of dogsOfDayFromDB) {
+        dogJournalRecord.id = dogJournalRecord.id + allDogsFromDB.length
+      }
       allDogsFromDB = allDogsFromDB.concat(dogsOfDayFromDB)
     }
   }
