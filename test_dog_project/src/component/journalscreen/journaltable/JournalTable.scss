@@ -1,0 +1,37 @@
+.journal {
+  width: 750px;
+
+  .journal-header {
+    text-align: center;
+    font-size: 30px;
+    max-width: 750px;
+  }
+
+  .journal-button {
+    display: flex;
+    justify-content: center;
+  }
+  .journal-id {
+    width: 80px;
+  }
+
+  .journal-table {
+    height: 500px;
+    overflow: auto;
+    top: 20vh;
+    width: 750px;
+
+    .dog-anchor {
+      color: black;
+      max-width: 400px;
+      display: block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  .journal-table-head-url {
+    width: 430px;
+  }
+}

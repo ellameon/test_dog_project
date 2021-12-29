@@ -1,6 +1,6 @@
 import {runInAction} from "mobx";
-import {webSocketStore} from "../store/webSocketStore";
-import {userStore} from "../store/UserStore";
+import {webSocketStore} from "../../store/webSocketStore";
+import {userStore} from "../../store/UserStore";
 
 let webSocket: WebSocket | undefined
 

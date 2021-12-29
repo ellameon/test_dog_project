@@ -1,5 +1,6 @@
 import {runInAction} from "mobx";
-import {webSocketStore} from "../store/webSocketStore";
+import {webSocketStore} from "../../store/webSocketStore";
+
 
 export function closeWebSocketService(webSocket: WebSocket): void {
 
