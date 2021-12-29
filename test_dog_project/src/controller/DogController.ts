@@ -16,6 +16,7 @@ import {alertTimerSetService} from "../service/alertservice/alertTimerSetService
 import {setFromDateService} from "../service/dateservice/setFromDateService";
 import {setToDateService} from "../service/dateservice/setToDateService";
 import {fillJournalStoreFromDataBaseService} from "../service/databaseservice/fillJournalStoreFromDataBaseService";
+import {setIdToFindService} from "../service/databaseservice/setIdToFindService";
 
 
 export class DogController {
@@ -90,5 +91,9 @@ export class DogController {
 
   static fillJournalStoreFromDataBase(): void {
     fillJournalStoreFromDataBaseService()
+  }
+
+  static setIdToFind(findId: number): void {
+    setIdToFindService(findId)
   }
 }

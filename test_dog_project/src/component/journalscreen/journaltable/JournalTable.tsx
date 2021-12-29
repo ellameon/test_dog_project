@@ -10,6 +10,15 @@ import {DogController} from "../../../controller/DogController";
 export const JournalTable = observer(function JournalTable() {
 
   const {t} = useTranslation()
+  const findId = journalStore.idToFind
+  const recordsToShow = (findId === 0)
+    ? journalStore.dogs.map((journalRecord) => (
+      <JournalTableField key={journalRecord.id} dog={journalRecord}/>
+    ))
+    :
+    <JournalTableField key={journalStore.dogs[findId].id} dog={journalStore.dogs[findId - 1]}/>
+
+
   const onChangeFromDate = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const fromDate = event.target.value
     DogController.setFromDate(new Date(fromDate))
@@ -18,6 +27,12 @@ export const JournalTable = observer(function JournalTable() {
   const onChangeToDate = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const toDate = event.target.value
     DogController.setToDate(new Date(toDate))
+  }, [])
+
+  const onFindId = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    const findId = event.target.value
+    DogController.setIdToFind(Number(findId))
+    DogController.fillJournalStoreFromDataBase()
   }, [])
 
   const refreshJournal = useCallback(() => {
@@ -57,12 +72,24 @@ export const JournalTable = observer(function JournalTable() {
             </div>
           </form>
         </div>
-      </div>
-      <div className="journal-button">
-        <button className="btn btn-outline-secondary"
-                onClick={refreshJournal}>
-          {t("JournalScreen.JournalHeader.journalButton")}
-        </button>
+        <div className='col'>
+          <form>
+            <div>
+              <label htmlFor="findId">{t("JournalScreen.JournalHeader.findId")}</label>
+              <input className='form-control'
+                     type="number"
+                     id="findId"
+                     onChange={onFindId}
+                     name="findId"/>
+            </div>
+          </form>
+        </div>
+        <div className=" col journal-button">
+          <button className="btn btn-outline-secondary"
+                  onClick={refreshJournal}>
+            {t("JournalScreen.JournalHeader.journalButton")}
+          </button>
+        </div>
       </div>
       <div className='journal-table-head'>
         <table className="table">
@@ -84,9 +111,9 @@ export const JournalTable = observer(function JournalTable() {
       <div className="journal-table">
         <table className="table">
           <tbody>
-          {journalStore.dogs.map((journalRecord) => (
-            <JournalTableField key={journalRecord.id} dog={journalRecord}/>
-          ))}
+
+          {recordsToShow}
+
           </tbody>
         </table>
       </div>
