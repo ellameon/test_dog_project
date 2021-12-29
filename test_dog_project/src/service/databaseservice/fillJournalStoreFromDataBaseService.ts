@@ -14,6 +14,7 @@ export function fillJournalStoreFromDataBaseService(): void {
   const dateRangeLength = dateRange.length
   let allDogsFromDB: Array<DogJournalRecord> = []
 
+
   for (let i = 0; i <= dateRangeLength; i++) {
     const key = dateRange[i]
 
