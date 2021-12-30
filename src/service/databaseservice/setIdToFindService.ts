@@ -7,13 +7,11 @@ export function setIdToFindService(findId: number): void {
   if (journalStore.dogs === []) {
     return
   }
-  if (findId > journalStore.dogs.length) {
-    runInAction(() => {
+  runInAction(() => {
+    if (findId > journalStore.dogs.length) {
       journalStore.idToFind = journalStore.dogs.length
-    })
-  } else {
-    runInAction(() => {
+    } else {
       journalStore.idToFind = Math.abs(findId)
-    })
-  }
+    }
+  })
 }

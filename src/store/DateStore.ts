@@ -6,6 +6,6 @@ export interface DateStore {
 }
 
 export const dateStore = observable<DateStore>({
-  fromDate: new Date(2021, 11 , 23),
+  fromDate: new Date(),
   toDate:  new Date()
 })

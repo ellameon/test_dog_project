@@ -11,7 +11,7 @@ export const JournalTable = observer(function JournalTable() {
 
   const {t} = useTranslation()
   const recordsToShow =
-     journalStore.dogs.map((journalRecord) => (
+    journalStore.dogs.map((journalRecord) => (
       <JournalTableField key={journalRecord.id} dog={journalRecord}/>
     ))
 
