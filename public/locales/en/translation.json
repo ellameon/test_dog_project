@@ -36,10 +36,10 @@
 
     "JournalHeader": {
       "header": "Dog request journal",
-      "chooseDate": "Choose date",
+      "findId": "Id",
       "fromDate": "From date",
       "toDate": "To date",
-      "journalButton": "Refresh journal"
+      "journalButton": "Apply"
     }
   }
 }

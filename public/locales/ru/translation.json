@@ -36,10 +36,10 @@
 
     "JournalHeader": {
       "header": "Журнал запросов собак",
-      "chooseDate": "Выберите даты",
+      "findId": "Номер",
       "fromDate": "Начальная дата",
       "toDate": "Конечная дата",
-      "journalButton": "Обновить журнал"
+      "journalButton": "Применить"
     }
   }
 }

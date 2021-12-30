@@ -12,7 +12,7 @@ export const JournalTableField = observer(function JournalTableField(props: Prop
   const dog = props.dog
   const dogId = dog.id
   const dogUrl = dog.url
-  const dogDate = dog.date
+  const dogDate = dog.date.toLocaleString('ru')
 
   return <>
     <tr>
