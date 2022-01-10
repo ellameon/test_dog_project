@@ -5,6 +5,10 @@
     "password": "Password",
     "error": "Wrong login or password"
   },
+  "AlertTab": {
+    "connect": "You are connected to server! Server is greeting Dogs!",
+    "disconnect": "You are not connected to server!"
+  },
   "SubmitButton": "Log in",
   "MainScreen": {
     "buttons": {
