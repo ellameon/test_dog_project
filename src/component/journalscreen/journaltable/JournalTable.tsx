@@ -62,7 +62,6 @@ export const JournalTable = observer(function JournalTable() {
                      type="date"
                      id="toDate"
                      onChange={onChangeToDate}
-
                      name="toDate"/>
             </div>
           </form>

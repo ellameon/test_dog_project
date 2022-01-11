@@ -9,7 +9,6 @@ export function selectJournalRecordService(): void {
       if (findedDog !== undefined) {
         journalStore.dogsToShow = [findedDog]
       }
-
     })
   }
 }

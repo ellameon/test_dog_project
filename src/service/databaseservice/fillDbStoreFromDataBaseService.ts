@@ -14,7 +14,6 @@ export function fillDbStoreFromDataBaseService(): void {
         dogDataBaseStore.dogs = dogsRecords
         dogDataBaseStore.dogsLastId = lastDogRecord.id
         dogDataBaseStore.init = true
-        console.log(dogDataBaseStore.dogsLastId)
       })
     }
   }

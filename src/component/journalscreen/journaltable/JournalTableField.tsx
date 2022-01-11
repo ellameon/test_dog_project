@@ -1,6 +1,7 @@
 import {observer} from "mobx-react";
 import React from "react";
 import {DogJournalRecord} from "../../../model/DogDtoToDataBase";
+import {format} from "date-fns"
 
 
 type Props = {
@@ -12,7 +13,7 @@ export const JournalTableField = observer(function JournalTableField(props: Prop
   const dog = props.dog
   const dogId = dog.id
   const dogUrl = dog.url
-  const dogDate =new Date(dog.date).toLocaleDateString('ru') + ' ' +  new Date(dog.date).toLocaleTimeString('ru')
+  const dogDate = format(dog.date, 'dd.MM.yyyy HH:mm:ss')
 
   return <>
     <tr>

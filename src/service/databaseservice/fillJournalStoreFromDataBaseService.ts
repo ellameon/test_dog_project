@@ -14,7 +14,6 @@ export function fillJournalStoreFromDataBaseService(): void {
   const dateRangeLength = dateRange.length
   let allDogsFromDB: Array<DogJournalRecord> = []
 
-
   for (let i = 0; i <= dateRangeLength; i++) {
     const key = dateRange[i]
 
@@ -23,6 +22,8 @@ export function fillJournalStoreFromDataBaseService(): void {
       const dogsOfDayFromDB: Array<DogJournalRecord> = JSON.parse(dogsOfDayFromDBJSON)
       for (const dogJournalRecord of dogsOfDayFromDB) {
         dogJournalRecord.id = dogJournalRecord.id + allDogsFromDB.length
+        const strDate = dogJournalRecord.date
+        dogJournalRecord.date = new Date(strDate)
       }
       allDogsFromDB = allDogsFromDB.concat(dogsOfDayFromDB)
     }

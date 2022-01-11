@@ -12,7 +12,7 @@ export const AlertTab = observer(function AlertTab() {
   const isShown = alertShowStore.isAlertShown
   const socket: boolean = webSocketStore.isWebSocketOpen
   const alertClass: string = (socket) ? "alert alert-secondary alert-tab" : "alert alert-danger alert-tab"
-  const alertText = (socket) ? "AlertTab.connect" : "AlertTab.disconnect"
+  const alertText = (socket) ? t("AlertTab.connect") : t("AlertTab.disconnect")
 
   DogController.alertShow()
 
@@ -22,7 +22,7 @@ export const AlertTab = observer(function AlertTab() {
 
   return <div>
     <div className={alertClass} role="alert">
-      {t(alertText)}
+      {alertText}
     </div>
   </div>
 
