@@ -1,7 +1,8 @@
 export function createDateRangeService(fromDate: Date, toDate: Date): Array<string> {
 
   const daysRange = []
-  let currentDate = fromDate
+
+  let currentDate = new Date(fromDate)
 
   while (currentDate <= toDate) {
     daysRange.push(currentDate.toLocaleDateString('ru'))

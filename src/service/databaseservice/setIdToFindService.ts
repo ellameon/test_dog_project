@@ -8,7 +8,7 @@ export function setIdToFindService(findId: number): void {
     return
   }
   runInAction(() => {
-    if (findId > journalStore.dogs.length) {
+    if (Math.abs(findId) > journalStore.dogs.length) {
       journalStore.idToFind = journalStore.dogs.length
     } else {
       journalStore.idToFind = Math.abs(findId)

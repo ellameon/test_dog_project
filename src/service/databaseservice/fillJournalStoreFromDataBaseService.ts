@@ -30,7 +30,7 @@ export function fillJournalStoreFromDataBaseService(): void {
   }
   runInAction(() => {
     journalStore.dogs = [...allDogsFromDB]
-    journalStore.dogsToShow = []
+    journalStore.dogsToShow = journalStore.dogs
   })
 }
 

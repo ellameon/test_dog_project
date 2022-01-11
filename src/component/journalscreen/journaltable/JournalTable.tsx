@@ -11,10 +11,9 @@ export const JournalTable = observer(function JournalTable() {
 
   const {t} = useTranslation()
   const recordsToShow =
-    journalStore.dogs.map((journalRecord) => (
+    journalStore.dogsToShow.map((journalRecord) => (
       <JournalTableField key={journalRecord.id} dog={journalRecord}/>
     ))
-
   const onChangeFromDate = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const fromDate = event.target.value
     DogController.setFromDate(new Date(fromDate))
@@ -28,7 +27,6 @@ export const JournalTable = observer(function JournalTable() {
   const onFindId = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const findId = event.target.value
     DogController.setIdToFind(Number(findId))
-    DogController.fillJournalStoreFromDataBase()
   }, [])
 
   const refreshJournal = useCallback(() => {
