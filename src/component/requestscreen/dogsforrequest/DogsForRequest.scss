@@ -1,0 +1,17 @@
+.dog-request {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 150px;
+
+  img {
+    border: none;
+    width: 140px;
+    height: 100px;
+    display: block;
+    background: #ccc;
+    transition: transform .2s ease-in-out;
+    cursor: pointer;
+  }
+  img:hover  {
+    transform: scale(1.15);
+  }
+}

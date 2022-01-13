@@ -19,12 +19,15 @@ export const Navigation = observer(function Navigation() {
 
   const onLogOut = useCallback(() => {
     DogController.logOut()
-
   }, [])
 
   const journalRequest = useCallback(() => {
     DogController.fillJournalStoreFromDataBase()
   }, [])
+
+  const dogRequest = useCallback(() => {
+    DogController.fillRequestStoreFromDataBase()
+  },[])
 
   const isUserLogged = useIsLogged()
   if (!isUserLogged) {
@@ -107,7 +110,12 @@ export const Navigation = observer(function Navigation() {
                     <NavLink className="nav-link"
                              to="/JournalScreen">{t("Navigation.journalScreen")}
                     </NavLink>
-
+                  </li>)}
+                {userName !== 'operator' &&
+                  (<li onClick={dogRequest} className="nav-item">
+                    <NavLink className="nav-link"
+                             to="/RequestScreen">{t("Navigation.requestScreen")}
+                    </NavLink>
                   </li>)}
               </ul>
             </div>

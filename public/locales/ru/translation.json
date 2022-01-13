@@ -25,7 +25,8 @@
   },
   "Navigation": {
     "mainScreen": "Главная страница",
-    "journalScreen": "Страница журнала"
+    "journalScreen": "Страница журнала",
+    "requestScreen": "Страница выбора собаки"
   },
   "ModalWindow": {
     "cancelButton": "Отмена",
@@ -44,6 +45,25 @@
       "fromDate": "Начальная дата",
       "toDate": "Конечная дата",
       "journalButton": "Применить"
+    }
+  },
+  "RequestScreen": {
+    "chooseDog": "Заказ собаки",
+    "RequestClient": {
+      "clientInfo": "Расскажите о себе",
+      "surname": "Фамилия",
+      "firstName": "Имя",
+      "secondName": "Отчество",
+      "email": "E-mail",
+      "phone": "Телефон"
+    },
+    "RequestAddress": {
+      "requestAddress": "Адрес доставки",
+      "country": "Страна",
+      "city": "Город",
+      "street": "Улица",
+      "house": "Дом",
+      "apartment": "Кв"
     }
   }
 }

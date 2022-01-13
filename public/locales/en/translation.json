@@ -25,7 +25,8 @@
   },
   "Navigation": {
     "mainScreen": "Main page",
-    "journalScreen": "Journal page"
+    "journalScreen": "Journal page",
+    "requestScreen": "Dog request page"
   },
   "ModalWindow": {
   "cancelButton": "Cancel",
@@ -44,6 +45,25 @@
       "fromDate": "From date",
       "toDate": "To date",
       "journalButton": "Apply"
+    }
+  },
+  "RequestScreen": {
+    "chooseDog": "Dog request",
+    "RequestClient": {
+      "clientInfo": "Tell about you",
+      "surname": "Surname",
+      "firstName": "First name",
+      "secondName": "Second name",
+      "email": "E-mail",
+      "phone": "Phone"
+    },
+    "RequestAddress": {
+      "requestAddress": "Delivery address",
+      "country": "Country",
+      "city": "City",
+      "street": "Street",
+      "house": "House",
+      "apartment": "Apt"
     }
   }
 }

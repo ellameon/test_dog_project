@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {AuthScreen} from "./component/authscreen/AuthScreen";
 import {DogController} from "./controller/DogController";
 import {JournalScreen} from "./component/journalscreen/JournalScreen";
+import {RequestScreen} from "./component/requestscreen/RequestScreen";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='AuthScreen' element={<AuthScreen/>}/>
         <Route path="MainScreen" element={<MainScreen/>}/>
         <Route path="JournalScreen" element={<JournalScreen/>}/>
+        <Route path="RequestScreen" element={<RequestScreen/>}/>
       </Routes>
     </BrowserRouter>
   </>

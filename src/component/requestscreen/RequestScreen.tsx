@@ -1,17 +1,16 @@
 import {observer} from "mobx-react";
 import {Navigation} from "../navigation/Navigation";
 import React from "react";
-import {JournalTable} from "./journaltable/JournalTable";
+import {RequestForm} from "./requestform/RequestForm";
 
 
-export const JournalScreen = observer(function JournalScreen() {
-
+export const RequestScreen = observer(function RequestScreen() {
   return <div>
     <Navigation/>
     <div className="main-screen m-0">
       <div className="row justify-content-md-center m-0">
         <div className="col-md-auto">
-          <JournalTable/>
+          <RequestForm/>
         </div>
       </div>
     </div>
