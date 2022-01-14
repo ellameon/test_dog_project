@@ -5,7 +5,7 @@ import {timerStore} from "../../store/TimerStore";
 import {clearIntervalRequestService} from "../requestservice/clearIntervalRequestService";
 import {DogController} from "../../controller/DogController";
 import {closeWebSocketService} from "../websocketservice/closeWebSocketService";
-import {dogsStore} from "../../store/DogStore";
+import {dogsStore} from "../../store/DogRecordsStore";
 import {checkedDogsStore} from "../../store/CheckedDogsStore";
 import {modalStore} from "../../store/ModalStore";
 

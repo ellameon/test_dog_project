@@ -1,6 +1,6 @@
 import {observable} from "mobx";
 
-export interface DogRequestOrderStore {
+export interface DogRecordRequestOrderStore {
   surname: string
   firstName: string
   secondName:  string
@@ -15,7 +15,7 @@ export interface DogRequestOrderStore {
   choosedDogUrl: string
 }
 
-export const dogRequestOrderStore = observable<DogRequestOrderStore>({
+export const dogRequestOrderStore = observable<DogRecordRequestOrderStore>({
   surname: '',
   firstName: '',
   secondName:  '',

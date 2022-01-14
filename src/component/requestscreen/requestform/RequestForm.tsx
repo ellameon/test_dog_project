@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {ChangeEvent, useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
 import {Pagination} from "../pagination/Pagination";
-import {dogRequestStore} from "../../../store/DogRequestStore";
+import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {DogsForRequest} from "../dogsforrequest/DogsForRequest";
 
 

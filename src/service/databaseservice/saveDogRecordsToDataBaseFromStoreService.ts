@@ -1,7 +1,8 @@
-import {dogDataBaseStore} from "../../store/DogDataBaseStore";
+import {dogDataBaseStore} from "../../store/DogRecordsDataBaseStore";
 import {runInAction} from "mobx";
 
-export function saveDogsToDataBaseFromStoreService(): void {
+
+export function saveDogRecordsToDataBaseFromStoreService(): void {
 
   const dogsToDataBase = dogDataBaseStore.dogs
   const dataJSON = JSON.stringify(dogsToDataBase)

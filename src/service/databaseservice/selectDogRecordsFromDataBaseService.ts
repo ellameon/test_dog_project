@@ -1,7 +1,7 @@
 import {Dog} from "../../model/Dog";
 
 
-export function selectDogsFromDataBaseService(): Array<Dog> | undefined {
+export function selectDogRecordsFromDataBaseService(): Array<Dog> | undefined {
 
   const date = new Date().toLocaleDateString("ru")
 

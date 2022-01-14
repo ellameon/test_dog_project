@@ -1,4 +1,4 @@
-import {dogRequestStore} from "../../store/DogRequestStore";
+import {dogRequestStore} from "../../store/DogRecordRequestStore";
 import {runInAction} from "mobx";
 
 export function fillPagesToShowService(): void {

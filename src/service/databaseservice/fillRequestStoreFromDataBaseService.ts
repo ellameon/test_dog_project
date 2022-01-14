@@ -1,7 +1,7 @@
 import {fillStoresFromDataBaseService} from "./fillStoresFromDataBaseService";
-import {dogRequestStore} from "../../store/DogRequestStore";
+import {dogRequestStore} from "../../store/DogRecordRequestStore";
 import {runInAction} from "mobx";
-import {fillDogsOnPageService} from "../paginationservice/fillDogsOnPageService";
+import {fillDogRecordsOnPageService} from "../paginationservice/fillDogRecordsOnPageService";
 
 
 export function fillRequestStoreFromDataBaseService(): void {
@@ -18,5 +18,5 @@ export function fillRequestStoreFromDataBaseService(): void {
       dogRequestStore.pagesCount.push(i)
     }
   })
-  fillDogsOnPageService()
+  fillDogRecordsOnPageService()
 }

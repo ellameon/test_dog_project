@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {dogRequestOrderStore} from "../../store/DogRequestOrderStore";
+import {dogRequestOrderStore} from "../../store/DogRecordRequestOrderStore";
 
 
 export function setCountryService(country: string):void {

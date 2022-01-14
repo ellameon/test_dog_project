@@ -1,12 +1,12 @@
-import {dogDataBaseStore} from "../../store/DogDataBaseStore";
-import {selectDogsFromDataBaseService} from "./selectDogsFromDataBaseService";
+import {dogDataBaseStore} from "../../store/DogRecordsDataBaseStore";
+import {selectDogRecordsFromDataBaseService} from "./selectDogRecordsFromDataBaseService";
 import {runInAction} from "mobx";
 
 
 export function fillDbStoreFromDataBaseService(): void {
 
   if(!dogDataBaseStore.init) {
-    const dogsRecords = selectDogsFromDataBaseService()
+    const dogsRecords = selectDogRecordsFromDataBaseService()
 
     if (dogsRecords !== undefined) {
       const lastDogRecord = dogsRecords[dogsRecords.length - 1]

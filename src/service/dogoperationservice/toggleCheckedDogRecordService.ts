@@ -2,7 +2,7 @@ import {runInAction} from "mobx";
 import {checkedDogsStore} from "../../store/CheckedDogsStore";
 
 
-export function toggleCheckedDogService(toggleId: number): void {
+export function toggleCheckedDogRecordService(toggleId: number): void {
 
   const checkedDogs = checkedDogsStore.checkedDogs
 

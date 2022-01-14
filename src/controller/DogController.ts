@@ -1,10 +1,10 @@
-import {getDogFromServerService} from "../service/dogoperationservice/getDogFromServerService";
+import {getDogRecordFromServerService} from "../service/dogoperationservice/getDogRecordFromServerService";
 import {closeModalService} from "../service/modalservice/closeModalService";
-import {toggleCheckedDogService} from "../service/dogoperationservice/toggleCheckedDogService";
+import {toggleCheckedDogRecordService} from "../service/dogoperationservice/toggleCheckedDogRecordService";
 import {openModalService} from "../service/modalservice/openModalService";
-import {deleteDogsService} from "../service/dogoperationservice/deleteDogsService";
+import {deleteDogRecordsService} from "../service/dogoperationservice/deleteDogRecordsService";
 import {toggleRequestService} from "../service/requestservice/toggleRequestService";
-import {dogRequestService} from "../service/requestservice/dogRequestService";
+import {dogRecordRequestService} from "../service/requestservice/dogRecordRequestService";
 import {autoRequestRestartService} from "../service/requestservice/autoRequestRestartService";
 import {configService} from "../service/configservise/configService";
 import {setLoginService} from "../service/authservice/setLoginService";
@@ -43,7 +43,7 @@ export class DogController {
   }
 
   static getNewDog(): void {
-    getDogFromServerService().then()
+    getDogRecordFromServerService().then()
   }
 
   static closeModal(): void {
@@ -55,11 +55,11 @@ export class DogController {
   }
 
   static changeIsChecked(id: number): void {
-    toggleCheckedDogService(id)
+    toggleCheckedDogRecordService(id)
   }
 
   static deleteDogs(): void {
-    deleteDogsService()
+    deleteDogRecordsService()
   }
 
   static toggleAutoRequest(): void {
@@ -67,7 +67,7 @@ export class DogController {
   }
 
   static dogRequest(): void {
-    dogRequestService()
+    dogRecordRequestService()
   }
 
   static autoRequestRestart(): void {

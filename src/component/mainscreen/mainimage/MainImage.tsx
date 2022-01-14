@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import {observer} from "mobx-react";
 import './MainImage.scss'
 import {DogController} from "../../../controller/DogController";
-import {dogsStore} from "../../../store/DogStore";
+import {dogsStore} from "../../../store/DogRecordsStore";
 import {Carousel} from "../carousel/Carousel";
 import {timerStore} from "../../../store/TimerStore";
 import {useTranslation} from "react-i18next";

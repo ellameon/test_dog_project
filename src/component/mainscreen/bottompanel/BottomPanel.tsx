@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import React, {useCallback} from "react";
 import './BottomPanel.scss'
 import {DogController} from "../../../controller/DogController";
-import {dogsStore} from "../../../store/DogStore";
+import {dogsStore} from "../../../store/DogRecordsStore";
 import {checkedDogsStore} from "../../../store/CheckedDogsStore";
 import {useTranslation} from "react-i18next";
 

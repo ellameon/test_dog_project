@@ -4,7 +4,7 @@ import {intervalRequestService} from "./intervalRequestService";
 import {clearIntervalRequestService} from "./clearIntervalRequestService";
 
 
-export function dogRequestService(): void {
+export function dogRecordRequestService(): void {
 
   runInAction(() => {
 

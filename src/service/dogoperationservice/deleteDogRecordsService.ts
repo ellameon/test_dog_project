@@ -1,10 +1,10 @@
 import {runInAction} from "mobx";
-import {dogsStore} from "../../store/DogStore";
+import {dogsStore} from "../../store/DogRecordsStore";
 import {modalStore} from "../../store/ModalStore";
 import {checkedDogsStore} from "../../store/CheckedDogsStore";
 
 
-export function deleteDogsService(): void {
+export function deleteDogRecordsService(): void {
 
   const dogsArrayToDelete: Array<number> = modalStore.dogIdsToDelete
 

@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {DogTableField} from "./DogTableField";
-import {dogsStore} from "../../../store/DogStore";
+import {dogsStore} from "../../../store/DogRecordsStore";
 import './DogTable.scss'
 import {useTranslation} from "react-i18next";
 

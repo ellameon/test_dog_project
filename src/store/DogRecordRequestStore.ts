@@ -1,7 +1,7 @@
 import {observable} from "mobx";
 import {Dog} from "../model/Dog";
 
-export interface DogRequestStore {
+export interface DogRecordRequestStore {
   dogs: Array<Dog>
   dogsOnPage: Array<Dog>
   currentPage: number
@@ -9,7 +9,7 @@ export interface DogRequestStore {
   pagesToShow: Array<number>
 }
 
-export const dogRequestStore = observable<DogRequestStore> ({
+export const dogRequestStore = observable<DogRecordRequestStore> ({
   dogs: [],
   dogsOnPage: [],
   currentPage: 1,

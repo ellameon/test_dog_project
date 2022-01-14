@@ -1,5 +1,5 @@
-import {getDogFromServerService} from "../dogoperationservice/getDogFromServerService";
+import {getDogRecordFromServerService} from "../dogoperationservice/getDogRecordFromServerService";
 
 export function intervalRequestService(): number {
-  return window.setInterval(getDogFromServerService, 30000);
+  return window.setInterval(getDogRecordFromServerService, 30000);
 }

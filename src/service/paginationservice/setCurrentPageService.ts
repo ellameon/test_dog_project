@@ -1,5 +1,5 @@
 import {runInAction} from "mobx";
-import {dogRequestStore} from "../../store/DogRequestStore";
+import {dogRequestStore} from "../../store/DogRecordRequestStore";
 import {fillPagesToShowService} from "./fillPagesToShowService";
 
 

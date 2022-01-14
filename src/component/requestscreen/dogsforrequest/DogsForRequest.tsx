@@ -1,5 +1,5 @@
 import {observer} from "mobx-react";
-import {dogRequestStore} from "../../../store/DogRequestStore";
+import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {DogForRequest} from "./DogForRequest";
 import './DogsForRequest.scss'
 

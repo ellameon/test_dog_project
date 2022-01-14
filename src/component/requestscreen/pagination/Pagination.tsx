@@ -1,21 +1,21 @@
 import {observer} from "mobx-react";
-import {dogRequestStore} from "../../../store/DogRequestStore";
+import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {useCallback} from "react";
 import {DogController} from "../../../controller/DogController";
 import {PaginationButton} from "./PaginationButton";
-import {fillDogsOnPageService} from "../../../service/paginationservice/fillDogsOnPageService";
+import {fillDogRecordsOnPageService} from "../../../service/paginationservice/fillDogRecordsOnPageService";
 
 
 export const Pagination = observer(function Pagination() {
 
   const onClickPrevious = useCallback(() => {
     DogController.setCurrentPage(dogRequestStore.currentPage - 1)
-    fillDogsOnPageService()
+    fillDogRecordsOnPageService()
   }, [])
 
   const onClickNext = useCallback(() => {
     DogController.setCurrentPage(dogRequestStore.currentPage + 1)
-    fillDogsOnPageService()
+    fillDogRecordsOnPageService()
   }, [])
 
   const pagesToShow = dogRequestStore.pagesToShow
