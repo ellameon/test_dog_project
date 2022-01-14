@@ -1,5 +1,6 @@
 import {dogDataBaseStore} from "../../store/DogRecordsDataBaseStore";
 import {runInAction} from "mobx";
+import {setDogRecordsToDataBaseTransport} from "../../transport/setDogRecordsToDataBaseTransport";
 
 
 export function saveDogRecordsToDataBaseFromStoreService(): void {
@@ -8,7 +9,7 @@ export function saveDogRecordsToDataBaseFromStoreService(): void {
   const dataJSON = JSON.stringify(dogsToDataBase)
 
   runInAction(() => {
-    const date = new Date().toLocaleDateString("ru")
-    localStorage.setItem(date, dataJSON)
+    const key = new Date().toLocaleDateString("ru")
+    setDogRecordsToDataBaseTransport(key, dataJSON)
   })
 }

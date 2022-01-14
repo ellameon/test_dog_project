@@ -1,11 +1,12 @@
 import {Dog} from "../../model/Dog";
+import {getDogRecordsFromDataBaseTransport} from "../../transport/getDogRecordsFromDataBaseTransport";
 
 
 export function selectDogRecordsFromDataBaseService(): Array<Dog> | undefined {
 
-  const date = new Date().toLocaleDateString("ru")
+  const key = new Date().toLocaleDateString("ru")
 
-  let dogsFromData = localStorage.getItem(date)
+  let dogsFromData = getDogRecordsFromDataBaseTransport(key)
   let dogsFromDataBase;
 
   if (dogsFromData !== null) {

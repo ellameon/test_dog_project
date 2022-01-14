@@ -1,5 +1,6 @@
 import {createDateRangeService} from "../dateservice/createDateRangeService";
 import {Dog} from "../../model/Dog";
+import {getDogRecordsFromDataBaseTransport} from "../../transport/getDogRecordsFromDataBaseTransport";
 
 
 export function fillStoresFromDataBaseService(fromDate: Date, toDate: Date): Array<Dog> {
@@ -11,7 +12,7 @@ export function fillStoresFromDataBaseService(fromDate: Date, toDate: Date): Arr
   for (let i = 0; i <= dateRangeLength; i++) {
     const key = dateRange[i]
 
-    const dogsOfDayFromDBJSON = localStorage.getItem(key)
+    const dogsOfDayFromDBJSON = getDogRecordsFromDataBaseTransport(key)
     if (dogsOfDayFromDBJSON !== null) {
       const dogsOfDayFromDB: Array<Dog> = JSON.parse(dogsOfDayFromDBJSON)
       for (const dogJournalRecord of dogsOfDayFromDB) {
