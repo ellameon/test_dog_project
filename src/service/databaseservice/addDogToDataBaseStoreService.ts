@@ -1,11 +1,11 @@
 import {runInAction} from "mobx";
 import {dogDataBaseStore} from "../../store/DogDataBaseStore";
-import {DogJournalRecord} from "../../model/DogDtoToDataBase";
+import {Dog} from "../../model/Dog";
 
 
-export function addDogToDataBaseStoreService(dogJournalRecord: DogJournalRecord): void {
+export function addDogToDataBaseStoreService(dogRecord: Dog): void {
   runInAction(() => {
-    dogDataBaseStore.dogs.push(dogJournalRecord)
-    dogDataBaseStore.dogsLastId = dogJournalRecord.id
+    dogDataBaseStore.dogs.push(dogRecord)
+    dogDataBaseStore.dogsLastId = dogRecord.id
   })
 }

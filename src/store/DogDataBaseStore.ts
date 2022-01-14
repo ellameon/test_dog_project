@@ -1,9 +1,9 @@
-import {DogJournalRecord} from "../model/DogDtoToDataBase";
 import {observable} from "mobx";
+import {Dog} from "../model/Dog";
 
 export interface DogDataBaseStore {
   init: boolean
-  dogs: Array<DogJournalRecord>,
+  dogs: Array<Dog>,
   dogsLastId: number
 }
 

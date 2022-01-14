@@ -1,9 +1,9 @@
-import {DogJournalRecord} from "../model/DogDtoToDataBase";
 import {observable} from "mobx";
+import {Dog} from "../model/Dog";
 
 export interface DogRequestStore {
-  dogs: Array<DogJournalRecord>
-  dogsOnPage: Array<DogJournalRecord>
+  dogs: Array<Dog>
+  dogsOnPage: Array<Dog>
   currentPage: number
   pagesCount: Array<number>
   pagesToShow: Array<number>

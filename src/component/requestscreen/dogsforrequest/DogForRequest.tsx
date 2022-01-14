@@ -1,9 +1,9 @@
 import {observer} from "mobx-react";
-import {DogJournalRecord} from "../../../model/DogDtoToDataBase";
+import {Dog} from "../../../model/Dog";
 
 
 type Props = {
-  dog: DogJournalRecord
+  dog: Dog
 }
 
 export const DogForRequest = observer(function DogForRequest(props: Props) {
