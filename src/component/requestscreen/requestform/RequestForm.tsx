@@ -1,16 +1,27 @@
 import {observer} from "mobx-react";
 import "./RequestForm.scss"
 import {useTranslation} from "react-i18next";
-import {ChangeEvent, useCallback} from "react";
+import React, {ChangeEvent, useCallback} from "react";
 import {DogRecordController} from "../../../controller/DogRecordController";
 import {Pagination} from "../pagination/Pagination";
 import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {DogsForRequest} from "../dogsforrequest/DogsForRequest";
+import {AlertTab} from "../../alerttab/AlertTab";
+import {sendDogOrderToServerService} from "../../../service/websocketservice/sendDogOrderToServerService";
+import {webSocketStore} from "../../../store/webSocketStore";
+import {dogRequestOrderStore} from "../../../store/DogRecordRequestOrderStore";
 
 
 export const RequestForm = observer(function RequestForm() {
 
   const {t} = useTranslation()
+
+  const socket: boolean = webSocketStore.isWebSocketOpen
+  const order: boolean = dogRequestOrderStore.isFilled
+  const alertText = (socket && order) ? t("RequestScreen.orderStatus")
+    : t("AlertTab.disconnect")
+  const alertClass = (socket) ? "alert alert-secondary alert-tab" : "alert alert-danger alert-tab"
+
   const pagination = dogRequestStore.pagesToShow !== undefined ? <Pagination/> : <div/>
 
   const onChangeSurname = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +64,12 @@ export const RequestForm = observer(function RequestForm() {
     const apartment = event.target.value
     DogRecordController.setApartment(apartment)
   }, [])
+  const onSendOrder = useCallback(() => {
+    DogRecordController.orderAlertShow()
+    sendDogOrderToServerService()
+    DogRecordController.alertShow()
+  },[])
+
 
   return <div>
     <div className="request">
@@ -203,10 +220,12 @@ export const RequestForm = observer(function RequestForm() {
         <div className='card'>
         </div>
         <div className='text-center p-1'>
-          Выберите собаку
+          {t("RequestScreen.chooseDog")}
         </div>
+        <button className='btn btn-outline-dark' onClick={onSendOrder}> заказать </button>
         <DogsForRequest/>
         {pagination}
+       <AlertTab alertText={alertText} alertClass={alertClass}/>
       </div>
     </div>
   </div>

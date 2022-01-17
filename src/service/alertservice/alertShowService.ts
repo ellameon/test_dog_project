@@ -1,11 +1,14 @@
 import {runInAction} from "mobx";
 import {alertShowStore} from "../../store/AlertShowStore";
 import {timerStore} from "../../store/TimerStore";
-import {alertTimerSetService} from "./alertTimerSetService";
+import {dogRequestOrderStore} from "../../store/DogRecordRequestOrderStore";
+
 
 export function alertShowService(): void {
   runInAction(() => {
     alertShowStore.isAlertShown = false
-    timerStore.alertTimerId = alertTimerSetService()
+    clearTimeout(timerStore.alertTimerId)
+    dogRequestOrderStore.isFilled = false
+    console.log(timerStore.alertTimerId)
   })
 }

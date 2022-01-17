@@ -9,15 +9,25 @@ import {BottomPanel} from "./bottompanel/BottomPanel";
 import {Navigation} from "../navigation/Navigation";
 import {AlertTab} from "../alerttab/AlertTab";
 import {useIsLogged} from "../../hook/useIsLogged";
+import {webSocketStore} from "../../store/webSocketStore";
+import {useTranslation} from "react-i18next";
 
 
 export const MainScreen = observer(function MainScreen() {
 
+
   const isUserLogged = useIsLogged()
+  const {t} = useTranslation();
+  const socket: boolean = webSocketStore.isWebSocketOpen
+  const alertClass = (socket) ? "alert alert-secondary alert-tab" : "alert alert-danger alert-tab"
+  const alertText = (socket) ? t("AlertTab.connect") : t("AlertTab.disconnect")
+
   useEffect(() => {
       DogRecordController.dogRequest()
+    if (isUserLogged) {
+      DogRecordController.alertShow()
     }
-    , [])
+    }, [ isUserLogged ])
 
   return <div className="main-div">
     <Navigation/>
@@ -28,7 +38,7 @@ export const MainScreen = observer(function MainScreen() {
           <DogTable/>
           <ModalWindow/>
           <BottomPanel/>
-          {isUserLogged && <AlertTab/>}
+          <AlertTab alertText={alertText} alertClass={alertClass}/>
         </div>
       </div>
     </div>

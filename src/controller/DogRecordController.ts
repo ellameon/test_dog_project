@@ -33,6 +33,7 @@ import {setCurrentPageService} from "../service/paginationservice/setCurrentPage
 import {
   setDogRecordToRequestOrderStoreService
 } from "../service/dogrecordrequestorderservice/setDogRecordToRequestOrderStoreService";
+import {orderAlertShowService} from "../service/alertservice/orderAlertShowService";
 
 
 export class DogRecordController {
@@ -55,6 +56,10 @@ export class DogRecordController {
 
   static alertShow(): void {
     alertTimerSetService()
+  }
+
+  static orderAlertShow(): void {
+    orderAlertShowService()
   }
 
   static changeIsChecked(id: number): void {

@@ -8,6 +8,6 @@ export function addDogRecordToStoreService(dog: DogRecord): void {
   runInAction(() => {
     dogsStore.dogs.push(dog)
     dogsStore.lastDogId = dog.id
-    webSocketSendService(dog.id)
+    webSocketSendService(String(dog.id))
   })
 }

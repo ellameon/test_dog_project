@@ -2,8 +2,9 @@ import {runInAction} from "mobx";
 import {getWebSocketService} from "./getWebSocketService";
 import {webSocketStore} from "../../store/webSocketStore";
 import {useIsLogged} from "../../hook/useIsLogged";
+import {dogRequestOrderStore} from "../../store/DogRecordRequestOrderStore";
 
-export function webSocketSendService(value: number): void {
+export function webSocketSendService(value: string): void {
 
   if (!webSocketStore.isWebSocketOpen) {
     return
@@ -18,8 +19,10 @@ export function webSocketSendService(value: number): void {
       return;
     }
 
-    if (webSocket !== undefined) {
+    if (webSocket !== undefined && !dogRequestOrderStore.isFilled) {
       webSocket.send(JSON.stringify({action: "ECHO", data: value.toString()}))
+    } else if (webSocket !== undefined && dogRequestOrderStore.isFilled) {
+      webSocket.send(JSON.stringify({action: "ORDER", data: value.toString()}))
     } else {
       return;
     }

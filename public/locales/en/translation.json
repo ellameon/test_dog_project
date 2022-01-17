@@ -48,7 +48,9 @@
     }
   },
   "RequestScreen": {
-    "chooseDog": "Dog request",
+    "orderDog": "Dog request",
+    "chooseDog": "Choose dog",
+    "orderStatus": "Order is successfull",
     "RequestClient": {
       "clientInfo": "Tell about you",
       "surname": "Surname",

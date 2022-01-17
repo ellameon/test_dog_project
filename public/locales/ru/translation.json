@@ -48,7 +48,9 @@
     }
   },
   "RequestScreen": {
-    "chooseDog": "Заказ собаки",
+    "orderDog": "Заказ собаки",
+    "chooseDog": "Выберите собаку",
+    "orderStatus": "Заказ успешен",
     "RequestClient": {
       "clientInfo": "Расскажите о себе",
       "surname": "Фамилия",

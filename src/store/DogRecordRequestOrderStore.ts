@@ -13,6 +13,7 @@ export interface DogRecordRequestOrderStore {
   apartment: string
   choosedDogId: number
   choosedDogUrl: string
+  isFilled: boolean
 }
 
 export const dogRequestOrderStore = observable<DogRecordRequestOrderStore>({
@@ -28,4 +29,5 @@ export const dogRequestOrderStore = observable<DogRecordRequestOrderStore>({
   apartment: '',
   choosedDogId: 0,
   choosedDogUrl: '',
+  isFilled: false
 })

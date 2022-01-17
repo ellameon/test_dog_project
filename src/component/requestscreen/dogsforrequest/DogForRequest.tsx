@@ -23,8 +23,8 @@ export const DogForRequest = observer(function DogForRequest(props: Props) {
     : ''
 
   return <div className={selectedClass}>
-    <figure >
-      <img  onClick={selectDogRecord} src={url} alt=""/>
+    <figure  >
+      <img onClick={selectDogRecord} src={url} alt=""/>
     </figure>
   </div>
 })
