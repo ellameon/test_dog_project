@@ -51,6 +51,7 @@
     "orderDog": "Dog request",
     "chooseDog": "Choose dog",
     "orderStatus": "Order is successfull",
+    "orderButton": "Order",
     "RequestClient": {
       "clientInfo": "Tell about you",
       "surname": "Surname",

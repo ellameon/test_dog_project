@@ -222,9 +222,11 @@ export const RequestForm = observer(function RequestForm() {
         <div className='text-center p-1'>
           {t("RequestScreen.chooseDog")}
         </div>
-        <button className='btn btn-outline-dark' onClick={onSendOrder}> заказать </button>
         <DogsForRequest/>
         {pagination}
+        <div className='p-2'>
+          <button className='btn btn-outline-dark order-button' onClick={onSendOrder}> {t("RequestScreen.orderButton")} </button>
+        </div>
        <AlertTab alertText={alertText} alertClass={alertClass}/>
       </div>
     </div>

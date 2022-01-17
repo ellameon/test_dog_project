@@ -10,11 +10,10 @@ export function sendDogOrderToServerService(): void {
     runInAction(() => {
       dogRequestOrderStore.isFilled = true
     })
-    const order = String(dogRequestOrderStore)
+    const order = JSON.stringify(dogRequestOrderStore)
     webSocketSendService(order)
     clearDogRequestOrderStore()
   }
-  console.log(dogRequestOrderStore.choosedDogId)
 }
 
 function clearDogRequestOrderStore(): void {
