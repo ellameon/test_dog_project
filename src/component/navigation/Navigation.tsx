@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import {NavLink} from "react-router-dom";
 import {userStore} from "../../store/UserStore";
 import React, {useCallback} from "react";
-import {DogController} from "../../controller/DogController";
+import {DogRecordController} from "../../controller/DogRecordController";
 import {useIsLogged} from "../../hook/useIsLogged";
 import {Navigate} from "react-router";
 import {useTranslation} from "react-i18next";
@@ -18,15 +18,15 @@ export const Navigation = observer(function Navigation() {
   };
 
   const onLogOut = useCallback(() => {
-    DogController.logOut()
+    DogRecordController.logOut()
   }, [])
 
   const journalRequest = useCallback(() => {
-    DogController.fillJournalStoreFromDataBase()
+    DogRecordController.fillJournalStoreFromDataBase()
   }, [])
 
   const dogRequest = useCallback(() => {
-    DogController.fillRequestStoreFromDataBase()
+    DogRecordController.fillRequestStoreFromDataBase()
   },[])
 
   const isUserLogged = useIsLogged()

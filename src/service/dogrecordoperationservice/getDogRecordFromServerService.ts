@@ -1,8 +1,8 @@
-import {Dog} from "../../model/Dog";
+import {DogRecord} from "../../model/DogRecord";
 import {dogsStore} from "../../store/DogRecordsStore";
 import {getDogRecordTransport} from "../../transport/getDogRecordTransport";
 import {addDogRecordToStoreService} from "./addDogRecordToStoreService";
-import {DogDto} from "../../model/DogDto";
+import {DogRecordDto} from "../../model/DogRecordDto";
 import {saveDogRecordToDataBaseService} from "../databaseservice/saveDogRecordToDataBaseService";
 
 
@@ -15,7 +15,7 @@ export async function getDogRecordFromServerService(): Promise<void> {
   })
 }
 
-function convertDogDtoToDog(dogDto: DogDto): Dog {
+function convertDogDtoToDog(dogDto: DogRecordDto): DogRecord {
   return {
     id: dogsStore.lastDogId + 1,
     url: dogDto.message,

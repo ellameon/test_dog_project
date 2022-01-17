@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import React from "react";
 import {webSocketStore} from "../../store/webSocketStore";
-import {DogController} from "../../controller/DogController";
+import {DogRecordController} from "../../controller/DogRecordController";
 import {alertShowStore} from "../../store/AlertShowStore";
 import {useTranslation} from "react-i18next";
 
@@ -14,7 +14,7 @@ export const AlertTab = observer(function AlertTab() {
   const alertClass: string = (socket) ? "alert alert-secondary alert-tab" : "alert alert-danger alert-tab"
   const alertText = (socket) ? t("AlertTab.connect") : t("AlertTab.disconnect")
 
-  DogController.alertShow()
+  DogRecordController.alertShow()
 
   if (!isShown) {
     return <div/>

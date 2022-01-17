@@ -1,10 +1,10 @@
 import {observable} from "mobx";
-import {Dog} from "../model/Dog";
+import {DogRecord} from "../model/DogRecord";
 
 
 export interface JournalStore {
-  dogs: Array<Dog>,
-  dogsToShow: Array<Dog>,
+  dogs: Array<DogRecord>,
+  dogsToShow: Array<DogRecord>,
   idToFind: number
 }
 

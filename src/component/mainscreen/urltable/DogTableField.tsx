@@ -1,12 +1,12 @@
 import {observer} from "mobx-react";
-import {Dog} from "../../../model/Dog";
+import {DogRecord} from "../../../model/DogRecord";
 import React, {useCallback} from "react";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {checkedDogsStore} from "../../../store/CheckedDogsStore";
 
 
 type Props = {
-  dog: Dog
+  dog: DogRecord
 }
 
 export const DogTableField = observer(function DogTableField(props: Props) {
@@ -18,11 +18,11 @@ export const DogTableField = observer(function DogTableField(props: Props) {
 
   const openModal = useCallback(() => {
     const deleteIdArray = [dogId];
-    DogController.openModal(deleteIdArray)
+    DogRecordController.openModal(deleteIdArray)
   }, [dogId])
 
   const changeChecked = useCallback(() => {
-    DogController.changeIsChecked(dogId)
+    DogRecordController.changeIsChecked(dogId)
   }, [dogId])
 
   return <>

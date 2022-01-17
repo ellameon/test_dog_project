@@ -1,7 +1,7 @@
 import React, {useCallback} from "react";
 import {observer} from "mobx-react";
 import {modalStore} from "../../../store/ModalStore";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {dogsStore} from "../../../store/DogRecordsStore";
 import {Carousel} from "../carousel/Carousel";
 import {useTranslation} from "react-i18next";
@@ -23,11 +23,11 @@ export const ModalWindow = observer(function ModalWindow() {
   const deleteUrlArray = deleteDogArray.map(dog => dog.url)
 
   const closeModal = useCallback(() => {
-    DogController.closeModal()
+    DogRecordController.closeModal()
   }, [])
 
   const deleteDogs = useCallback(() => {
-    DogController.deleteDogs()
+    DogRecordController.deleteDogs()
   }, [])
 
   return <>

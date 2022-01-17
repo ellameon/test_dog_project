@@ -1,8 +1,8 @@
-import {Dog} from "../../model/Dog";
+import {DogRecord} from "../../model/DogRecord";
 import {getDogRecordsFromDataBaseTransport} from "../../transport/getDogRecordsFromDataBaseTransport";
 
 
-export function selectDogRecordsFromDataBaseService(): Array<Dog> | undefined {
+export function selectDogRecordsFromDataBaseService(): Array<DogRecord> | undefined {
 
   const key = new Date().toLocaleDateString("ru")
 

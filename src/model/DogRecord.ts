@@ -1,4 +1,4 @@
-export interface Dog {
+export interface DogRecord {
   id: number
   url: string
   status: string

@@ -8,8 +8,8 @@ export function fillPagesToShowService(): void {
   if (dogRequestStore.currentPage < 4){
     fromPage = 0
     toPage = 5
-  } else if (dogRequestStore.currentPage > dogRequestStore.pagesCount.length - 2){
-    fromPage = dogRequestStore.pagesCount.length - 3
+  } else if (dogRequestStore.currentPage > dogRequestStore.pagesCount.length - 3) {
+    fromPage = dogRequestStore.pagesCount.length - 4
     toPage = dogRequestStore.pagesCount.length + 1
   } else {
     fromPage = dogRequestStore.currentPage - 3

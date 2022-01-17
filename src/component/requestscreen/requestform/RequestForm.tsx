@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import "./RequestForm.scss"
 import {useTranslation} from "react-i18next";
 import {ChangeEvent, useCallback} from "react";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {Pagination} from "../pagination/Pagination";
 import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {DogsForRequest} from "../dogsforrequest/DogsForRequest";
@@ -15,43 +15,43 @@ export const RequestForm = observer(function RequestForm() {
 
   const onChangeSurname = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const surname = event.target.value
-    DogController.setSurname(surname)
+    DogRecordController.setSurname(surname)
   }, [])
   const onChangeFirstName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const firstName = event.target.value
-    DogController.setFirstName(firstName)
+    DogRecordController.setFirstName(firstName)
   }, [])
   const onChangeSecondName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const secondName = event.target.value
-    DogController.setSecondName(secondName)
+    DogRecordController.setSecondName(secondName)
   }, [])
   const onChangeEmail = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const email = event.target.value
-    DogController.setEmail(email)
+    DogRecordController.setEmail(email)
   }, [])
   const onChangePhone = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const phone = event.target.value
-    DogController.setPhone(phone)
+    DogRecordController.setPhone(phone)
   }, [])
   const onChangeCountry = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const country = event.target.value
-    DogController.setCountry(country)
+    DogRecordController.setCountry(country)
   }, [])
   const onChangeCity = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const city = event.target.value
-    DogController.setCity(city)
+    DogRecordController.setCity(city)
   }, [])
   const onChangeStreet = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const street = event.target.value
-    DogController.setStreet(street)
+    DogRecordController.setStreet(street)
   }, [])
   const onChangeHouse = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const house = event.target.value
-    DogController.setHouse(house)
+    DogRecordController.setHouse(house)
   }, [])
   const onChangeApartment = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const apartment = event.target.value
-    DogController.setApartment(apartment)
+    DogRecordController.setApartment(apartment)
   }, [])
 
   return <div>

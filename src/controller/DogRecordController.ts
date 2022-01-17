@@ -1,8 +1,8 @@
-import {getDogRecordFromServerService} from "../service/dogoperationservice/getDogRecordFromServerService";
+import {getDogRecordFromServerService} from "../service/dogrecordoperationservice/getDogRecordFromServerService";
 import {closeModalService} from "../service/modalservice/closeModalService";
-import {toggleCheckedDogRecordService} from "../service/dogoperationservice/toggleCheckedDogRecordService";
+import {toggleCheckedDogRecordService} from "../service/dogrecordoperationservice/toggleCheckedDogRecordService";
 import {openModalService} from "../service/modalservice/openModalService";
-import {deleteDogRecordsService} from "../service/dogoperationservice/deleteDogRecordsService";
+import {deleteDogRecordsService} from "../service/dogrecordoperationservice/deleteDogRecordsService";
 import {toggleRequestService} from "../service/requestservice/toggleRequestService";
 import {dogRecordRequestService} from "../service/requestservice/dogRecordRequestService";
 import {autoRequestRestartService} from "../service/requestservice/autoRequestRestartService";
@@ -19,26 +19,29 @@ import {fillJournalStoreFromDataBaseService} from "../service/databaseservice/fi
 import {setIdToFindService} from "../service/databaseservice/setIdToFindService";
 import {selectJournalRecordService} from "../service/databaseservice/selectJournalRecordService";
 import {fillRequestStoreFromDataBaseService} from "../service/databaseservice/fillRequestStoreFromDataBaseService";
-import {setSurnameService} from "../service/dogrequestorderservice/setSurnameService";
-import {setFirstNameService} from "../service/dogrequestorderservice/setFirstNameService";
-import {setSecondNameService} from "../service/dogrequestorderservice/setSecondNameService";
-import {setEmailService} from "../service/dogrequestorderservice/setEmailService";
-import {setPhoneService} from "../service/dogrequestorderservice/setPhoneService";
-import {setCountryService} from "../service/dogrequestorderservice/setCountryService";
-import {setCityService} from "../service/dogrequestorderservice/setCityService";
-import {setStreetService} from "../service/dogrequestorderservice/setStreetService";
-import {setHouseService} from "../service/dogrequestorderservice/setHouseService";
-import {setApartmentService} from "../service/dogrequestorderservice/setApartmentService";
+import {setSurnameService} from "../service/dogrecordrequestorderservice/setSurnameService";
+import {setFirstNameService} from "../service/dogrecordrequestorderservice/setFirstNameService";
+import {setSecondNameService} from "../service/dogrecordrequestorderservice/setSecondNameService";
+import {setEmailService} from "../service/dogrecordrequestorderservice/setEmailService";
+import {setPhoneService} from "../service/dogrecordrequestorderservice/setPhoneService";
+import {setCountryService} from "../service/dogrecordrequestorderservice/setCountryService";
+import {setCityService} from "../service/dogrecordrequestorderservice/setCityService";
+import {setStreetService} from "../service/dogrecordrequestorderservice/setStreetService";
+import {setHouseService} from "../service/dogrecordrequestorderservice/setHouseService";
+import {setApartmentService} from "../service/dogrecordrequestorderservice/setApartmentService";
 import {setCurrentPageService} from "../service/paginationservice/setCurrentPageService";
+import {
+  setDogRecordToRequestOrderStoreService
+} from "../service/dogrecordrequestorderservice/setDogRecordToRequestOrderStoreService";
 
 
-export class DogController {
+export class DogRecordController {
 
   static openModal(dogIds: Array<number>): void {
     openModalService(dogIds)
   }
 
-  static webSocketOpen(): WebSocket{
+  static webSocketOpen(): WebSocket {
     return getWebSocketService() as WebSocket;
   }
 
@@ -162,5 +165,7 @@ export class DogController {
     setCurrentPageService(currentPage)
   }
 
-
+  static setDogRecordIdToRequestOrderStore(id: number, url: string): void {
+    setDogRecordToRequestOrderStoreService(id, url)
+  }
 }

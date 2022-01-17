@@ -2,17 +2,17 @@ import {fillDbStoreFromDataBaseService} from "./fillDbStoreFromDataBaseService";
 import {addDogRecordToDataBaseStoreService} from "./addDogRecordToDataBaseStoreService";
 import {saveDogRecordsToDataBaseFromStoreService} from "./saveDogRecordsToDataBaseFromStoreService";
 import {dogDataBaseStore} from "../../store/DogRecordsDataBaseStore";
-import {Dog} from "../../model/Dog";
+import {DogRecord} from "../../model/DogRecord";
 
 
-export function saveDogRecordToDataBaseService(dogRecord: Dog): void {
+export function saveDogRecordToDataBaseService(dogRecord: DogRecord): void {
   fillDbStoreFromDataBaseService()
   const journalRecord = createDogJournalRecord(dogRecord)
   addDogRecordToDataBaseStoreService(journalRecord)
   saveDogRecordsToDataBaseFromStoreService()
 }
 
-function createDogJournalRecord(dogDto: Dog): Dog {
+function createDogJournalRecord(dogDto: DogRecord): DogRecord {
   const lastId = dogDataBaseStore.dogsLastId
   return {
     date: dogDto.date,

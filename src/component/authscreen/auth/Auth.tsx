@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import React, {ChangeEvent, useCallback, useEffect} from "react";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {authStore} from "../../../store/AuthStore";
 import {useTranslation} from "react-i18next";
 
@@ -20,18 +20,18 @@ export const Auth = observer(function Auth() {
   };
 
   const onSubmit = useCallback(() => {
-    DogController.auth()
-    DogController.webSocketOpen()
+    DogRecordController.auth()
+    DogRecordController.webSocketOpen()
   }, [])
 
   const onChangeLogin = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const login = event.target.value
-    DogController.setLogin(login)
+    DogRecordController.setLogin(login)
   }, [])
 
   const onChangePassword = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const password = event.target.value
-    DogController.setPassword(password)
+    DogRecordController.setPassword(password)
   }, [])
 
   useEffect(() => {

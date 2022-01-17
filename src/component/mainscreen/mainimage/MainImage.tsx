@@ -1,7 +1,7 @@
 import React, {useCallback} from "react";
 import {observer} from "mobx-react";
 import './MainImage.scss'
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {dogsStore} from "../../../store/DogRecordsStore";
 import {Carousel} from "../carousel/Carousel";
 import {timerStore} from "../../../store/TimerStore";
@@ -21,12 +21,12 @@ export const MainImage = observer(function MainImage() {
 
 
   const changeDog = useCallback(() => {
-    DogController.getNewDog()
-    DogController.autoRequestRestart()
+    DogRecordController.getNewDog()
+    DogRecordController.autoRequestRestart()
   }, [])
 
   const timerToggle = useCallback(() => {
-    DogController.toggleAutoRequest()
+    DogRecordController.toggleAutoRequest()
   }, [])
 
   return <div className="justify-content-center main-image-container">

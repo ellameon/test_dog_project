@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {useCallback} from "react";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {PaginationButton} from "./PaginationButton";
 import {fillDogRecordsOnPageService} from "../../../service/paginationservice/fillDogRecordsOnPageService";
 
@@ -9,12 +9,12 @@ import {fillDogRecordsOnPageService} from "../../../service/paginationservice/fi
 export const Pagination = observer(function Pagination() {
 
   const onClickPrevious = useCallback(() => {
-    DogController.setCurrentPage(dogRequestStore.currentPage - 1)
+    DogRecordController.setCurrentPage(dogRequestStore.currentPage - 1)
     fillDogRecordsOnPageService()
   }, [])
 
   const onClickNext = useCallback(() => {
-    DogController.setCurrentPage(dogRequestStore.currentPage + 1)
+    DogRecordController.setCurrentPage(dogRequestStore.currentPage + 1)
     fillDogRecordsOnPageService()
   }, [])
 

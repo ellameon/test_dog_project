@@ -1,9 +1,9 @@
-import {Dog} from "../model/Dog";
+import {DogRecord} from "../model/DogRecord";
 import {observable} from "mobx";
 
 
 export interface DogRecordsStore {
-  dogs: Array<Dog>,
+  dogs: Array<DogRecord>,
   lastDogId: number,
 }
 

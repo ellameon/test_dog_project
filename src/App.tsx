@@ -2,14 +2,14 @@ import React, {useEffect} from 'react';
 import {MainScreen} from "./component/mainscreen/MainScreen";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {AuthScreen} from "./component/authscreen/AuthScreen";
-import {DogController} from "./controller/DogController";
+import {DogRecordController} from "./controller/DogRecordController";
 import {JournalScreen} from "./component/journalscreen/JournalScreen";
 import {RequestScreen} from "./component/requestscreen/RequestScreen";
 
 
 function App() {
   useEffect( () => {
-    DogController.setConfig()
+    DogRecordController.setConfig()
   }, [])
 
   return <>

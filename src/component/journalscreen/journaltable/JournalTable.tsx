@@ -4,7 +4,7 @@ import {JournalTableField} from "./JournalTableField";
 import {journalStore} from "../../../store/JournalStore";
 import './JournalTable.scss'
 import {ChangeEvent, useCallback} from "react";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 
 
 export const JournalTable = observer(function JournalTable() {
@@ -16,22 +16,22 @@ export const JournalTable = observer(function JournalTable() {
     ))
   const onChangeFromDate = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const fromDate = event.target.value
-    DogController.setFromDate(new Date(fromDate))
+    DogRecordController.setFromDate(new Date(fromDate))
   }, [])
 
   const onChangeToDate = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const toDate = event.target.value
-    DogController.setToDate(new Date(toDate))
+    DogRecordController.setToDate(new Date(toDate))
   }, [])
 
   const onFindId = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const findId = event.target.value
-    DogController.setIdToFind(Number(findId))
+    DogRecordController.setIdToFind(Number(findId))
   }, [])
 
   const refreshJournal = useCallback(() => {
-    DogController.fillJournalStoreFromDataBase()
-    DogController.selectJournalRecord()
+    DogRecordController.fillJournalStoreFromDataBase()
+    DogRecordController.selectJournalRecord()
   }, [])
 
   return <>

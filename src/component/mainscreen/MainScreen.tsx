@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {DogTable} from "./urltable/DogTable";
-import {DogController} from "../../controller/DogController";
+import {DogRecordController} from "../../controller/DogRecordController";
 import {MainImage} from "./mainimage/MainImage";
 import './MainScreen.scss'
 import React, {useEffect} from "react";
@@ -15,7 +15,7 @@ export const MainScreen = observer(function MainScreen() {
 
   const isUserLogged = useIsLogged()
   useEffect(() => {
-      DogController.dogRequest()
+      DogRecordController.dogRequest()
     }
     , [])
 

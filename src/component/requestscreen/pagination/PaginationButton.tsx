@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {useCallback} from "react";
-import {DogController} from "../../../controller/DogController";
+import {DogRecordController} from "../../../controller/DogRecordController";
 import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {fillDogRecordsOnPageService} from "../../../service/paginationservice/fillDogRecordsOnPageService";
 
@@ -13,7 +13,7 @@ export const PaginationButton = observer(function PaginationButton(props: Props)
 
   let page = props.page
   const onClickPage = useCallback(() => {
-    DogController.setCurrentPage(page)
+    DogRecordController.setCurrentPage(page)
     fillDogRecordsOnPageService()
   }, [page])
 

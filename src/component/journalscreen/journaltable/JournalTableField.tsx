@@ -1,11 +1,11 @@
 import {observer} from "mobx-react";
 import React from "react";
 import {format} from "date-fns"
-import {Dog} from "../../../model/Dog";
+import {DogRecord} from "../../../model/DogRecord";
 
 
 type Props = {
-  dog: Dog
+  dog: DogRecord
 }
 
 export const JournalTableField = observer(function JournalTableField(props: Props) {

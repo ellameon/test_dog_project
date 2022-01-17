@@ -1,20 +1,20 @@
 import {createDateRangeService} from "../dateservice/createDateRangeService";
-import {Dog} from "../../model/Dog";
+import {DogRecord} from "../../model/DogRecord";
 import {getDogRecordsFromDataBaseTransport} from "../../transport/getDogRecordsFromDataBaseTransport";
 
 
-export function fillStoresFromDataBaseService(fromDate: Date, toDate: Date): Array<Dog> {
+export function fillStoresFromDataBaseService(fromDate: Date, toDate: Date): Array<DogRecord> {
 
   const dateRange = createDateRangeService(fromDate, toDate)
   const dateRangeLength = dateRange.length
-  let allDogsFromDB: Array<Dog> = []
+  let allDogsFromDB: Array<DogRecord> = []
 
   for (let i = 0; i <= dateRangeLength; i++) {
     const key = dateRange[i]
 
     const dogsOfDayFromDBJSON = getDogRecordsFromDataBaseTransport(key)
     if (dogsOfDayFromDBJSON !== null) {
-      const dogsOfDayFromDB: Array<Dog> = JSON.parse(dogsOfDayFromDBJSON)
+      const dogsOfDayFromDB: Array<DogRecord> = JSON.parse(dogsOfDayFromDBJSON)
       for (const dogJournalRecord of dogsOfDayFromDB) {
         dogJournalRecord.id = dogJournalRecord.id + allDogsFromDB.length
         const strDate = dogJournalRecord.date
