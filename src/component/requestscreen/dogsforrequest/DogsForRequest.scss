@@ -10,11 +10,11 @@
     background: #ccc;
     transition: transform .2s ease-in-out;
     cursor: pointer;
+    &.choosed {
+      outline: auto green;
+    }
+  }
 
-  }
-  .choosed {
-      border:2px green;
-  }
   img:hover {
     transform: scale(1.15);
 

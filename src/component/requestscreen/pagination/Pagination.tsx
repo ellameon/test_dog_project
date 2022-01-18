@@ -21,7 +21,7 @@ export const Pagination = observer(function Pagination() {
   const pagesToShow = dogRequestStore.pagesToShow
 
   return <div>
-    <div className="btn-group" role="group">
+    <div className="btn-group-sm" role="group">
       <button type="button" onClick={onClickPrevious} className="btn btn-outline-dark">&laquo;</button>
       {pagesToShow.map((page) => (
         <PaginationButton key={page} page={page}/>

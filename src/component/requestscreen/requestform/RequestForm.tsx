@@ -68,7 +68,7 @@ export const RequestForm = observer(function RequestForm() {
     DogRecordController.orderAlertShow()
     sendDogOrderToServerService()
     DogRecordController.alertShow()
-  },[])
+  }, [])
 
 
   return <div>
@@ -225,9 +225,10 @@ export const RequestForm = observer(function RequestForm() {
         <DogsForRequest/>
         {pagination}
         <div className='p-2'>
-          <button className='btn btn-outline-dark order-button' onClick={onSendOrder}> {t("RequestScreen.orderButton")} </button>
+          <button className='btn btn-outline-dark order-button'
+                  onClick={onSendOrder}> {t("RequestScreen.orderButton")} </button>
         </div>
-       <AlertTab alertText={alertText} alertClass={alertClass}/>
+        <AlertTab alertText={alertText} alertClass={alertClass}/>
       </div>
     </div>
   </div>
