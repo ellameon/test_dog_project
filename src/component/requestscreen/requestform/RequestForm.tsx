@@ -10,11 +10,43 @@ import {AlertTab} from "../../alerttab/AlertTab";
 import {sendDogOrderToServerService} from "../../../service/websocketservice/sendDogOrderToServerService";
 import {webSocketStore} from "../../../store/webSocketStore";
 import {dogRequestOrderStore} from "../../../store/DogRecordRequestOrderStore";
+import {orderValidationStore} from "../../../store/OrderValidationStore";
 
 
 export const RequestForm = observer(function RequestForm() {
 
   const {t} = useTranslation()
+
+  const isSurnameEmpty: boolean = dogRequestOrderStore.surname.length === 0
+  const isEmailEmpty: boolean = dogRequestOrderStore.email.length === 0
+  const isSPhoneEmpty: boolean = dogRequestOrderStore.phone.length === 0
+  const isCityEmpty: boolean = dogRequestOrderStore.city.length === 0
+  const isStreetEmpty: boolean = dogRequestOrderStore.street.length === 0
+  const isHouseEmpty: boolean = dogRequestOrderStore.house.length === 0
+
+
+  const isSurnameValid: boolean = orderValidationStore.isSurnameValid
+  const isEmailValid: boolean = orderValidationStore.isEmailValid
+  const isSPhoneValid: boolean = orderValidationStore.isPhoneValid
+  const isCityValid: boolean = orderValidationStore.isCityValid
+  const isStreetValid: boolean = orderValidationStore.isStreetValid
+  const isHouseValid: boolean = orderValidationStore.isHouseValid
+
+  const surnameClasses = "form-control" + (isSurnameValid ? "" : " is-invalid")
+  const emailClasses = "form-control" + (isEmailValid ? "" : " is-invalid")
+  const phoneClasses = "form-control" + (isSPhoneValid ? "" : " is-invalid")
+  const cityClasses = "form-control" + (isCityValid ? "" : " is-invalid")
+  const streetClasses = "form-control" + (isStreetValid ? "" : " is-invalid")
+  const houseClasses = "form-control" + (isHouseValid ? "" : " is-invalid")
+
+  const isOrderDisabled = isSurnameEmpty
+    || isEmailEmpty
+    || isSPhoneEmpty
+    || isCityEmpty
+    || isStreetEmpty
+    || isHouseEmpty
+
+
 
   const socket: boolean = webSocketStore.isWebSocketOpen
   const order: boolean = dogRequestOrderStore.isFilled
@@ -88,11 +120,14 @@ export const RequestForm = observer(function RequestForm() {
           <form>
             <div>
               <label className='ps-3' htmlFor="surName">{t("RequestScreen.RequestClient.surname")}</label>
-              <input className='form-control'
+              <span className="required">*</span>
+              <input className={surnameClasses}
+                     required={true}
                      type="text"
                      id="surName"
                      onChange={onChangeSurname}
                      name="surName"/>
+
             </div>
           </form>
         </div>
@@ -101,6 +136,7 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="name">{t("RequestScreen.RequestClient.firstName")}</label>
               <input className='form-control'
+                     required={true}
                      type="text"
                      id="name"
                      onChange={onChangeFirstName}
@@ -113,6 +149,7 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="secondName">{t("RequestScreen.RequestClient.secondName")}</label>
               <input className='form-control'
+                     required={true}
                      type="text"
                      id="secondName"
                      onChange={onChangeSecondName}
@@ -126,8 +163,10 @@ export const RequestForm = observer(function RequestForm() {
           <form>
             <div>
               <label className='ps-3' htmlFor="email">{t("RequestScreen.RequestClient.email")}</label>
-              <input className='form-control'
-                     type="text"
+              <span className="required">*</span>
+              <input className={emailClasses}
+                     required={true}
+                     type="email"
                      id="email"
                      onChange={onChangeEmail}
                      name="email"/>
@@ -138,7 +177,10 @@ export const RequestForm = observer(function RequestForm() {
           <form>
             <div>
               <label className='ps-3' htmlFor="phone">{t("RequestScreen.RequestClient.phone")}</label>
-              <input className='form-control'
+              <span className="required">*</span>
+              <input className={phoneClasses}
+                     required={true}
+                     pattern={String(/[0-9]{10}/)}
                      type="text"
                      id="phone"
                      onChange={onChangePhone}
@@ -158,6 +200,7 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="country">{t("RequestScreen.RequestAddress.country")}</label>
               <input className='form-control'
+                     required={true}
                      type="text"
                      id="country"
                      onChange={onChangeCountry}
@@ -169,7 +212,9 @@ export const RequestForm = observer(function RequestForm() {
           <form>
             <div>
               <label className='ps-3' htmlFor="city">{t("RequestScreen.RequestAddress.city")}</label>
-              <input className='form-control'
+              <span className="required">*</span>
+              <input className={cityClasses}
+                     required={true}
                      type="text"
                      id="city"
                      onChange={onChangeCity}
@@ -183,7 +228,9 @@ export const RequestForm = observer(function RequestForm() {
           <form>
             <div>
               <label className='ps-3' htmlFor="street">{t("RequestScreen.RequestAddress.street")}</label>
-              <input className='form-control'
+              <span className="required">*</span>
+              <input className={streetClasses}
+                     required={true}
                      type="text"
                      id="street"
                      onChange={onChangeStreet}
@@ -195,7 +242,9 @@ export const RequestForm = observer(function RequestForm() {
           <form>
             <div>
               <label className='ps-3' htmlFor="house">{t("RequestScreen.RequestAddress.house")}</label>
-              <input className='form-control'
+              <span className="required">*</span>
+              <input className={houseClasses}
+                     required={true}
                      type="text"
                      id="house"
                      onChange={onChangeHouse}
@@ -208,6 +257,7 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="apartment">{t("RequestScreen.RequestAddress.apartment")}</label>
               <input className='form-control'
+                     required={true}
                      type="text"
                      id="apartment"
                      onChange={onChangeApartment}
@@ -226,7 +276,7 @@ export const RequestForm = observer(function RequestForm() {
         {pagination}
         <div className='p-2'>
           <button className='btn btn-outline-dark order-button'
-                  onClick={onSendOrder}> {t("RequestScreen.orderButton")} </button>
+                  onClick={onSendOrder} disabled={isOrderDisabled}> {t("RequestScreen.orderButton")} </button>
         </div>
         <AlertTab alertText={alertText} alertClass={alertClass}/>
       </div>

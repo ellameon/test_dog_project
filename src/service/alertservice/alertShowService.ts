@@ -9,6 +9,5 @@ export function alertShowService(): void {
     alertShowStore.isAlertShown = false
     clearTimeout(timerStore.alertTimerId)
     dogRequestOrderStore.isFilled = false
-    console.log(timerStore.alertTimerId)
   })
 }
