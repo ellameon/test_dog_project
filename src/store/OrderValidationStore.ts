@@ -7,7 +7,7 @@ export interface OrderValidationStore {
   isCityValid: boolean
   isStreetValid: boolean
   isHouseValid: boolean
-  isOrderValid: boolean
+  isDogRecordChoosed: boolean
 }
 
 export const orderValidationStore = observable<OrderValidationStore>({
@@ -17,5 +17,5 @@ export const orderValidationStore = observable<OrderValidationStore>({
   isCityValid: true,
   isStreetValid: true,
   isHouseValid: true,
-  isOrderValid: false
+  isDogRecordChoosed: false
 })

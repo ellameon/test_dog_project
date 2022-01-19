@@ -7,22 +7,21 @@ import {Pagination} from "../pagination/Pagination";
 import {dogRequestStore} from "../../../store/DogRecordRequestStore";
 import {DogsForRequest} from "../dogsforrequest/DogsForRequest";
 import {AlertTab} from "../../alerttab/AlertTab";
-import {sendDogOrderToServerService} from "../../../service/websocketservice/sendDogOrderToServerService";
 import {webSocketStore} from "../../../store/webSocketStore";
-import {dogRequestOrderStore} from "../../../store/DogRecordRequestOrderStore";
 import {orderValidationStore} from "../../../store/OrderValidationStore";
+import {dogRequestOrderStore} from "../../../store/DogRecordRequestOrderStore";
 
 
 export const RequestForm = observer(function RequestForm() {
 
   const {t} = useTranslation()
 
-  const isSurnameEmpty: boolean = dogRequestOrderStore.surname.length === 0
-  const isEmailEmpty: boolean = dogRequestOrderStore.email.length === 0
-  const isSPhoneEmpty: boolean = dogRequestOrderStore.phone.length === 0
-  const isCityEmpty: boolean = dogRequestOrderStore.city.length === 0
-  const isStreetEmpty: boolean = dogRequestOrderStore.street.length === 0
-  const isHouseEmpty: boolean = dogRequestOrderStore.house.length === 0
+  // const isSurnameEmpty: boolean = dogRequestOrderStore.surname.length === 0
+  // const isEmailEmpty: boolean = dogRequestOrderStore.email.length === 0
+  // const isSPhoneEmpty: boolean = dogRequestOrderStore.phone.length === 0
+  // const isCityEmpty: boolean = dogRequestOrderStore.city.length === 0
+  // const isStreetEmpty: boolean = dogRequestOrderStore.street.length === 0
+  // const isHouseEmpty: boolean = dogRequestOrderStore.house.length === 0
 
 
   const isSurnameValid: boolean = orderValidationStore.isSurnameValid
@@ -39,20 +38,19 @@ export const RequestForm = observer(function RequestForm() {
   const streetClasses = "form-control" + (isStreetValid ? "" : " is-invalid")
   const houseClasses = "form-control" + (isHouseValid ? "" : " is-invalid")
 
-  const isOrderDisabled = isSurnameEmpty
-    || isEmailEmpty
-    || isSPhoneEmpty
-    || isCityEmpty
-    || isStreetEmpty
-    || isHouseEmpty
-
-
+  // const isOrderDisabled = isSurnameEmpty
+  //   || isEmailEmpty
+  //   || isSPhoneEmpty
+  //   || isCityEmpty
+  //   || isStreetEmpty
+  //   || isHouseEmpty
 
   const socket: boolean = webSocketStore.isWebSocketOpen
-  const order: boolean = dogRequestOrderStore.isFilled
-  const alertText = (socket && order) ? t("RequestScreen.orderStatus")
-    : t("AlertTab.disconnect")
-  const alertClass = (socket) ? "alert alert-secondary alert-tab" : "alert alert-danger alert-tab"
+  const order: boolean = DogRecordController.checkIsOrderValid()
+  console.log(order)
+  const alertText = (order) ? t("RequestScreen.orderStatus")
+    : t("RequestScreen.orderStatusFailed")
+  const alertClass = (socket && order) ? "alert alert-secondary alert-tab" : "alert alert-danger alert-tab"
 
   const pagination = dogRequestStore.pagesToShow !== undefined ? <Pagination/> : <div/>
 
@@ -98,7 +96,7 @@ export const RequestForm = observer(function RequestForm() {
   }, [])
   const onSendOrder = useCallback(() => {
     DogRecordController.orderAlertShow()
-    sendDogOrderToServerService()
+    DogRecordController.sendDogOrderToServer()
     DogRecordController.alertShow()
   }, [])
 
@@ -122,8 +120,9 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="surName">{t("RequestScreen.RequestClient.surname")}</label>
               <span className="required">*</span>
               <input className={surnameClasses}
-                     required={true}
+                     data-bs-toggle="tooltip" data-bs-placement="top" title="Неверно введена фамилия"
                      type="text"
+                     value={dogRequestOrderStore.surname}
                      id="surName"
                      onChange={onChangeSurname}
                      name="surName"/>
@@ -136,9 +135,9 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="name">{t("RequestScreen.RequestClient.firstName")}</label>
               <input className='form-control'
-                     required={true}
                      type="text"
                      id="name"
+                     value={dogRequestOrderStore.firstName}
                      onChange={onChangeFirstName}
                      name="name"/>
             </div>
@@ -149,9 +148,9 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="secondName">{t("RequestScreen.RequestClient.secondName")}</label>
               <input className='form-control'
-                     required={true}
                      type="text"
                      id="secondName"
+                     value={dogRequestOrderStore.secondName}
                      onChange={onChangeSecondName}
                      name="secondName"/>
             </div>
@@ -165,9 +164,9 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="email">{t("RequestScreen.RequestClient.email")}</label>
               <span className="required">*</span>
               <input className={emailClasses}
-                     required={true}
-                     type="email"
+                     type="text"
                      id="email"
+                     value={dogRequestOrderStore.email}
                      onChange={onChangeEmail}
                      name="email"/>
             </div>
@@ -179,10 +178,9 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="phone">{t("RequestScreen.RequestClient.phone")}</label>
               <span className="required">*</span>
               <input className={phoneClasses}
-                     required={true}
-                     pattern={String(/[0-9]{10}/)}
                      type="text"
                      id="phone"
+                     value={dogRequestOrderStore.phone}
                      onChange={onChangePhone}
                      name="phone"/>
             </div>
@@ -200,9 +198,9 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="country">{t("RequestScreen.RequestAddress.country")}</label>
               <input className='form-control'
-                     required={true}
                      type="text"
                      id="country"
+                     value={dogRequestOrderStore.country}
                      onChange={onChangeCountry}
                      name="country"/>
             </div>
@@ -214,9 +212,9 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="city">{t("RequestScreen.RequestAddress.city")}</label>
               <span className="required">*</span>
               <input className={cityClasses}
-                     required={true}
                      type="text"
                      id="city"
+                     value={dogRequestOrderStore.city}
                      onChange={onChangeCity}
                      name="city"/>
             </div>
@@ -230,9 +228,9 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="street">{t("RequestScreen.RequestAddress.street")}</label>
               <span className="required">*</span>
               <input className={streetClasses}
-                     required={true}
                      type="text"
                      id="street"
+                     value={dogRequestOrderStore.street}
                      onChange={onChangeStreet}
                      name="street"/>
             </div>
@@ -247,6 +245,7 @@ export const RequestForm = observer(function RequestForm() {
                      required={true}
                      type="text"
                      id="house"
+                     value={dogRequestOrderStore.house}
                      onChange={onChangeHouse}
                      name="house"/>
             </div>
@@ -257,9 +256,9 @@ export const RequestForm = observer(function RequestForm() {
             <div>
               <label className='ps-3' htmlFor="apartment">{t("RequestScreen.RequestAddress.apartment")}</label>
               <input className='form-control'
-                     required={true}
                      type="text"
                      id="apartment"
+                     value={dogRequestOrderStore.apartment}
                      onChange={onChangeApartment}
                      name="apartment"/>
             </div>
@@ -276,7 +275,7 @@ export const RequestForm = observer(function RequestForm() {
         {pagination}
         <div className='p-2'>
           <button className='btn btn-outline-dark order-button'
-                  onClick={onSendOrder} disabled={isOrderDisabled}> {t("RequestScreen.orderButton")} </button>
+                  onClick={onSendOrder}> {t("RequestScreen.orderButton")} </button>
         </div>
         <AlertTab alertText={alertText} alertClass={alertClass}/>
       </div>

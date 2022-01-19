@@ -51,6 +51,7 @@
     "orderDog": "Заказ собаки",
     "chooseDog": "Выберите собаку",
     "orderStatus": "Заказ успешен",
+    "orderStatusFailed": "Заказ не отправлен",
     "orderButton": "Заказать",
     "RequestClient": {
       "clientInfo": "Расскажите о себе",

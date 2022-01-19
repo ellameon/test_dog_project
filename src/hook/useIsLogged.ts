@@ -1,5 +1,6 @@
-import {userStore} from "../store/UserStore";
+import {isAuthorized} from "../service/authservice/isAuthorized";
+
 
 export function useIsLogged(): boolean {
-  return userStore.login !== ''
+  return isAuthorized()
 }
