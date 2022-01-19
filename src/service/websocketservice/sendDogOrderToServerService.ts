@@ -1,8 +1,8 @@
 import {dogRequestOrderStore} from "../../store/DogRecordRequestOrderStore";
 import {runInAction} from "mobx";
 import {webSocketStore} from "../../store/webSocketStore";
-import {webSocketSendOrderService} from "./webSocketSendOrderService";
 import {checkIsOrderValidService} from "../dogrecordrequestorderservice/checkIsOrderValidService";
+import {webSocketSendOrderTransport} from "../../transport/webSocketSendOrderTransport";
 
 
 export function sendDogOrderToServerService(): void {
@@ -11,7 +11,7 @@ export function sendDogOrderToServerService(): void {
     const order = JSON.stringify(dogRequestOrderStore)
 
     if (checkIsOrderValidService()) {
-      webSocketSendOrderService(order)
+      webSocketSendOrderTransport(order)
       clearDogRequestOrderStore()
     }
   }

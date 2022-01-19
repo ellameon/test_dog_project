@@ -16,13 +16,12 @@ export const RequestForm = observer(function RequestForm() {
 
   const {t} = useTranslation()
 
-  // const isSurnameEmpty: boolean = dogRequestOrderStore.surname.length === 0
-  // const isEmailEmpty: boolean = dogRequestOrderStore.email.length === 0
-  // const isSPhoneEmpty: boolean = dogRequestOrderStore.phone.length === 0
-  // const isCityEmpty: boolean = dogRequestOrderStore.city.length === 0
-  // const isStreetEmpty: boolean = dogRequestOrderStore.street.length === 0
-  // const isHouseEmpty: boolean = dogRequestOrderStore.house.length === 0
-
+  const isSurnameEmpty: boolean = dogRequestOrderStore.surname.length === 0
+  const isEmailEmpty: boolean = dogRequestOrderStore.email.length === 0
+  const isSPhoneEmpty: boolean = dogRequestOrderStore.phone.length === 0
+  const isCityEmpty: boolean = dogRequestOrderStore.city.length === 0
+  const isStreetEmpty: boolean = dogRequestOrderStore.street.length === 0
+  const isHouseEmpty: boolean = dogRequestOrderStore.house.length === 0
 
   const isSurnameValid: boolean = orderValidationStore.isSurnameValid
   const isEmailValid: boolean = orderValidationStore.isEmailValid
@@ -38,15 +37,22 @@ export const RequestForm = observer(function RequestForm() {
   const streetClasses = "form-control" + (isStreetValid ? "" : " is-invalid")
   const houseClasses = "form-control" + (isHouseValid ? "" : " is-invalid")
 
-  // const isOrderDisabled = isSurnameEmpty
-  //   || isEmailEmpty
-  //   || isSPhoneEmpty
-  //   || isCityEmpty
-  //   || isStreetEmpty
-  //   || isHouseEmpty
+  const surnameTooltip = isSurnameValid ? "" : t("RequestScreen.tooltips.surname")
+  const emailTooltip = isSurnameValid ? "" : t("RequestScreen.tooltips.email")
+  const phoneTooltip = isSurnameValid ? "" : t("RequestScreen.tooltips.phone")
+  const cityTooltip = isSurnameValid ? "" : t("RequestScreen.tooltips.city")
+  const streetTooltip = isSurnameValid ? "" : t("RequestScreen.tooltips.street")
+  const houseTooltip = isSurnameValid ? "" : t("RequestScreen.tooltips.house")
+
+  const isOrderDisabled = isSurnameEmpty
+    || isEmailEmpty
+    || isSPhoneEmpty
+    || isCityEmpty
+    || isStreetEmpty
+    || isHouseEmpty
 
   const socket: boolean = webSocketStore.isWebSocketOpen
-  let order: boolean = orderValidationStore.isSurnameValid
+  let order: boolean = orderValidationStore.isPhoneValid
   console.log(order)
   const alertText = (order) ? t("RequestScreen.orderStatus")
     : t("RequestScreen.orderStatusFailed")
@@ -100,7 +106,6 @@ export const RequestForm = observer(function RequestForm() {
     DogRecordController.alertShow()
   }, [])
 
-
   return <div>
     <div className="request">
       <div className='row p-2'>
@@ -120,13 +125,12 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="surName">{t("RequestScreen.RequestClient.surname")}</label>
               <span className="required">*</span>
               <input className={surnameClasses}
-                     data-bs-toggle="tooltip" data-bs-placement="top" title="Неверно введена фамилия"
+                     data-bs-toggle="tooltip" data-bs-placement="top" title={surnameTooltip}
                      type="text"
                      value={dogRequestOrderStore.surname}
                      id="surName"
                      onChange={onChangeSurname}
                      name="surName"/>
-
             </div>
           </form>
         </div>
@@ -164,6 +168,7 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="email">{t("RequestScreen.RequestClient.email")}</label>
               <span className="required">*</span>
               <input className={emailClasses}
+                     data-bs-toggle="tooltip" data-bs-placement="top" title={emailTooltip}
                      type="text"
                      id="email"
                      value={dogRequestOrderStore.email}
@@ -178,6 +183,7 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="phone">{t("RequestScreen.RequestClient.phone")}</label>
               <span className="required">*</span>
               <input className={phoneClasses}
+                     data-bs-toggle="tooltip" data-bs-placement="top" title={phoneTooltip}
                      type="text"
                      id="phone"
                      value={dogRequestOrderStore.phone}
@@ -212,6 +218,7 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="city">{t("RequestScreen.RequestAddress.city")}</label>
               <span className="required">*</span>
               <input className={cityClasses}
+                     data-bs-toggle="tooltip" data-bs-placement="top" title={cityTooltip}
                      type="text"
                      id="city"
                      value={dogRequestOrderStore.city}
@@ -228,6 +235,7 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="street">{t("RequestScreen.RequestAddress.street")}</label>
               <span className="required">*</span>
               <input className={streetClasses}
+                     data-bs-toggle="tooltip" data-bs-placement="top" title={streetTooltip}
                      type="text"
                      id="street"
                      value={dogRequestOrderStore.street}
@@ -242,6 +250,7 @@ export const RequestForm = observer(function RequestForm() {
               <label className='ps-3' htmlFor="house">{t("RequestScreen.RequestAddress.house")}</label>
               <span className="required">*</span>
               <input className={houseClasses}
+                     data-bs-toggle="tooltip" data-bs-placement="top" title={houseTooltip}
                      required={true}
                      type="text"
                      id="house"
@@ -275,7 +284,8 @@ export const RequestForm = observer(function RequestForm() {
         {pagination}
         <div className='p-2'>
           <button className='btn btn-outline-dark order-button'
-                  onClick={onSendOrder}> {t("RequestScreen.orderButton")} </button>
+                  onClick={onSendOrder}
+                  disabled={isOrderDisabled}> {t("RequestScreen.orderButton")} </button>
         </div>
         <AlertTab alertText={alertText} alertClass={alertClass}/>
       </div>

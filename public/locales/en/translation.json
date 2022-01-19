@@ -53,6 +53,14 @@
     "orderStatus": "Order is successfull",
     "orderStatusFailed": "Order failed",
     "orderButton": "Order",
+    "tooltips": {
+      "surname": "Wrong surname",
+      "email": "Wrong e-mail",
+      "phone": "Wrong phone number",
+      "city": "Wrong city name",
+      "street": "Wrong street name",
+      "house": "Wrong house number"
+    },
     "RequestClient": {
       "clientInfo": "Tell about you",
       "surname": "Surname",

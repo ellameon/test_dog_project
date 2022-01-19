@@ -1,9 +1,9 @@
-import {webSocketStore} from "../../store/webSocketStore";
-import {getWebSocketService} from "./getWebSocketService";
-import {isAuthorized} from "../authservice/isAuthorized";
+import {webSocketStore} from "../store/webSocketStore";
+import {getWebSocketService} from "../service/websocketservice/getWebSocketService";
+import {isAuthorized} from "../service/authservice/isAuthorized";
 
 
-export function webSocketSendOrderService(value: string): void {
+export function webSocketSendOrderTransport(value: string): void {
 
   if (!webSocketStore.isWebSocketOpen) {
     return

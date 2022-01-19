@@ -53,6 +53,14 @@
     "orderStatus": "Заказ успешен",
     "orderStatusFailed": "Заказ не отправлен",
     "orderButton": "Заказать",
+    "tooltips": {
+      "surname": "Неверно введена фамилия",
+      "email": "Неверно введен e-mail",
+      "phone": "Неверно введен телефон",
+      "city": "Неверно введен город",
+      "street": "Неверно введена улица",
+      "house": "Неверно введен дом"
+    },
     "RequestClient": {
       "clientInfo": "Расскажите о себе",
       "surname": "Фамилия",
