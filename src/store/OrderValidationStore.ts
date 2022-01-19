@@ -17,5 +17,5 @@ export const orderValidationStore = observable<OrderValidationStore>({
   isCityValid: true,
   isStreetValid: true,
   isHouseValid: true,
-  isDogRecordChoosed: false
+  isDogRecordChoosed: true
 })

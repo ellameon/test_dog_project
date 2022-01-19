@@ -46,7 +46,7 @@ export const RequestForm = observer(function RequestForm() {
   //   || isHouseEmpty
 
   const socket: boolean = webSocketStore.isWebSocketOpen
-  const order: boolean = DogRecordController.checkIsOrderValid()
+  let order: boolean = orderValidationStore.isSurnameValid
   console.log(order)
   const alertText = (order) ? t("RequestScreen.orderStatus")
     : t("RequestScreen.orderStatusFailed")
