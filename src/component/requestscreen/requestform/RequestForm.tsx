@@ -52,7 +52,7 @@ export const RequestForm = observer(function RequestForm() {
     || isHouseEmpty
 
   const socket: boolean = webSocketStore.isWebSocketOpen
-  let order: boolean = orderValidationStore.isPhoneValid
+  let order: boolean = orderValidationStore.defaultCheck
   console.log(order)
   const alertText = (order) ? t("RequestScreen.orderStatus")
     : t("RequestScreen.orderStatusFailed")

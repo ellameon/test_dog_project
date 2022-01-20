@@ -3,6 +3,7 @@ import {runInAction} from "mobx";
 import {webSocketStore} from "../../store/webSocketStore";
 import {checkIsOrderValidService} from "../dogrecordrequestorderservice/checkIsOrderValidService";
 import {webSocketSendOrderTransport} from "../../transport/webSocketSendOrderTransport";
+import {orderValidationStore} from "../../store/OrderValidationStore";
 
 
 export function sendDogOrderToServerService(): void {
@@ -31,5 +32,7 @@ function clearDogRequestOrderStore(): void {
     dogRequestOrderStore.surname = ''
     dogRequestOrderStore.email = ''
     dogRequestOrderStore.phone = ''
+
+    orderValidationStore.defaultCheck = false
   })
 }

@@ -34,7 +34,6 @@ import {
   setDogRecordToRequestOrderStoreService
 } from "../service/dogrecordrequestorderservice/setDogRecordToRequestOrderStoreService";
 import {orderAlertShowService} from "../service/alertservice/orderAlertShowService";
-import {checkIsOrderValidService} from "../service/dogrecordrequestorderservice/checkIsOrderValidService";
 import {sendDogOrderToServerService} from "../service/websocketservice/sendDogOrderToServerService";
 
 
@@ -174,10 +173,6 @@ export class DogRecordController {
 
   static setDogRecordIdToRequestOrderStore(id: number, url: string): void {
     setDogRecordToRequestOrderStoreService(id, url)
-  }
-
-  static checkIsOrderValid(): boolean {
-    return checkIsOrderValidService();
   }
 
   static sendDogOrderToServer(): void {

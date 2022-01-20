@@ -1,6 +1,7 @@
 import {observable} from "mobx";
 
 export interface OrderValidationStore {
+  defaultCheck: boolean
   isSurnameValid: boolean
   isEmailValid: boolean
   isPhoneValid: boolean
@@ -11,6 +12,7 @@ export interface OrderValidationStore {
 }
 
 export const orderValidationStore = observable<OrderValidationStore>({
+  defaultCheck: false,
   isSurnameValid: true,
   isEmailValid: true,
   isPhoneValid: true,

@@ -14,6 +14,8 @@ export function checkIsOrderValidService(): boolean {
     isValid = isStreetValid() && isValid
     isValid = isHouseValid() && isValid
     isValid = isDogRecordChoosed() && isValid
+
+    orderValidationStore.defaultCheck = true
   })
   return isValid
 }
